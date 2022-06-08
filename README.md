@@ -1,2 +1,2 @@
 # rgb-404
-Rug Pull Game - first game 404
+The first game of Rug Pull Games - RGB 404
