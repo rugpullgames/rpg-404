@@ -49,11 +49,23 @@
         visibility: hidden;
       }
 
+      #status-outline {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: inset 0px 0px 0px 6px #00796b;
+        -moz-box-shadow: inset 0px 0px 0px 6px #00796b;
+        box-shadow: inset 0px 0px 0px 6px #00796b;
+        visibility: visible;
+      }
+
       #status-progress {
         width: 366px;
-        height: 7px;
+        height: 6px;
         background-color: black;
-        border: 8px solid #00423b;
+        border: 6px solid #00423b;
         visibility: visible;
       }
 
@@ -127,9 +139,10 @@
       Please try updating or use a different browser.
     </canvas>
     <div id="status">
-      <div id="status-progress" style="display: none" oncontextmenu="event.preventDefault();"
-        ><div id="status-progress-inner"></div
-      ></div>
+      <div id="status-outline" style="display: none"></div>
+      <div id="status-progress" style="display: none" oncontextmenu="event.preventDefault();">
+        <div id="status-progress-inner"></div>
+      </div>
       <div id="status-indeterminate" style="display: none" oncontextmenu="event.preventDefault();">
         <div></div>
         <div></div>
@@ -152,6 +165,7 @@
 
       var startGame = function () {
         const INDETERMINATE_STATUS_STEP_MS = 100;
+        var statusOutline = document.getElementById('status-outline');
         var statusProgress = document.getElementById('status-progress');
         var statusProgressInner = document.getElementById('status-progress-inner');
         var statusIndeterminate = document.getElementById('status-indeterminate');
@@ -169,7 +183,7 @@
 
         function setStatusMode(mode) {
           if (statusMode === mode || !initializing) return;
-          [statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
+          [statusProgress, statusOutline, statusIndeterminate, statusNotice].forEach((elem) => {
             elem.style.display = 'none';
           });
           animationCallbacks = animationCallbacks.filter(function (value) {
@@ -177,6 +191,7 @@
           });
           switch (mode) {
             case 'progress':
+              statusOutline.style.display = 'block';
               statusProgress.style.display = 'block';
               break;
             case 'indeterminate':
