@@ -1,22 +1,23 @@
 extends Node
 
+onready var label = $Control/Label
 
 func _ready():
 	print('TEST!')
 	if OS.has_feature('JavaScript'):
 		var nftData = JavaScript.eval("""
 			console.log('The JavaScript singleton is available')
-			var test = {'b':12,'c':23,'d':{'e':34,'f':45}}
-			var strTest = JSON.stringify(test)
-			strTest
+			var strMetadata = JSON.stringify(window.nftMetadata)
+			strMetadata
 		""")
-		print(nftData)
-		var p = JSON.parse(nftData)
-		print(typeof(p.result))
-		if typeof(p.result) == TYPE_DICTIONARY:
-			print(p.result.b)
+		if nftData and not nftData.empty():
+			var p = JSON.parse(nftData)
+			if typeof(p.result) == TYPE_DICTIONARY:
+				label.text = 'Character: %s\nDescription: %s' % [p.result.name, p.result.description] 
+			else:
+				push_error("Unexpected results.")
 		else:
-			push_error("Unexpected results.")
+			push_error("Metadata is NULL.")
 	else:
 		print("The JavaScript singleton is NOT available")
 
