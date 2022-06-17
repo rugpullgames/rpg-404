@@ -14,6 +14,10 @@ config/name="RGB 404"
 run/main_scene="res://scene/map/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MgrNft="*res://script/manager/mgr_nft.gd"
+
 [display]
 
 window/size/width=900
