@@ -10,7 +10,7 @@ const OFFSET_Y_MAX = 250
 
 # local var
 var speedX
-var cloudType = "Night"
+var cloudType = "Day"
 var cloudIdx: int
 
 
