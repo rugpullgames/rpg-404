@@ -31,22 +31,19 @@ position = Vector2( 1768, -8 )
 
 [node name="Cloud4" parent="SkyColor" instance=ExtResource( 6 )]
 position = Vector2( 1768, -8 )
-script = ExtResource( 5 )
 
 [node name="Cloud5" parent="SkyColor" instance=ExtResource( 6 )]
 position = Vector2( 1768, -8 )
-script = ExtResource( 5 )
 
 [node name="Cloud6" parent="SkyColor" instance=ExtResource( 6 )]
 position = Vector2( 1768, -8 )
-script = ExtResource( 5 )
 
 [node name="Cloud7" parent="SkyColor" instance=ExtResource( 6 )]
 position = Vector2( 1768, -8 )
 script = ExtResource( 5 )
 
 [node name="Cloud8" parent="SkyColor" instance=ExtResource( 6 )]
-position = Vector2( 505, 37.0001 )
+position = Vector2( 1768, -8 )
 script = ExtResource( 5 )
 
 [node name="SprBaseFloor" type="Sprite" parent="."]
