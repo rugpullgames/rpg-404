@@ -27,7 +27,7 @@ func reset():
 	self.position.x = DEFAULT_POS_X
 	self.position.y = rand_range(OFFSET_Y_MIN, OFFSET_Y_MAX)
 	cloudIdx = randi() % K.CLOUDS[cloudType].size()
-	while G.cloudUsed.get(cloudIdx):
+	while G.cloudUsed.get(cloudIdx) and G.cloudUsed.size() < K.CLOUDS[cloudType].size():
 		cloudIdx = randi() % K.CLOUDS[cloudType].size()
 	G.cloudUsed[cloudIdx] = true
 	var res = K.CLOUDS[cloudType][cloudIdx]
