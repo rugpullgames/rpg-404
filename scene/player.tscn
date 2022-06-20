@@ -28,6 +28,7 @@ shape = SubResource( 1 )
 [node name="AsprPants" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="SprHead" type="Sprite" parent="."]
