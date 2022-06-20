@@ -16,7 +16,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [node name="Player" type="Area2D"]
@@ -28,7 +28,6 @@ shape = SubResource( 1 )
 [node name="AsprPants" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="SprHead" type="Sprite" parent="."]
