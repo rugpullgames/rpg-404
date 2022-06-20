@@ -22,6 +22,12 @@ MgrNft="*res://script/manager/mgr_nft.gd"
 
 window/size/width=900
 window/size/height=300
+window/vsync/use_vsync=false
+
+[global]
+
+v=false
+"v sync"=false
 
 [physics]
 
