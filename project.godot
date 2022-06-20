@@ -16,6 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
+K="*res://script/manager/const.gd"
+G="*res://script/manager/global.gd"
 MgrNft="*res://script/manager/mgr_nft.gd"
 
 [display]
