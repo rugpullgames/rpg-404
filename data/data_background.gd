@@ -12,96 +12,96 @@ const background = {
 	{
 		"id": "Light Blue Sky 01",
 		"sky_color": "5fb0ba",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Light Brown Sky 01":
 	{
 		"id": "Light Brown Sky 01",
 		"sky_color": "e3ac98",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Light Green Sky 01":
 	{
 		"id": "Light Green Sky 01",
 		"sky_color": "6e9985",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Light Green Sky 02":
 	{
 		"id": "Light Green Sky 02",
 		"sky_color": "6e9985",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 01":
 	{
 		"id": "Mid Blue Sky 01",
 		"sky_color": "525f71",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 02":
 	{
 		"id": "Mid Blue Sky 02",
 		"sky_color": "525f71",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 03":
 	{
 		"id": "Mid Blue Sky 03",
 		"sky_color": "525f71",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 04":
 	{
 		"id": "Mid Blue Sky 04",
 		"sky_color": "525f71",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 05":
 	{
 		"id": "Mid Blue Sky 05",
 		"sky_color": "525f71",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Blue Sky 06":
 	{
 		"id": "Mid Blue Sky 06",
 		"sky_color": "255165",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Green Sky 01":
 	{
 		"id": "Mid Green Sky 01",
 		"sky_color": "007973",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Green Sky 02":
 	{
 		"id": "Mid Green Sky 02",
 		"sky_color": "007973",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Mid Green Sky 03":
 	{
 		"id": "Mid Green Sky 03",
 		"sky_color": "007973",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	},
 	"Night Sky 01":
 	{
 		"id": "Night Sky 01",
 		"sky_color": "0d2a38",
-		"res_clouds": ["texture/cloud/Cloud Night 01.png", "texture/cloud/Cloud Night 02.png", "texture/cloud/Cloud Night 03.png", "texture/cloud/Cloud Night 04.png", "texture/cloud/Cloud Night 05.png", "texture/cloud/Cloud Night 06.png", "texture/cloud/Cloud Night 07.png"]
+		"res_clouds": "Night"
 	},
 	"Night Sky 02":
 	{
 		"id": "Night Sky 02",
 		"sky_color": "0d2a38",
-		"res_clouds": ["texture/cloud/Cloud Night 01.png", "texture/cloud/Cloud Night 02.png", "texture/cloud/Cloud Night 03.png", "texture/cloud/Cloud Night 04.png", "texture/cloud/Cloud Night 05.png", "texture/cloud/Cloud Night 06.png", "texture/cloud/Cloud Night 07.png"]
+		"res_clouds": "Night"
 	},
 	"Orange Sky 01":
 	{
 		"id": "Orange Sky 01",
 		"sky_color": "db733a",
-		"res_clouds": ["texture/cloud/Cloud Day 01.png", "texture/cloud/Cloud Day 02.png", "texture/cloud/Cloud Day 03.png", "texture/cloud/Cloud Day 04.png", "texture/cloud/Cloud Day 05.png", "texture/cloud/Cloud Day 06.png", "texture/cloud/Cloud Day 07.png", "texture/cloud/Cloud Day 08.png", "texture/cloud/Cloud Day 09.png", "texture/cloud/Cloud Day 10.png", "texture/cloud/Cloud Day 11.png", "texture/cloud/Cloud Day 12.png", "texture/cloud/Cloud Day 13.png", "texture/cloud/Cloud Day 14.png", "texture/cloud/Cloud Day 15.png", "texture/cloud/Cloud Day 16.png", "texture/cloud/Cloud Day 17.png", "texture/cloud/Cloud Day 18.png", "texture/cloud/Cloud Day 19.png", "texture/cloud/Cloud Day 20.png", "texture/cloud/Cloud Day 21.png", "texture/cloud/Cloud Day 22.png", "texture/cloud/Cloud Day 23.png", "texture/cloud/Cloud Day 24.png", "texture/cloud/Cloud Day 25.png", "texture/cloud/Cloud Day 26.png", "texture/cloud/Cloud Day 27.png", "texture/cloud/Cloud Day 28.png", "texture/cloud/Cloud Day 29.png", "texture/cloud/Cloud Day 30.png"]
+		"res_clouds": "Day"
 	}
 }
