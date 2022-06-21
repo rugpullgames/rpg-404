@@ -47,3 +47,10 @@ const CLOUDS = {
 		"res://texture/cloud/Cloud Night 07.png",
 	]
 }
+
+const STARS = [
+	"res://texture/stars/Star 01.png",
+	"res://texture/stars/Star 02.png",
+	"res://texture/stars/Star 03.png",
+	"res://texture/stars/Star 04.png",
+]
