@@ -1,5 +1,7 @@
 extends Node
 
+const DATA_BACKGROUND = preload("res://script/data/data_background.gd").background
+
 const CLOUDS = {
 	"Day":
 	[
