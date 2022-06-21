@@ -39,7 +39,11 @@ func _physics_process(dt):
 	if Input.is_action_pressed("ui_accept"):
 		tt += dt
 
-	Pants.playing = is_on_floor()
+	if is_on_floor():
+		Pants.playing = true
+	else:
+		Pants.playing = false
+		Pants.frame = 0 if velocity.y < 0 else 1
 
 	# prevent player going out of screen
 	position.y = clamp(position.y, 0, screenSize.y)
