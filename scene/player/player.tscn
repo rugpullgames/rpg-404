@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://texture/head/Head 01.png" type="Texture" id=1]
 [ext_resource path="res://texture/jacket/Jacket 01.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://script/player/player_jacket.gd" type="Script" id=11]
 [ext_resource path="res://script/player/player_weapon.gd" type="Script" id=12]
 [ext_resource path="res://script/player/player_pants.gd" type="Script" id=13]
+[ext_resource path="res://audio/jump.wav" type="AudioStream" id=14]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 20.0
@@ -26,7 +27,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,6 +37,7 @@ shape = SubResource( 3 )
 [node name="AsprPants" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 script = ExtResource( 13 )
 
@@ -57,3 +59,6 @@ script = ExtResource( 9 )
 
 [node name="SprPet" type="Sprite" parent="."]
 texture = ExtResource( 7 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )

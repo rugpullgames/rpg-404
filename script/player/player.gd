@@ -7,6 +7,7 @@ const LONG_JUMP_TIME = 0.1
 # nodes
 onready var Emo: Sprite = $SprEmo
 onready var Pants: AnimatedSprite = $AsprPants
+onready var AudioPlayer: AudioStreamPlayer2D = $AudioPlayer
 
 # local variables
 var velocity = Vector2()
@@ -29,10 +30,12 @@ func _physics_process(dt):
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = -JUMP_FORCE
 		Emo.visible = true
+		AudioPlayer.play()
 
 	if Input.is_action_pressed("ui_accept") and not longJump and tt >= LONG_JUMP_TIME:
 		velocity.y = -JUMP_FORCE * 1.3
 		longJump = true
+		AudioPlayer.play()
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 
