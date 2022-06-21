@@ -35,15 +35,13 @@ var NFT_META = NFT_META_TEST  # Metadata JSON
 var NFT_TRAITS = null  # Traits Dict
 
 
-func _ready():
-	reload_nft()
-
-
 func reload_nft():
 	__load_nft_metadata()
 	if NFT_META:
 		__get_traits()
 		__update_metadata_traits()
+	else:
+		push_warning("Metadata is NULL.")
 
 
 func __load_nft_metadata():

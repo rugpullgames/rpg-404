@@ -6,4 +6,4 @@
 extends Node
 
 # NFT
-signal update_traits
+signal update_traits()
