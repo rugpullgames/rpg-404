@@ -16,11 +16,17 @@ var cloudIdx: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	reset()
+	__bind_events()
+	__reset()
 	self.position.x = rand_range(-SCREEN_WIDTH, SCREEN_WIDTH)
 
 
-func reset():
+func __bind_events():
+	var error_code = Events.connect("update_traits", self, "__reset")
+	assert(error_code == OK, error_code)
+
+
+func __reset():
 	if cloudIdx:
 		G.cloudUsed[cloudIdx] = false
 	speedX = rand_range(SPEED_X_MIN, SPEED_X_MAX)
@@ -41,4 +47,4 @@ func _physics_process(dt):
 func move(dt):
 	self.position.x -= speedX * dt
 	if self.position.x < -SCREEN_WIDTH:
-		reset()
+		__reset()

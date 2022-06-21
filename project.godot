@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 K="*res://script/manager/const.gd"
 G="*res://script/manager/global.gd"
+Events="*res://script/manager/mgr_event.gd"
 MgrNft="*res://script/manager/mgr_nft.gd"
 
 [display]
