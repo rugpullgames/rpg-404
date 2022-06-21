@@ -54,11 +54,11 @@ func load_nft_metadata():
 			if typeof(p.result) == TYPE_DICTIONARY:
 				NFT_META = p.result
 			else:
-				push_error("Unexpected results.")
+				push_warning("Unexpected results.")
 		else:
-			push_error("Metadata is NULL.")
+			push_warning("Metadata is NULL.")
 	else:
-		print("The JavaScript singleton is NOT available")
+		push_warning("The JavaScript singleton is NOT available")
 
 	get_traits()
 
