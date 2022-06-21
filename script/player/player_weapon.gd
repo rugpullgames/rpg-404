@@ -5,6 +5,7 @@ const OFFSET_Y = 5
 
 var timePerFrame: float = 1.0 / FPS
 var tt = 0
+var moving = false
 
 
 func _ready():
@@ -30,6 +31,12 @@ func __reset_weapon_type():
 
 
 func _physics_process(dt):
+
+	if !moving:
+		# jumping
+		self.position.y = 0
+		return
+
 	tt += dt
 	if tt > timePerFrame:
 		tt -= timePerFrame
