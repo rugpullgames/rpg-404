@@ -11,12 +11,12 @@ func __bind_events():
 
 
 func __reset():
-	__reset_head_type()
+	__reset_jacket_type()
 
 
-func __reset_head_type():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.head:
-		push_warning("Wrong NFT head traits.")
+func __reset_jacket_type():
+	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.jacket:
+		push_warning("Wrong NFT jacket traits.")
 		return
-	var res = "res://texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
+	var res = "res://texture/jacket/%s.png" % [MgrNft.NFT_TRAITS.jacket]
 	self.texture = load(res)

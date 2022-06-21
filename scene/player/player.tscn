@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://texture/head/Head 01.png" type="Texture" id=1]
 [ext_resource path="res://texture/jacket/Jacket 01.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://script/player/player.gd" type="Script" id=8]
 [ext_resource path="res://script/player/player_emo.gd" type="Script" id=9]
 [ext_resource path="res://script/player/player_head.gd" type="Script" id=10]
+[ext_resource path="res://script/player/player_jacket.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.5, 33.5 )
@@ -32,7 +33,6 @@ shape = SubResource( 1 )
 [node name="AsprPants" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="SprHead" type="Sprite" parent="."]
@@ -41,6 +41,7 @@ script = ExtResource( 10 )
 
 [node name="SprJacket" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+script = ExtResource( 11 )
 
 [node name="SprWeapon" type="Sprite" parent="."]
 texture = ExtResource( 5 )
