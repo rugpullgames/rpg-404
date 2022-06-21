@@ -74,8 +74,8 @@ func __get_traits():
 
 	NFT_TRAITS = {}
 	for trait in NFT_META.attributes:
-		NFT_TRAITS[trait.trait_type] = trait.value
+		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value
 
 
 func __update_metadata_traits():
-	emit_signal("update_traits")
+	Events.emit_signal("update_traits")

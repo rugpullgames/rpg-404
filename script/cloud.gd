@@ -27,6 +27,16 @@ func __bind_events():
 
 
 func __reset():
+	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.background:
+		push_warning("Wrong NFT traits.")
+		return
+
+	if not K.DATA_BACKGROUND.has(MgrNft.NFT_TRAITS.background):
+		push_warning("Not found background id, " + MgrNft.NFT_TRAITS.background)
+		return
+
+	cloudType = K.DATA_BACKGROUND.get(MgrNft.NFT_TRAITS.background).cloud_type
+
 	if cloudIdx:
 		G.cloudUsed[cloudIdx] = false
 	speedX = rand_range(SPEED_X_MIN, SPEED_X_MAX)
