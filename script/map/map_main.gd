@@ -9,4 +9,5 @@ onready var label = $Control/Label
 
 
 func _ready():
+	MgrNft.reload_nft()
 	print("Game Start")
