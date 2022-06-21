@@ -89,13 +89,13 @@ const background = {
 	"Night Sky 01":
 	{
 		"id": "Night Sky 01",
-		"sky_color": "0d2a38",
+		"sky_color": "061117",
 		"cloud_type": "Night"
 	},
 	"Night Sky 02":
 	{
 		"id": "Night Sky 02",
-		"sky_color": "0d2a38",
+		"sky_color": "061117",
 		"cloud_type": "Night"
 	},
 	"Orange Sky 01":
