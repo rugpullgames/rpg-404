@@ -4,14 +4,18 @@ const GRAVITY = 1500
 const JUMP_FORCE = 400
 const LONG_JUMP_TIME = 0.1
 
+# nodes
+onready var Emo: Sprite = $SprEmo
+
+# local variables
 var velocity = Vector2()
-var screen_size
+var screenSize
 var longJump = false
 var tt = 0
 
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	screenSize = get_viewport_rect().size
 
 
 func _physics_process(dt):
@@ -23,6 +27,7 @@ func _physics_process(dt):
 
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = -JUMP_FORCE
+		Emo.visible = true
 
 	if Input.is_action_pressed("ui_accept") and not longJump and tt >= LONG_JUMP_TIME:
 		velocity.y = -JUMP_FORCE * 1.3
@@ -34,4 +39,4 @@ func _physics_process(dt):
 		tt += dt
 
 	# prevent player going out of screen
-	position.y = clamp(position.y, 0, screen_size.y)
+	position.y = clamp(position.y, 0, screenSize.y)

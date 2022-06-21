@@ -1,5 +1,9 @@
 extends Sprite
 
+const SHOW_TIME = 0.3
+
+var tt = 0
+
 
 func _ready():
 	__bind_events()
@@ -12,6 +16,7 @@ func __bind_events():
 
 func __reset():
 	__reset_emo_type()
+	self.visible = false
 
 
 func __reset_emo_type():
@@ -20,3 +25,12 @@ func __reset_emo_type():
 		return
 	var res = "res://texture/emo/%s.png" % [MgrNft.NFT_TRAITS.emo]
 	self.texture = load(res)
+
+
+func _physics_process(dt):
+	if self.visible:
+		tt += dt
+
+	if tt >= SHOW_TIME:
+		self.visible = false
+		tt = 0
