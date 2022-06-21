@@ -17,8 +17,6 @@ var cloudIdx: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	__bind_events()
-	__reset()
-	self.position.x = rand_range(-SCREEN_WIDTH, SCREEN_WIDTH)
 
 
 func __bind_events():
@@ -27,8 +25,14 @@ func __bind_events():
 
 
 func __reset():
+	__reset_cloud_type()
+	__reset_cloud()
+	self.position.x = rand_range(-SCREEN_WIDTH, SCREEN_WIDTH)
+
+
+func __reset_cloud_type():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.background:
-		push_warning("Wrong NFT traits.")
+		push_warning("Wrong NFT cloud traits.")
 		return
 
 	if not K.DATA_BACKGROUND.has(MgrNft.NFT_TRAITS.background):
@@ -37,6 +41,8 @@ func __reset():
 
 	cloudType = K.DATA_BACKGROUND.get(MgrNft.NFT_TRAITS.background).cloud_type
 
+
+func __reset_cloud():
 	if cloudIdx:
 		G.cloudUsed[cloudIdx] = false
 	speedX = rand_range(SPEED_X_MIN, SPEED_X_MAX)
@@ -57,4 +63,4 @@ func _physics_process(dt):
 func move(dt):
 	self.position.x -= speedX * dt
 	if self.position.x < -SCREEN_WIDTH:
-		__reset()
+		__reset_cloud()
