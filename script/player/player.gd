@@ -6,6 +6,7 @@ const LONG_JUMP_TIME = 0.1
 
 # nodes
 onready var Emo: Sprite = $SprEmo
+onready var Pants: AnimatedSprite = $AsprPants
 
 # local variables
 var velocity = Vector2()
@@ -37,6 +38,8 @@ func _physics_process(dt):
 
 	if Input.is_action_pressed("ui_accept"):
 		tt += dt
+
+	Pants.playing = is_on_floor()
 
 	# prevent player going out of screen
 	position.y = clamp(position.y, 0, screenSize.y)
