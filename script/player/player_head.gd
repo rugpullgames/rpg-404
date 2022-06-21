@@ -15,8 +15,8 @@ func __reset():
 
 
 func __reset_emo_type():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.emo:
-		push_warning("Wrong NFT emo traits.")
+	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.head:
+		push_warning("Wrong NFT head traits.")
 		return
-	var res = "res://texture/emo/%s.png" % [MgrNft.NFT_TRAITS.emo]
+	var res = "res://texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
 	self.texture = load(res)
