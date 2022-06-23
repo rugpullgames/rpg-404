@@ -1,3 +1,8 @@
+# @copyright Rug Pull Games
+# @see Rug Pull Games: https://rug-pull.games/
+# @see RPG 404: https://rpg404.com/
+# @author endaye.eth, Fried Egg Fendi
+
 extends Node
 
 const DATA_BACKGROUND = preload("res://script/data/data_background.gd").background
