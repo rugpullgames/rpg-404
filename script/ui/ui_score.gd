@@ -3,16 +3,16 @@
 # @see RPG 404: https://rpg404.com/
 # @author endaye.eth, Fried Egg Fendi
 
-extends Node
-
-var cloudUsed = {}
-var score = 0
+extends Label
 
 
 func _ready():
-	reset()
+	update_score()
 
 
-func reset():
-	cloudUsed.clear()
-	score = 0
+func _process(_dt):
+	update_score()
+
+
+func update_score():
+	self.text = str(G.score)
