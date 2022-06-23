@@ -31,7 +31,6 @@ func __reset_barrier_textures():
 
 	textures = []
 	for n in range(1, 6):
-		print(n)
 		var res = (
 			"res://texture/barrier/%s/%s 0%s.png"
 			% [MgrNft.NFT_TRAITS.barrier, MgrNft.NFT_TRAITS.barrier, n]
@@ -56,7 +55,6 @@ func _process(dt):
 
 
 func __spawn_barrier():
-	print("spawn")
 	for brr in self.get_children():
 		if not brr.visible:
 			brr.reset(textures[0])
