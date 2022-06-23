@@ -57,5 +57,6 @@ func _process(dt):
 func __spawn_barrier():
 	for brr in self.get_children():
 		if not brr.visible:
-			brr.reset(textures[0])
+			var idx = randi() % textures.size()
+			brr.reset(textures[idx])
 			break
