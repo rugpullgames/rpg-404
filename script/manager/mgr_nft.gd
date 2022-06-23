@@ -8,9 +8,9 @@ extends Node
 const NFT_META_TEST = {
 	"attributes":
 	[
-		{"trait_type": "Background", "value": "Night Sky 01"},
+		{"trait_type": "Background", "value": "Light Blue Sky 01"},
 		{"trait_type": "Foreground", "value": "Base Floor"},
-		{"trait_type": "Barrier", "value": "Dead Goblins"},
+		{"trait_type": "Barrier", "value": "Cat Green"},
 		{"trait_type": "Floor", "value": "Floor 29"},
 		{"trait_type": "Pants", "value": "Pants 13"},
 		{"trait_type": "Jacket", "value": "Jacket 10"},
