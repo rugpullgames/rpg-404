@@ -8,6 +8,8 @@ extends Node
 var cloudUsed = {}
 var score = 0
 
+var gameState = K.GameState.READY
+
 
 func _ready():
 	reset()
