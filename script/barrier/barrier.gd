@@ -17,11 +17,11 @@ const SPEED_X = 300
 # local var
 var velocity = Vector2()
 var moving = false
-var shape2d: RectangleShape2D
+var shape2d: CapsuleShape2D
 
 
 func _ready():
-	shape2d = CollsionShape.shape as RectangleShape2D
+	shape2d = CollsionShape.shape as CapsuleShape2D
 
 
 func reset(texture):
@@ -33,8 +33,9 @@ func reset(texture):
 	SprBarrier.texture = texture
 	SprBarrier.offset = -textureSize
 	CollsionShape.position.x = -textureSize.x * 2.5
-	CollsionShape.position.y = -textureSize.y * 2
-	shape2d.extents = textureSize / 2
+	CollsionShape.position.y = 0
+	shape2d.radius = textureSize.x / 2
+	shape2d.height = textureSize.y / 2
 
 	moving = true
 	self.visible = true

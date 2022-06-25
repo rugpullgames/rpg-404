@@ -97,10 +97,6 @@ offset = Vector2( 0, 150 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/BaseFloor"]
 shape = SubResource( 1 )
 
-[node name="Player" parent="Game" instance=ExtResource( 3 )]
-position = Vector2( 180, 150 )
-z_index = 20
-
 [node name="Barriers" type="Node" parent="Game"]
 script = ExtResource( 10 )
 
@@ -128,6 +124,10 @@ z_index = 10
 visible = false
 position = Vector2( 1000, 240 )
 z_index = 10
+
+[node name="Player" parent="Game" instance=ExtResource( 3 )]
+position = Vector2( 180, 150 )
+z_index = 20
 
 [node name="UI" type="CanvasLayer" parent="."]
 
