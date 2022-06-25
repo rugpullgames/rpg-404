@@ -5,18 +5,19 @@
 
 extends KinematicBody2D
 
+# nodes
+onready var Emo: Sprite = $SprEmo
+onready var Weapon: Sprite = $SprWeapon
+onready var Pants: AnimatedSprite = $AsprPants
+onready var AudioPlayer: AudioStreamPlayer2D = $AudioPlayer
+
+# const
 const GRAVITY = 1500
 const JUMP_FORCE = 400
 const LONG_JUMP_TIME = 0.1
 const WEAPON_JUMP_UP_OFFSET = Vector2(-10, 10)
 const WEAPON_JUMP_DOWN_OFFSET = Vector2(10, 15)
 const WEAPON_MOVE_OFFSET = Vector2()
-
-# nodes
-onready var Emo: Sprite = $SprEmo
-onready var Weapon: Sprite = $SprWeapon
-onready var Pants: AnimatedSprite = $AsprPants
-onready var AudioPlayer: AudioStreamPlayer2D = $AudioPlayer
 
 # local variables
 var velocity = Vector2()
@@ -66,4 +67,4 @@ func _physics_process(dt):
 
 		# prevent player going out of screen
 		# prevent player gDOWNng out of screen
-	position.y = clamp(position.y, 0, screenSize.y)
+	self.position.y = clamp(self.position.y, 0, screenSize.y)
