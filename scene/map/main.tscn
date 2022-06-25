@@ -36,6 +36,9 @@ margin_right = 900.0
 margin_bottom = 300.0
 color = Color( 0.372549, 0.690196, 0.729412, 1 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Stars" type="Node" parent="Game/SkyColor"]
 
@@ -101,29 +104,29 @@ z_index = 20
 [node name="Barriers" type="Node" parent="Game"]
 script = ExtResource( 10 )
 
-[node name="Barrier" parent="Game/Barriers" instance=ExtResource( 11 )]
+[node name="Barrier1" parent="Game/Barriers" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1000, 210 )
+position = Vector2( 1000, 240 )
 z_index = 10
 
 [node name="Barrier2" parent="Game/Barriers" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1000, 210 )
+position = Vector2( 1000, 240 )
 z_index = 10
 
 [node name="Barrier3" parent="Game/Barriers" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1000, 210 )
+position = Vector2( 1000, 240 )
 z_index = 10
 
 [node name="Barrier4" parent="Game/Barriers" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1000, 210 )
+position = Vector2( 1000, 240 )
 z_index = 10
 
 [node name="Barrier5" parent="Game/Barriers" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1000, 210 )
+position = Vector2( 1000, 240 )
 z_index = 10
 
 [node name="UI" type="CanvasLayer" parent="."]
