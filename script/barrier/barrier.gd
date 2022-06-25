@@ -13,7 +13,6 @@ onready var CollsionShape: CollisionShape2D = $CollisionShape2D
 const SCREEN_WIDTH = 900
 const DEFAULT_POS_X = SCREEN_WIDTH + 100
 const SPEED_X = 300
-const GRAVITY = 1500
 
 # local var
 var velocity = Vector2()
@@ -48,8 +47,6 @@ func _physics_process(dt):
 
 
 func __move(dt):
-	velocity.y += dt * GRAVITY
-
 	self.position.x -= SPEED_X * dt
 	if self.position.x < -SCREEN_WIDTH - 100:
 		moving = false

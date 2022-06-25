@@ -4,6 +4,7 @@
 [ext_resource path="res://script/barrier/barrier.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
 extents = Vector2( 3.5, 6 )
 
 [node name="Barrier" type="Area2D"]
