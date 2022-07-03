@@ -13,7 +13,7 @@
 [ext_resource path="res://scene/barrier/barrier.tscn" type="PackedScene" id=11]
 [ext_resource path="res://script/floor/floors.gd" type="Script" id=12]
 [ext_resource path="res://scene/floor/floor.tscn" type="PackedScene" id=13]
-[ext_resource path="res://audio/bgm/mozart_rondo_all_turca_sonata_chip_wave.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/bgm/mozart_rondo_all_turca_sonata_xylophone_01.ogg" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
