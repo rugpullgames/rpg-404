@@ -6,7 +6,7 @@
 extends Sprite
 
 # const
-const SCREEN_WIDTH = 900
+const SCREEN_WIDTH = K.SCREEN_WIDTH
 const SCREEN_WIDTH_EXT = SCREEN_WIDTH + 300
 const SPEED_X = K.SPEED_X
 

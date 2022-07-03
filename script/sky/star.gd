@@ -6,10 +6,10 @@
 extends Sprite
 
 # const
-const SCREEN_WIDTH = 900
+const SCREEN_WIDTH = K.SCREEN_WIDTH
 const DEFAULT_POS_X = SCREEN_WIDTH + 10
-const SPEED_X_MIN = 20
-const SPEED_X_MAX = 30
+const SPEED_X_MIN = K.SPEED_X / 15
+const SPEED_X_MAX = K.SPEED_X / 10
 const OFFSET_Y_MIN = 50
 const OFFSET_Y_MAX = 250
 

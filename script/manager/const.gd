@@ -5,7 +5,9 @@
 
 extends Node
 
-const SPEED_X = 300
+
+const SCREEN_WIDTH = 900
+const SPEED_X = 300.0
 
 const GameState = {READY = 1, RUNNING = 2, END = 3}
 

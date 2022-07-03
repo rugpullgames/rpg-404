@@ -10,7 +10,7 @@ onready var SprBarrier: Sprite = $SprBarrier
 onready var CollsionShape: CollisionShape2D = $CollisionShape2D
 
 # const
-const SCREEN_WIDTH = 900
+const SCREEN_WIDTH = K.SCREEN_WIDTH
 const DEFAULT_POS_X = SCREEN_WIDTH + 100
 const SPEED_X = K.SPEED_X
 
