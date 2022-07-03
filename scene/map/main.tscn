@@ -33,6 +33,8 @@ texture = ExtResource( 1 )
 
 [node name="Game" type="CanvasLayer" parent="."]
 
+[node name="ScoreMarker" type="Node2D" parent="Game"]
+
 [node name="SkyColor" type="ColorRect" parent="Game"]
 margin_right = 900.0
 margin_bottom = 300.0
