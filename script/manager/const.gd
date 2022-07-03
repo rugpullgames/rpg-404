@@ -5,6 +5,8 @@
 
 extends Node
 
+const SPEED_X = 300
+
 const GameState = {READY = 1, RUNNING = 2, END = 3}
 
 const DATA_BACKGROUND = preload("res://script/data/data_background.gd").background

@@ -12,7 +12,7 @@ onready var CollsionShape: CollisionShape2D = $CollisionShape2D
 # const
 const SCREEN_WIDTH = 900
 const DEFAULT_POS_X = SCREEN_WIDTH + 100
-const SPEED_X = 300
+const SPEED_X = K.SPEED_X
 
 # local var
 var velocity = Vector2()

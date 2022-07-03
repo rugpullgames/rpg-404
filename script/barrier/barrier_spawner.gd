@@ -26,7 +26,7 @@ func __reset():
 
 func __reset_barrier_textures():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.barrier:
-		push_warning("Wrong NFT cloud traits.")
+		push_warning("Wrong NFT barrier traits.")
 		return
 
 	textures = []
