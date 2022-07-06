@@ -7,4 +7,5 @@ extends Node
 
 # NFT
 signal update_traits()
+signal game_run()
 signal player_die()

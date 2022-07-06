@@ -33,9 +33,14 @@ func __reset_foreground_texture():
 
 
 func _physics_process(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
 	__move(dt)
 
 
 func __move(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
+	
 	self.position.x -= SPEED_X * dt
 	self.position.x = fmod(self.position.x + SCREEN_WIDTH_EXT, SCREEN_WIDTH_EXT)

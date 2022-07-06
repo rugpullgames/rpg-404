@@ -11,6 +11,8 @@ func _ready():
 
 
 func _process(_dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
 	__update_score()
 
 

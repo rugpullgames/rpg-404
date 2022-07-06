@@ -36,6 +36,8 @@ func __reset_weapon_type():
 
 
 func _physics_process(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
 
 	if !moving:
 		# jumping

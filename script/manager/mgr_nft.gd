@@ -40,6 +40,7 @@ func reload_nft():
 	if NFT_META:
 		__get_traits()
 		__update_metadata_traits()
+		Events.emit_signal('game_run')
 	else:
 		push_warning("Metadata is NULL.")
 

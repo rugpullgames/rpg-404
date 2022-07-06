@@ -43,6 +43,9 @@ func reset(texture):
 
 
 func _physics_process(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
+
 	if moving:
 		__move(dt)
 
@@ -58,4 +61,3 @@ func _on_Barrier_body_entered(body: KinematicBody2D):
 	if not body:
 		return
 	Events.emit_signal('player_die')
-	print(body)

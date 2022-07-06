@@ -33,6 +33,9 @@ func __reset_emo_type():
 
 
 func _physics_process(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
+
 	if self.visible:
 		tt += dt
 

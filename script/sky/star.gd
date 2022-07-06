@@ -63,6 +63,9 @@ func __reset_star():
 
 
 func _physics_process(dt):
+	if G.gameState != K.GameState.RUNNING:
+		return
+
 	move(dt)
 
 
