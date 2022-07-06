@@ -5,10 +5,14 @@
 
 extends Control
 
+# nodes
+onready var Version: Label = $BtnGodot/Version
+
 
 func _ready():
 	__bind_events()
 	self.visible = false
+	Version.text = "Game " + V.VERSION
 
 
 func __bind_events():
@@ -45,7 +49,7 @@ func _on_BtnRestart_pressed():
 
 
 func _on_BtnSelect_pressed():
-	JavaScript.eval('parent.location.reload();')
+	JavaScript.eval("parent.location.reload();")
 
 
 func _on_BtnCopyright_pressed():
