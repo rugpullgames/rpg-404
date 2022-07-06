@@ -17,11 +17,15 @@ func _ready():
 func __bind_events():
 	var error_code = Events.connect("update_traits", self, "__reset")
 	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_ready", self, "hide_emo")
+	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_end", self, "show_emo")
+	assert(error_code == OK, error_code)
 
 
 func __reset():
 	__reset_emo_type()
-	self.visible = false
+	hide_emo()
 
 
 func __reset_emo_type():
@@ -40,5 +44,13 @@ func _physics_process(dt):
 		tt += dt
 
 	if tt >= SHOW_TIME:
-		self.visible = false
+		hide_emo()
 		tt = 0
+
+
+func show_emo():
+	self.visible = true
+
+
+func hide_emo():
+	self.visible = false

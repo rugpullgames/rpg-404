@@ -46,7 +46,7 @@ func _physics_process(dt):
 
 		if Input.is_action_pressed("ui_accept") and is_on_floor():
 			velocity.y = -JUMP_FORCE
-			Emo.visible = true
+			Emo.show_emo()
 			if G.sfxAudio:
 				AudioPlayer.play()
 
