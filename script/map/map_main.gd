@@ -39,10 +39,22 @@ func __reset():
 func _physics_process(dt):
 	__update_marker(dt)
 
+	if G.gameState == K.GameState.END:
+		__check_input()
+
 
 func __update_marker(dt):
 	ScoreMarker.position.x -= SPEED_X * dt
 	G.score = abs(floor(ScoreMarker.position.x * SCORE_FACTOR))
+
+
+func __check_input():
+	if Input.is_action_pressed("ui_accept"):
+		__restart_game()
+
+
+func __restart_game():
+	Events.emit_signal("game_run")
 
 
 func __ready_game():
@@ -66,3 +78,8 @@ func __end_game():
 	UIEnd.visible = true
 	Floors.visible = false
 	print("Game Over")
+
+
+func _on_BtnRestart_pressed():
+	__restart_game()
+
