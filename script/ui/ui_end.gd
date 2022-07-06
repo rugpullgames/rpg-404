@@ -8,6 +8,7 @@ extends Control
 
 func _ready():
 	__bind_events()
+	self.visible = false
 
 
 func __bind_events():
