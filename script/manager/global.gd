@@ -10,6 +10,8 @@ var score = 0
 
 var gameState = K.GameState.INIT
 
+var bgmAudio = true
+var sfxAudio = true
 
 func _ready():
 	reset()

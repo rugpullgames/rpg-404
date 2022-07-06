@@ -55,7 +55,8 @@ func __run_game():
 	G.gameState = K.GameState.RUNNING
 	G.score = 0
 	BGM.seek(0)
-	BGM.play()
+	if G.bgmAudio:
+		BGM.play()
 	print("Game Start")
 
 

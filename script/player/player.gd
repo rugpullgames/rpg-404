@@ -47,12 +47,13 @@ func _physics_process(dt):
 		if Input.is_action_pressed("ui_accept") and is_on_floor():
 			velocity.y = -JUMP_FORCE
 			Emo.visible = true
-			AudioPlayer.play()
+			if G.sfxAudio:
+				AudioPlayer.play()
 
 		if Input.is_action_pressed("ui_accept") and not longJump and tt >= LONG_JUMP_TIME:
 			velocity.y = -JUMP_FORCE * 1.3
 			longJump = true
-			if !AudioPlayer.is_playing():
+			if G.sfxAudio and !AudioPlayer.is_playing():
 				AudioPlayer.play()
 
 		velocity = move_and_slide(velocity, Vector2.UP)
