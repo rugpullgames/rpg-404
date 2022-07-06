@@ -44,6 +44,10 @@ func _on_BtnRestart_pressed():
 	__restart_game()
 
 
+func _on_BtnSelect_pressed():
+	get_tree().quit()
+
+
 func _on_BtnCopyright_pressed():
 	OS.shell_open("https://rug-pull.games/")
 
