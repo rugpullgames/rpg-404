@@ -60,4 +60,6 @@ func __move(dt):
 func _on_Barrier_body_entered(body: KinematicBody2D):
 	if not body:
 		return
-	Events.emit_signal('game_end')
+
+	if G.gameState  == K.GameState.RUNNING:
+		Events.emit_signal('game_end')

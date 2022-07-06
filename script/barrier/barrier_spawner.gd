@@ -3,6 +3,7 @@ extends Node
 # const
 const SPAWN_TIME_MIN = 2
 const SPAWN_TIME_MAX = 3
+const DEFAULT_POS_X = 1000
 
 # local var
 var tt = 0
@@ -16,6 +17,8 @@ func _ready():
 
 func __bind_events():
 	var error_code = Events.connect("update_traits", self, "__reset")
+	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_ready", self, "__reset")
 	assert(error_code == OK, error_code)
 
 
@@ -43,6 +46,8 @@ func __reset_barrier_textures():
 func __disable_all_barriers():
 	for brr in self.get_children():
 		brr.visible = false
+		brr.set_physics_process(false)
+		brr.position.x = DEFAULT_POS_X
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,6 +62,7 @@ func _process(dt):
 func __spawn_barrier():
 	for brr in self.get_children():
 		if not brr.visible:
+			brr.set_physics_process(true)
 			var idx = randi() % textures.size()
 			brr.reset(textures[idx])
 			break

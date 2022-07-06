@@ -10,10 +10,12 @@ onready var ScoreMarker: Node2D = $Game/ScoreMarker
 onready var BGM: AudioStreamPlayer2D = $BGM
 onready var UIEnd: Control = $UI/UIEnd
 onready var Floors: Node2D = $Game/Floors
+onready var player: KinematicBody2D = $Game/Player
 
 # const
 const SPEED_X = K.SPEED_X
 const SCORE_FACTOR: float = 1.0 / 20
+const PLAYER_DEFAULT_POS_X = 180
 
 
 func _ready():
@@ -37,10 +39,19 @@ func __reset():
 
 
 func _physics_process(dt):
-	__update_marker(dt)
-
-	if G.gameState == K.GameState.END:
+	if G.gameState == K.GameState.READY:
+		__update_player(dt)
+	elif G.gameState == K.GameState.RUNNING:
+		__update_marker(dt)
+	elif G.gameState == K.GameState.END:
 		__check_input()
+
+
+func __update_player(dt):
+	player.position.x += SPEED_X * dt
+	if player.position.x >= PLAYER_DEFAULT_POS_X:
+		player.position.x = PLAYER_DEFAULT_POS_X
+		Events.emit_signal("game_run")
 
 
 func __update_marker(dt):
@@ -54,13 +65,15 @@ func __check_input():
 
 
 func __restart_game():
-	Events.emit_signal("game_run")
+	Events.emit_signal("game_ready")
 
 
 func __ready_game():
 	G.gameState = K.GameState.READY
 	UIEnd.visible = false
 	Floors.visible = true
+	player.position.x = -20
+	player.position.y = 150
 
 
 func __run_game():
@@ -82,4 +95,3 @@ func __end_game():
 
 func _on_BtnRestart_pressed():
 	__restart_game()
-
