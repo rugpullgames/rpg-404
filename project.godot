@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+V="*res://script/manager/mgr_version.gd"
 K="*res://script/manager/const.gd"
 G="*res://script/manager/global.gd"
 Events="*res://script/manager/mgr_event.gd"
