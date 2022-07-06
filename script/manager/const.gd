@@ -5,11 +5,13 @@
 
 extends Node
 
-
 const SCREEN_WIDTH = 900
 const SPEED_X = 300.0
 
 const GameState = {READY = 1, RUNNING = 2, END = 3}
+
+# collision layers
+enum CollsionLayer { BASEFLOOR = 0, PLAYER, BARRIER, PET }
 
 const DATA_BACKGROUND = preload("res://script/data/data_background.gd").background
 

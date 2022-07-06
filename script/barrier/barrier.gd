@@ -52,3 +52,10 @@ func __move(dt):
 	if self.position.x < -SCREEN_WIDTH - 100:
 		moving = false
 		self.visible = false
+
+
+func _on_Barrier_body_entered(body: KinematicBody2D):
+	if not body:
+		return
+	Events.emit_signal('player_die')
+	print(body)
