@@ -8,7 +8,6 @@ extends Node
 # node
 onready var ScoreMarker: Node2D = $Game/ScoreMarker
 onready var BGM: AudioStreamPlayer2D = $BGM
-onready var UIEnd: Control = $UI/UIEnd
 onready var Floors: Node2D = $Game/Floors
 onready var player: KinematicBody2D = $Game/Player
 
@@ -43,8 +42,6 @@ func _physics_process(dt):
 		__update_player(dt)
 	elif G.gameState == K.GameState.RUNNING:
 		__update_marker(dt)
-	elif G.gameState == K.GameState.END:
-		__check_input()
 
 
 func __update_player(dt):
@@ -59,18 +56,8 @@ func __update_marker(dt):
 	G.score = abs(floor(ScoreMarker.position.x * SCORE_FACTOR))
 
 
-func __check_input():
-	if Input.is_action_pressed("ui_accept"):
-		__restart_game()
-
-
-func __restart_game():
-	Events.emit_signal("game_ready")
-
-
 func __ready_game():
 	G.gameState = K.GameState.READY
-	UIEnd.visible = false
 	Floors.visible = true
 	player.position.x = -20
 	player.position.y = 150
@@ -88,10 +75,9 @@ func __run_game():
 func __end_game():
 	G.gameState = K.GameState.END
 	BGM.stop()
-	UIEnd.visible = true
 	Floors.visible = false
 	print("Game Over")
 
 
-func _on_BtnRestart_pressed():
-	__restart_game()
+func _on_BtnCopyright_pressed():
+	OS.shell_open("https://godotengine.org")  # Replace with function body.
