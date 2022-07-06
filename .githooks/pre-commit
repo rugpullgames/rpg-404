@@ -1,0 +1,57 @@
+#!/bin/sh
+#!/bin/bash
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+# 需要操作的脚本路径
+FILE=./script/manager/mgr_version.gd
+# 判断file是否存在
+if [ -f $FILE ]; then
+    # 版本号变量
+    major=''
+    minor=''
+    bugfix=''
+    commit=''
+    # 读取脚本内容
+    a=()
+    while read line || [[ -n ${line} ]]; do
+        a[${#a[*]}]="$line"
+    done <$FILE
+    # 将脚本覆写为空
+    echo "# Version" >$FILE
+    # 重写脚本内容
+    for ((i = 1; i < ${#a[*]}; i++)); do
+        str=${a[i]:0:8}
+        if [ "$str" == "const MA" ]; then
+            # 读取major版本号
+            major=$(echo ${a[i]} | tr -cd "[:digit:]")
+            echo ${a[i]} >>$FILE
+        elif [ "$str" == "const MI" ]; then
+            # 读取minor版本号
+            minor=$(echo ${a[i]} | tr -cd "[:digit:]")
+            echo ${a[i]} >>$FILE
+        elif [ "$str" == "const BU" ]; then
+            # 读取bugfix版本号
+            bugfix=$(echo ${a[i]} | tr -cd "[:digit:]")
+            echo ${a[i]} >>$FILE
+        elif [ "$str" == "const CO" ]; then
+            # 将commit版本号设为总commit次数
+            #commit=$(git log --graph --all --oneline | wc -l 2>&1)
+            # 以时间(格林威治秒数去掉前两位和后两位)为最后一位版本号
+            nowDate=$(date "+%s")
+            commit=$(echo ${nowDate} | cut -c 3-8)
+            text="const COMMIT = "$commit
+            echo $text >>$FILE
+        else
+            # 其余的代码按原样写入
+            echo ${a[i]} >>$FILE
+        fi
+    done
+    # 将修改后的脚步加入本次commit
+    git add $FILE
+fi

@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# 需要操作的脚本路径
+FILE=./script/manager/mgr_version.gd
+# 判断file是否存在
+if [ -f $FILE ]; then
+    # 版本号变量
+    major=''
+    minor=''
+    bugfix=''
+    commit=''
+    # 读取脚本内容
+    a=()
+    while read line || [[ -n ${line} ]]; do
+        a[${#a[*]}]="$line"
+    done <$FILE
+    # 将脚本覆写为空
+    # 重写脚本内容
+    for ((i = 1; i < ${#a[*]}; i++)); do
+        str=${a[i]:0:8}
+        if [ "$str" == "const MA" ]; then
+            # 读取major版本号
+            major=$(echo ${a[i]} | tr -cd "[:digit:]")
+        elif [ "$str" == "const MI" ]; then
+            # 读取minor版本号
+            minor=$(echo ${a[i]} | tr -cd "[:digit:]")
+        elif [ "$str" == "const BU" ]; then
+            # 读取bugfix版本号
+            bugfix=$(echo ${a[i]} | tr -cd "[:digit:]")
+        elif [ "$str" == "const CO" ]; then
+            # 将commit版本号设为总commit次数
+            commit=$(echo ${a[i]} | tr -cd "[:digit:]")
+        fi
+    done
+
+    # 当前版本号
+    VERSION="v"$major"."$minor"."$bugfix"."$commit
+    # 获取当前分支名字
+    BRANCH_NAME=$(git symbolic-ref --short -q HEAD)
+    # 将分支名字按／进行分割
+    TEMP_ARR=($(echo $BRANCH_NAME | tr '/' ' '))
+    # 获取到第一个元素
+    PRE_BRANCH=${TEMP_ARR[0]}
+    # 获取你输入的git commit 内容
+    ORIGIN_COMMIT_MSG=$(cat $1)
+    # 将分支信息和你的原始commit进行拼接
+    COMMIT_MSG="${ORIGIN_COMMIT_MSG}; [${PRE_BRANCH}] ${VERSION}"
+    # 输出commit信息
+    echo "$COMMIT_MSG" >"$1"
+fi
