@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://texture/test_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://script/map/map_main.gd" type="Script" id=2]
@@ -7,20 +7,18 @@
 [ext_resource path="res://script/sky/sky.gd" type="Script" id=5]
 [ext_resource path="res://scene/sky/cloud.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scene/sky/star.tscn" type="PackedScene" id=7]
-[ext_resource path="res://font/press_start_2p.tres" type="DynamicFontData" id=8]
+[ext_resource path="res://texture/logo/godot_icon.svg" type="Texture" id=8]
 [ext_resource path="res://script/ui/ui_score.gd" type="Script" id=9]
 [ext_resource path="res://script/barrier/barrier_spawner.gd" type="Script" id=10]
 [ext_resource path="res://scene/barrier/barrier.tscn" type="PackedScene" id=11]
 [ext_resource path="res://script/floor/floors.gd" type="Script" id=12]
 [ext_resource path="res://scene/floor/floor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://audio/bgm/mozart_rondo_all_turca_sonata_xylophone_01.ogg" type="AudioStream" id=14]
+[ext_resource path="res://theme/rpg404_theme.tres" type="Theme" id=15]
+[ext_resource path="res://texture/logo/rpg_logo.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 18
-font_data = ExtResource( 8 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -133,7 +131,7 @@ visible = false
 position = Vector2( 1000, 240 )
 z_index = 10
 
-[node name="Floors" type="Node" parent="Game"]
+[node name="Floors" type="Node2D" parent="Game"]
 script = ExtResource( 12 )
 
 [node name="Floor1" parent="Game/Floors" instance=ExtResource( 13 )]
@@ -160,8 +158,50 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = 40.0
 size_flags_horizontal = 5
-custom_fonts/font = SubResource( 2 )
+theme = ExtResource( 15 )
 text = "RPG 404"
 align = 2
 uppercase = true
 script = ExtResource( 9 )
+
+[node name="UIEnd" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Copyright" type="Label" parent="UI/UIEnd"]
+margin_left = 60.0
+margin_top = 240.0
+margin_right = 360.0
+margin_bottom = 300.0
+theme = ExtResource( 15 )
+text = "© Rug Pull Games"
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="UI/UIEnd/Copyright"]
+position = Vector2( -30, 30 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 16 )
+
+[node name="Godot" type="Label" parent="UI/UIEnd"]
+margin_left = 360.0
+margin_top = 240.0
+margin_right = 660.0
+margin_bottom = 300.0
+theme = ExtResource( 15 )
+text = "Made by Godot Engine"
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="UI/UIEnd/Godot"]
+position = Vector2( -30, 28 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 8 )
+
+[node name="Audio" type="Button" parent="UI/UIEnd"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -49.0
+margin_top = -20.0
+text = "Audio"
