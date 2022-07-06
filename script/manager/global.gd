@@ -8,7 +8,7 @@ extends Node
 var cloudUsed = {}
 var score = 0
 
-var gameState = K.GameState.READY
+var gameState = K.GameState.INIT
 
 
 func _ready():

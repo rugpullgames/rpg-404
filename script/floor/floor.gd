@@ -14,7 +14,6 @@ const SPEED_X = K.SPEED_X
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	__bind_events()
-	pass  # Replace with function body.
 
 
 func __bind_events():

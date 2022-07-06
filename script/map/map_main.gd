@@ -8,6 +8,8 @@ extends Node
 # node
 onready var ScoreMarker: Node2D = $Game/ScoreMarker
 onready var BGM: AudioStreamPlayer2D = $BGM
+onready var UIEnd: Control = $UI/UIEnd
+onready var Floors: Node2D = $Game/Floors
 
 # const
 const SPEED_X = K.SPEED_X
@@ -22,9 +24,11 @@ func _ready():
 
 
 func __bind_events():
-	var error_code = Events.connect("game_run", self, "__run_game")
+	var error_code = Events.connect("game_ready", self, "__ready_game")
 	assert(error_code == OK, error_code)
-	error_code = Events.connect("player_die", self, "__end_game")
+	error_code = Events.connect("game_run", self, "__run_game")
+	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_end", self, "__end_game")
 	assert(error_code == OK, error_code)
 
 
@@ -41,6 +45,12 @@ func __update_marker(dt):
 	G.score = abs(floor(ScoreMarker.position.x * SCORE_FACTOR))
 
 
+func __ready_game():
+	G.gameState = K.GameState.READY
+	UIEnd.visible = false
+	Floors.visible = true
+
+
 func __run_game():
 	G.gameState = K.GameState.RUNNING
 	G.score = 0
@@ -52,4 +62,6 @@ func __run_game():
 func __end_game():
 	G.gameState = K.GameState.END
 	BGM.stop()
+	UIEnd.visible = true
+	Floors.visible = false
 	print("Game Over")
