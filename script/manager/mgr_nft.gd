@@ -50,9 +50,9 @@ func __load_nft_metadata():
 		print("Game load NFT metadata")
 		var nftData = JavaScript.eval(
 			"""
-			console.log('The JavaScript singleton is available')
-			var strMetadata = JSON.stringify(window.nftMetadata)
-			strMetadata
+			console.log('The JavaScript singleton is available');
+			var strMetadata = JSON.stringify(window.nftMetadata);
+			strMetadata;
 			"""
 		)
 		if nftData and not nftData.empty():

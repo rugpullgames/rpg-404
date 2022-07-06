@@ -45,7 +45,7 @@ func _on_BtnRestart_pressed():
 
 
 func _on_BtnSelect_pressed():
-	get_tree().quit()
+	JavaScript.eval('parent.location.reload();')
 
 
 func _on_BtnCopyright_pressed():
