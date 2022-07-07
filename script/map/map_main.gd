@@ -77,7 +77,3 @@ func __end_game():
 	BGM.stop()
 	Floors.visible = false
 	print("Game Over")
-
-
-func _on_BtnCopyright_pressed():
-	OS.shell_open("https://godotengine.org")  # Replace with function body.
