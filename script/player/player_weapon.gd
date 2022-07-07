@@ -8,7 +8,7 @@ extends Sprite
 const FPS = 4
 const OFFSET_Y = 5
 const DEFAULT_TIME_FPS = 1.0 / FPS
-const FPS_FACTOR = 1
+const FPS_FACTOR = 0.8
 
 var timePerFrame: float = DEFAULT_TIME_FPS
 var tt = 0
