@@ -6,6 +6,7 @@
 extends AnimatedSprite
 
 const ANIM_NAME = "default"
+const SPEED_FACTOR = 0.3
 
 
 func _ready():
@@ -32,3 +33,8 @@ func __reset_pants_type():
 	var texture2 = load(res2)
 	self.frames.add_frame(ANIM_NAME, texture1, 0)
 	self.frames.add_frame(ANIM_NAME, texture2, 1)
+
+
+func _physics_process(_dt):
+	if G.gameState == K.GameState.RUNNING:
+		self.speed_scale = (G.factor - 1) * SPEED_FACTOR + 1

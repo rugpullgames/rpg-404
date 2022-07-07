@@ -7,8 +7,10 @@ extends Sprite
 
 const FPS = 4
 const OFFSET_Y = 5
+const DEFAULT_TIME_FPS = 1.0 / FPS
+const FPS_FACTOR = 1
 
-var timePerFrame: float = 1.0 / FPS
+var timePerFrame: float = DEFAULT_TIME_FPS
 var tt = 0
 var moving = false
 
@@ -24,7 +26,12 @@ func __bind_events():
 
 func __reset():
 	__reset_weapon_type()
+	__reset_time_fps()
 	tt = 0
+
+
+func __reset_time_fps():
+	timePerFrame = DEFAULT_TIME_FPS
 
 
 func __reset_weapon_type():
@@ -44,6 +51,7 @@ func _physics_process(dt):
 		self.position.y = 0
 		return
 
+	timePerFrame = DEFAULT_TIME_FPS / ((G.factor - 1) * FPS_FACTOR + 1)
 	tt += dt
 	if tt > timePerFrame:
 		tt -= timePerFrame
