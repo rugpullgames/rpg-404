@@ -12,7 +12,7 @@ func _ready():
 
 func _process(_dt):
 	if G.gameState == K.GameState.READY:
-		self.text = "RPG 404"
+		self.text = "0"
 	elif G.gameState == K.GameState.RUNNING:
 		__update_score()
 
