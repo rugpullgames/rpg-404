@@ -32,10 +32,10 @@ func __hide_gui():
 
 func _physics_process(dt):
 	if G.gameState == K.GameState.END:
-		__check_input(dt)
+		__check_input()
 
 
-func __check_input(dt):
+func __check_input():
 	if Input.is_action_just_pressed("ui_accept"):
 		__restart_game()
 
