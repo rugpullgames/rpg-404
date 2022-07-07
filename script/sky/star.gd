@@ -70,6 +70,6 @@ func _physics_process(dt):
 
 
 func move(dt):
-	self.position.x -= speedX * dt
+	self.position.x -= speedX * G.factor * dt
 	if self.position.x < 0:
 		self.position.x += SCREEN_WIDTH

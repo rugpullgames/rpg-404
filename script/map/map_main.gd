@@ -42,6 +42,7 @@ func _physics_process(dt):
 		__update_player(dt)
 	elif G.gameState == K.GameState.RUNNING:
 		__update_marker(dt)
+		__update_bgm()
 
 
 func __update_player(dt):
@@ -54,21 +55,33 @@ func __update_player(dt):
 func __update_marker(dt):
 	ScoreMarker.position.x -= SPEED_X * dt
 	G.score = abs(floor(ScoreMarker.position.x * SCORE_FACTOR))
+	G.factor += K.FACTOR_DELTA * dt
+
+
+func __update_bgm():
+	BGM.pitch_scale = (
+		(G.factor - K.BGM_DEFAULT_PITCH_SCALE) * K.BGM_FACTOR
+		+ K.BGM_DEFAULT_PITCH_SCALE
+	)
 
 
 func __ready_game():
-	G.gameState = K.GameState.READY
 	Floors.visible = true
 	player.position.x = -20
 	player.position.y = 150
+	ScoreMarker.position.x = 0
+	G.factor = 1
+	G.score = 0
+	BGM.pitch_scale = K.BGM_DEFAULT_PITCH_SCALE
+	G.gameState = K.GameState.READY
+	print("Game Ready")
 
 
 func __run_game():
-	G.gameState = K.GameState.RUNNING
-	G.score = 0
 	BGM.seek(0)
 	if G.bgmAudio:
 		BGM.play()
+	G.gameState = K.GameState.RUNNING
 	print("Game Start")
 
 

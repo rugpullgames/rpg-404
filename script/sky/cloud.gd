@@ -69,6 +69,6 @@ func _physics_process(dt):
 
 
 func __move(dt):
-	self.position.x -= speedX * dt
+	self.position.x -= speedX * G.factor * dt
 	if self.position.x < -SCREEN_WIDTH:
 		__reset_cloud()

@@ -6,7 +6,8 @@
 extends Node
 
 var cloudUsed = {}
-var score = 0
+var score = 0.0
+var factor = 1.0
 
 var gameState = K.GameState.INIT
 

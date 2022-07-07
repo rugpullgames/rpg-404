@@ -51,7 +51,7 @@ func _physics_process(dt):
 
 
 func __move(dt):
-	self.position.x -= SPEED_X * dt
+	self.position.x -= SPEED_X * dt * G.factor
 	if self.position.x < -SCREEN_WIDTH - 100:
 		moving = false
 		self.visible = false

@@ -12,7 +12,7 @@ const DEFAULT_POS_X = 1000
 
 # local var
 var tt = 0
-var nextTime = rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX)
+var nextTime = __get_next_time(1)
 var textures = []
 
 
@@ -30,6 +30,7 @@ func __bind_events():
 func __reset():
 	__reset_barrier_textures()
 	__disable_all_barriers()
+	nextTime = __get_next_time(1)
 
 
 func __reset_barrier_textures():
@@ -61,7 +62,7 @@ func _process(dt):
 	if tt >= nextTime:
 		__spawn_barrier()
 		tt = 0
-		nextTime = rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX)
+		nextTime = __get_next_time()
 
 
 func __spawn_barrier():
@@ -71,3 +72,7 @@ func __spawn_barrier():
 			var idx = randi() % textures.size()
 			brr.reset(textures[idx])
 			break
+
+
+func __get_next_time(factor = G.factor):
+	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / factor

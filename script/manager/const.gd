@@ -7,6 +7,9 @@ extends Node
 
 const SCREEN_WIDTH = 900
 const SPEED_X = 300.0
+const FACTOR_DELTA = 0.05
+const BGM_FACTOR: float = 0.02
+const BGM_DEFAULT_PITCH_SCALE = 0.9
 
 const GameState = {INIT = 0, READY = 1, RUNNING = 2, END = 3}
 
