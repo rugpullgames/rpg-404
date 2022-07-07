@@ -29,6 +29,8 @@ func __reset_foreground_texture():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.floor:
 		push_warning("Wrong NFT floor traits.")
 		return
+	var res = "res://texture/floor/%s.png" % [MgrNft.NFT_TRAITS.floor]
+	self.texture = load(res)
 
 
 func _physics_process(dt):
