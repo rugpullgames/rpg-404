@@ -206,9 +206,9 @@ expand_icon = true
 
 [node name="BtnCopyright" type="Button" parent="UI/UIEnd"]
 margin_left = 50.0
-margin_top = 240.0
+margin_top = 268.0
 margin_right = 350.0
-margin_bottom = 300.0
+margin_bottom = 298.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
@@ -220,9 +220,16 @@ clip_text = true
 align = 0
 
 [node name="RPGLogo" type="Sprite" parent="UI/UIEnd/BtnCopyright"]
-position = Vector2( -20, 30 )
+position = Vector2( -20, 2 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 16 )
+
+[node name="RPG404" type="Label" parent="UI/UIEnd/BtnCopyright"]
+margin_left = 8.0
+margin_top = -30.0
+margin_right = 308.0
+text = "RPG 404"
+valign = 2
 
 [node name="BtnGodot" type="Button" parent="UI/UIEnd"]
 margin_left = 360.0
