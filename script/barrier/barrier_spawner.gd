@@ -58,11 +58,14 @@ func __disable_all_barriers():
 
 
 func _physics_process(dt):
-	tt += dt
-	if tt >= nextTime:
-		__spawn_barrier()
+	if G.gameState == K.GameState.READY:
 		tt = 0
-		nextTime = __get_next_time()
+	elif G.gameState == K.GameState.RUNNING:
+		tt += dt
+		if tt >= nextTime:
+			__spawn_barrier()
+			tt = 0
+			nextTime = __get_next_time()
 
 
 func __spawn_barrier():

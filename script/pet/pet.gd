@@ -57,7 +57,9 @@ func __reset_pet_type():
 
 
 func _physics_process(dt):
-	if G.gameState == K.GameState.RUNNING:
+	if G.gameState == K.GameState.READY:
+		queue_free()
+	elif G.gameState == K.GameState.RUNNING:
 		__move(dt)
 
 

@@ -29,11 +29,14 @@ func __reset():
 
 
 func _physics_process(dt):
-	tt += dt
-	if tt >= nextTime:
-		__spawn_pet()
+	if G.gameState == K.GameState.READY:
 		tt = 0
-		nextTime = __get_next_time()
+	elif G.gameState == K.GameState.RUNNING:
+		tt += dt
+		if tt >= nextTime:
+			__spawn_pet()
+			tt = 0
+			nextTime = __get_next_time()
 
 
 func __spawn_pet():
