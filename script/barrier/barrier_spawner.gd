@@ -57,8 +57,7 @@ func __disable_all_barriers():
 		brr.position.x = DEFAULT_POS_X
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(dt):
+func _physics_process(dt):
 	tt += dt
 	if tt >= nextTime:
 		__spawn_barrier()

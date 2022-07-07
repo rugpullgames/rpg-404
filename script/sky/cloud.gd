@@ -62,10 +62,8 @@ func __reset_cloud():
 
 
 func _physics_process(dt):
-	if G.gameState != K.GameState.RUNNING:
-		return
-
-	__move(dt)
+	if G.gameState == K.GameState.RUNNING:
+		__move(dt)
 
 
 func __move(dt):
