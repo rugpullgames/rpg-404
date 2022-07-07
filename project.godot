@@ -27,6 +27,7 @@ MgrNft="*res://script/manager/mgr_nft.gd"
 window/size/width=900
 window/size/height=300
 window/size/resizable=false
+window/size/borderless=true
 window/vsync/use_vsync=false
 
 [layer_names]
@@ -42,5 +43,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=1
+quality/intended_usage/framebuffer_allocation.mobile=1
 2d/snapping/use_gpu_pixel_snap=true
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
 environment/default_environment="res://default_env.tres"
