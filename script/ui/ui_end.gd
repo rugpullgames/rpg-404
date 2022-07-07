@@ -60,3 +60,14 @@ func _on_BtnCopyright_pressed():
 func _on_BtnGodot_pressed():
 	var error_code = OS.shell_open("https://godotengine.org")
 	assert(error_code == OK, error_code)
+
+
+func _on_BtnShare_pressed():
+	print("Share score with Twitter")
+	var shareLink = (
+		"https://twitter.com/intent/tweet?text=My%20best%20score%20is%20"
+		+ str(G.score)
+		+ "%20in&url=rpg404.com%0A&hashtags=rpg404,rpg,game,web3,nft,gamefi%0A&via=rug_pull_games"
+	)
+	var error_code = OS.shell_open(shareLink)
+	assert(error_code == OK, error_code)

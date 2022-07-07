@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://texture/test_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://script/map/map_main.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://texture/ui/btn_game_restart.png" type="Texture" id=18]
 [ext_resource path="res://script/ui/ui_end.gd" type="Script" id=19]
 [ext_resource path="res://texture/ui/btn_game_select_nft.png" type="Texture" id=20]
+[ext_resource path="res://texture/logo/twitter_logo.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
@@ -249,6 +250,18 @@ margin_right = 308.0
 text = "Game v.0.0.0.000000"
 valign = 2
 
+[node name="BtnShare" type="Button" parent="UI/UIEnd"]
+margin_left = 670.0
+margin_top = 240.0
+margin_right = 727.0
+margin_bottom = 298.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+icon = ExtResource( 21 )
+flat = true
+expand_icon = true
+
 [node name="Audio" type="Control" parent="UI/UIEnd"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -284,5 +297,6 @@ text = "SFX: On"
 [connection signal="pressed" from="UI/UIEnd/BtnSelect" to="UI/UIEnd" method="_on_BtnSelect_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnCopyright" to="UI/UIEnd" method="_on_BtnCopyright_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnGodot" to="UI/UIEnd" method="_on_BtnGodot_pressed"]
+[connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd" method="_on_BtnShare_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnBgmAudio" to="UI/UIEnd/Audio" method="_on_BtnBgmAudio_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnSfxAudio" to="UI/UIEnd/Audio" method="_on_BtnSfxAudio_pressed"]
