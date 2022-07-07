@@ -53,8 +53,10 @@ func _on_BtnSelect_pressed():
 
 
 func _on_BtnCopyright_pressed():
-	OS.shell_open("https://rug-pull.games/")
+	var error_code = OS.shell_open("https://rug-pull.games/")
+	assert(error_code == OK, error_code)
 
 
 func _on_BtnGodot_pressed():
-	OS.shell_open("https://godotengine.org")
+	var error_code = OS.shell_open("https://godotengine.org")
+	assert(error_code == OK, error_code)
