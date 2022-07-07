@@ -9,7 +9,9 @@ extends KinematicBody2D
 onready var Emo: Sprite = $SprEmo
 onready var Weapon: Sprite = $SprWeapon
 onready var Pants: AnimatedSprite = $AsprPants
-onready var AudioPlayer: AudioStreamPlayer2D = $AudioPlayer
+onready var AudioJump: AudioStreamPlayer2D = $AudioJump
+onready var AudioDie: AudioStreamPlayer2D = $AudioDie
+onready var AudioPowerUp: AudioStreamPlayer2D = $AudioPowerUp
 
 # const
 const GRAVITY = 1500
@@ -21,13 +23,17 @@ const WEAPON_MOVE_OFFSET = Vector2()
 
 # local variables
 var velocity = Vector2()
-var screenSize
 var longJump = false
 var tt = 0
 
 
 func _ready():
-	screenSize = get_viewport_rect().size
+	__bind_events()
+
+
+func __bind_events():
+	var error_code = Events.connect("game_end", self, "__player_die")
+	assert(error_code == OK, error_code)
 
 
 func _physics_process(dt):
@@ -48,13 +54,13 @@ func _physics_process(dt):
 			velocity.y = -JUMP_FORCE
 			Emo.show_emo()
 			if G.sfxAudio:
-				AudioPlayer.play()
+				AudioJump.play()
 
 		if Input.is_action_pressed("ui_accept") and not longJump and tt >= LONG_JUMP_TIME:
 			velocity.y = -JUMP_FORCE * 1.3
 			longJump = true
-			if G.sfxAudio and !AudioPlayer.is_playing():
-				AudioPlayer.play()
+			if G.sfxAudio and !AudioJump.is_playing():
+				AudioJump.play()
 
 		velocity = move_and_slide(velocity, Vector2.UP)
 
@@ -75,4 +81,18 @@ func _physics_process(dt):
 
 			# prevent player going out of screen
 			# prevent player gDOWNng out of screen
-		self.position.y = clamp(self.position.y, 0, screenSize.y)
+		self.position.y = clamp(self.position.y, 0, K.SCREEN_HEIGHT)
+
+
+func __player_die():
+	__play_audio_die()
+
+
+func __play_audio_die():
+	if G.sfxAudio:
+		AudioDie.play()
+
+
+func __play_audio_power_up():
+	if G.sfxAudio:
+		AudioPowerUp.play()

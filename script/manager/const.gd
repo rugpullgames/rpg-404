@@ -6,6 +6,7 @@
 extends Node
 
 const SCREEN_WIDTH = 900
+const SCREEN_HEIGHT = 300
 const SPEED_X = 300.0
 const FACTOR_DELTA = 0.05
 const BGM_FACTOR: float = 0.05
