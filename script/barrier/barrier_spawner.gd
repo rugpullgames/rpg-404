@@ -8,6 +8,7 @@ extends Node
 # const
 const SPAWN_TIME_MIN = 2
 const SPAWN_TIME_MAX = 3
+const SPAWN_TIME_FACTOR = 0.5
 const DEFAULT_POS_X = 1000
 
 # local var
@@ -75,4 +76,4 @@ func __spawn_barrier():
 
 
 func __get_next_time(factor = G.factor):
-	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / factor
+	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / ((factor - 1) * SPAWN_TIME_FACTOR + 1)
