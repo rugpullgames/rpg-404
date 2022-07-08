@@ -93,6 +93,6 @@ func __play_audio_die():
 		AudioDie.play()
 
 
-func __play_audio_power_up():
+func play_audio_power_up():
 	if G.sfxAudio:
 		AudioPowerUp.play()

@@ -76,3 +76,13 @@ func __move(dt):
 
 	if self.position.x < -SCREEN_WIDTH - 100:
 		self.queue_free()
+
+
+func _on_Area2D_body_entered(body: KinematicBody2D):
+	if not body:
+		return
+
+	if G.gameState == K.GameState.RUNNING:
+		G.factor -= K.FACTOR_PET_DECR
+		body.play_audio_power_up()
+		queue_free()
