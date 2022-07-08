@@ -10,6 +10,7 @@ const SCREEN_HEIGHT = 300
 const SPEED_X = 300.0
 const FACTOR_DELTA = 0.05
 const FACTOR_PET_DECR = 0.1
+const SCORE_PET_INCR = 10.0
 const BGM_FACTOR: float = 0.05
 const BGM_DEFAULT_PITCH_SCALE = 0.9
 
