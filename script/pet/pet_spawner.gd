@@ -9,8 +9,8 @@ extends Node
 const SCENE_PET = preload("res://scene/pet/pet.tscn")
 
 # const
-const SPAWN_TIME_MIN = 2
-const SPAWN_TIME_MAX = 3
+const SPAWN_TIME_MIN = 3
+const SPAWN_TIME_MAX = 8
 const SPAWN_TIME_FACTOR = 0.5
 
 # local var
