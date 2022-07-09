@@ -5,11 +5,13 @@
 
 extends Sprite
 
+# const
 const FPS = 4
 const OFFSET_Y = 5
 const DEFAULT_TIME_FPS = 1.0 / FPS
 const FPS_FACTOR = 0.8
 
+# local var
 var timePerFrame: float = DEFAULT_TIME_FPS
 var tt = 0
 var moving = false
@@ -46,7 +48,7 @@ func _physics_process(dt):
 	if G.gameState != K.GameState.RUNNING:
 		return
 
-	if !moving:
+	if ! moving:
 		# jumping
 		self.position.y = 0
 		return
