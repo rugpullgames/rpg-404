@@ -33,7 +33,7 @@ func __reset_foreground_texture():
 	self.texture = load(res)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState != K.GameState.RUNNING:
 		return
 	__move(dt)
