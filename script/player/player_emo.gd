@@ -36,7 +36,7 @@ func __reset_emo_type():
 	self.texture = load(res)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState != K.GameState.RUNNING:
 		return
 

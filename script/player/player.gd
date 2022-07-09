@@ -60,7 +60,7 @@ func _physics_process(dt):
 		if Input.is_action_pressed("ui_accept") and not longJump and tt >= LONG_JUMP_TIME:
 			velocity.y = -JUMP_FORCE * 1.3
 			longJump = true
-			if G.sfxAudio and !AudioJump.is_playing():
+			if G.sfxAudio and ! AudioJump.is_playing():
 				AudioJump.play()
 
 		velocity = move_and_slide(velocity, Vector2.UP)

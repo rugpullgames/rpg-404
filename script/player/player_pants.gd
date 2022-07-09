@@ -35,6 +35,6 @@ func __reset_pants_type():
 	self.frames.add_frame(ANIM_NAME, texture2, 1)
 
 
-func _physics_process(_dt):
+func _process(_dt):
 	if G.gameState == K.GameState.RUNNING:
 		self.speed_scale = (G.factor - 1) * SPEED_FACTOR + 1
