@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="SprPet" type="Sprite" parent="."]
+z_index = 11
 texture = ExtResource( 1 )
 offset = Vector2( -25, -5 )
 
