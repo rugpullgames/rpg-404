@@ -30,7 +30,7 @@ func __hide_gui():
 	self.visible = false
 
 
-func _physics_process(_dt):
+func _process(_dt):
 	if G.gameState == K.GameState.END:
 		__check_input()
 

@@ -14,7 +14,7 @@ const OFFSET_Y_MIN = 50
 const OFFSET_Y_MAX = 250
 
 # local var
-var speedX
+var speedX = 0
 var cloudType = "Day"
 var cloudIdx: int
 
@@ -61,7 +61,7 @@ func __reset_cloud():
 	self.texture = load(res)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.RUNNING:
 		__move(dt)
 
