@@ -60,12 +60,12 @@ script = ExtResource( 9 )
 
 [node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
-volume_db = -4.0
+volume_db = -8.0
 
 [node name="AudioDie" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
-volume_db = 4.0
+volume_db = -4.0
 
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 15 )
-volume_db = -4.0
+volume_db = -6.0
