@@ -42,7 +42,7 @@ func reset(texture):
 	self.position.x = DEFAULT_POS_X
 
 
-func _process(dt):
+func _physics_process(dt):
 	if G.gameState == K.GameState.RUNNING and moving:
 		__move(dt)
 
