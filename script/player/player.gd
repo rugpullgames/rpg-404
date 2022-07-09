@@ -7,6 +7,7 @@ extends KinematicBody2D
 
 # nodes
 onready var Emo: Sprite = $SprEmo
+onready var Head: Sprite = $SprHead
 onready var Weapon: Sprite = $SprWeapon
 onready var Pants: AnimatedSprite = $AsprPants
 onready var AudioJump: AudioStreamPlayer2D = $AudioJump
@@ -70,12 +71,14 @@ func _physics_process(dt):
 		if is_on_floor():
 			# move
 			Pants.playing = true
+			Head.moving = true
 			Weapon.moving = true
 			Weapon.offset = WEAPON_MOVE_OFFSET
 		else:
 			# jump
 			Pants.playing = false
 			Pants.frame = 0 if velocity.y < 0 else 1
+			Head.moving = false
 			Weapon.moving = false
 			Weapon.offset = WEAPON_JUMP_UP_OFFSET if velocity.y < 0 else WEAPON_JUMP_DOWN_OFFSET
 
