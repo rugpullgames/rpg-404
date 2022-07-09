@@ -5,8 +5,15 @@
 
 extends Control
 
+# node
 onready var BtnBgm: Button = $BtnBgmAudio
 onready var BtnSfx: Button = $BtnSfxAudio
+
+# resource
+const RES_BGM_ON = preload("res://texture/ui/btn_game_bgm_on.png")
+const RES_BGM_OFF = preload("res://texture/ui/btn_game_bgm_off.png")
+const RES_SFX_ON = preload("res://texture/ui/btn_game_sfx_on.png")
+const RES_SFX_OFF = preload("res://texture/ui/btn_game_sfx_off.png")
 
 
 func _ready():
@@ -14,15 +21,15 @@ func _ready():
 
 
 func __update_ui():
-	BtnBgm.text = "BGM: On" if G.bgmAudio else "BGM: Off"
-	BtnSfx.text = "SFX: On" if G.sfxAudio else "SFX: Off"
+	BtnBgm.icon = RES_BGM_ON if G.bgmAudio else RES_BGM_OFF
+	BtnSfx.icon = RES_SFX_ON if G.sfxAudio else RES_SFX_OFF
 
 
 func _on_BtnBgmAudio_pressed():
-	G.bgmAudio = !G.bgmAudio
+	G.bgmAudio = ! G.bgmAudio
 	__update_ui()
 
 
 func _on_BtnSfxAudio_pressed():
-	G.sfxAudio = !G.sfxAudio
+	G.sfxAudio = ! G.sfxAudio
 	__update_ui()
