@@ -63,7 +63,7 @@ func _on_BtnGodot_pressed():
 
 
 func _on_BtnShare_pressed():
-	print("Share score with Twitter")
+	print("Share score with Twitter. Don't cheat!")
 	var shareLink = (
 		"https://twitter.com/intent/tweet?text=My%20record%20is%20"
 		+ str(G.score)
