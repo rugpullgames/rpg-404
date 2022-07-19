@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="RGB 404"
+config/name="RPG 404"
+config/description="The first game of Rug Pull Games, RPG 404, is a tiny NFT game. Please visit rpg404.com to play."
 run/main_scene="res://scene/map/main.tscn"
 config/icon="res://icon.png"
 
