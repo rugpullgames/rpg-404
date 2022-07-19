@@ -13,7 +13,7 @@
 [ext_resource path="res://scene/barrier/barrier.tscn" type="PackedScene" id=11]
 [ext_resource path="res://script/floor/floors.gd" type="Script" id=12]
 [ext_resource path="res://scene/floor/floor.tscn" type="PackedScene" id=13]
-[ext_resource path="res://audio/bgm/mozart_rondo_all_turca_sonata_xylophone_01.ogg" type="AudioStream" id=14]
+[ext_resource path="res://audio/bgm/mute.ogg" type="AudioStream" id=14]
 [ext_resource path="res://theme/rpg404_theme.tres" type="Theme" id=15]
 [ext_resource path="res://texture/logo/rpg_logo.png" type="Texture" id=16]
 [ext_resource path="res://script/manager/audio.gd" type="Script" id=17]
@@ -277,6 +277,7 @@ expand_icon = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 17 )
+pathToBgm = NodePath("../../../BGM")
 
 [node name="BtnBgmAudio" type="Button" parent="UI/UIEnd/Audio"]
 anchor_left = 1.0

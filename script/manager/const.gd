@@ -20,6 +20,7 @@ const GameState = {INIT = 0, READY = 1, RUNNING = 2, END = 3}
 enum CollsionLayer { BASEFLOOR = 0, PLAYER, BARRIER, PET }
 
 const DATA_BACKGROUND = preload("res://script/data/data_background.gd").background
+const DATA_MUSIC = preload("res://script/data/data_music.gd").music
 
 const CLOUDS = {
 	"Day":

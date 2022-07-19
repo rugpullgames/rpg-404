@@ -8,6 +8,7 @@ extends Node
 const NFT_META_TEST = {
 	"attributes":
 	[
+		{"trait_type": "Music", "value": "Mozart Rondo Alla Turca 03"},
 		{"trait_type": "Background", "value": "Light Blue Sky 01"},
 		{"trait_type": "Foreground", "value": "Base Floor"},
 		{"trait_type": "Barrier", "value": "Cat Green"},
