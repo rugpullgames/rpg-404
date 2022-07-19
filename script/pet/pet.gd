@@ -37,11 +37,20 @@ func _ready():
 	offsetLimit = rand_range(MIN_OFFSET_Y, MAX_OFFSET_Y)
 	direction = pow(-1, randi() % 2)
 	__bind_events()
+	__reset()
+
+
+func _exit_tree():
+	__unbind_events()
 
 
 func __bind_events():
 	var error_code = Events.connect("update_traits", self, "__reset")
 	assert(error_code == OK, error_code)
+
+
+func __unbind_events():
+	Events.disconnect("update_traits", self, "__reset")
 
 
 func __reset():
@@ -53,12 +62,12 @@ func __reset_pet_type():
 		push_warning("Wrong NFT pet traits.")
 		return
 	var res = "res://texture/pet/%s.png" % [MgrNft.NFT_TRAITS.pet]
-	self.texture = load(res)
+	SprPet.texture = load(res)
 
 
 func _physics_process(dt):
 	if G.gameState == K.GameState.READY:
-		queue_free()
+		self.queue_free()
 	elif G.gameState == K.GameState.RUNNING:
 		__move(dt)
 
@@ -86,4 +95,4 @@ func _on_Area2D_body_entered(body: KinematicBody2D):
 		G.factor -= K.FACTOR_PET_DECR
 		G.score += K.SCORE_PET_INCR
 		body.play_audio_power_up()
-		queue_free()
+		self.queue_free()
