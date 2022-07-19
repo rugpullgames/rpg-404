@@ -67,7 +67,9 @@ func _on_BtnShare_pressed():
 	var shareLink = (
 		"https://twitter.com/intent/tweet?text=My%20record%20is%20"
 		+ str(G.score)
-		+ "%20in&url=rpg404.com%0A&hashtags=rpg404,rpg,indiegame,indiedev,IndieGameDev,pixelart,Mozart,GodotEngine,web3,nft,gamefi%0A&via=rug_pull_games"
+		+ "%20in&url=https:%2F%2Frpg404.com%2F"
+		+ "%0A&hashtags=rpg404,rpg,indiegame,indiedev,IndieGameDev,pixelart,Mozart,GodotEngine,web3,nft,gamefi"
+		+ "%0A&via=rug_pull_games"
 	)
 	var error_code = OS.shell_open(shareLink)
 	assert(error_code == OK, error_code)
