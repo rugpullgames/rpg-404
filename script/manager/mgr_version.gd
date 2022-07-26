@@ -1,13 +1,14 @@
 # Version
-# @see Hidden Moss: https://hiddenmoss.com/
-# @see Miss. Peacock: https://miss-peacock.com/
-# @author Yuancheng Zhang
+# @copyright Rug Pull Games
+# @see Rug Pull Games: https://rug-pull.games/
+# @see RPG 404: https://rpg404.com/
+# @author endaye.eth, Fried Egg Fendi
 
 extends Node
 
 # Version
 const MAJOR = 1
 const MINOR = 1
-const BUGFIX = 0
-const COMMIT = 588638
+const BUGFIX = 2
+const COMMIT = 588642
 const VERSION = "v%s.%s.%s.%s" % [MAJOR, MINOR, BUGFIX, COMMIT]
