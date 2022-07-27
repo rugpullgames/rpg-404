@@ -95,4 +95,5 @@ func _on_Area2D_body_entered(body: KinematicBody2D):
 		G.factor -= K.FACTOR_PET_DECR
 		G.score += K.SCORE_PET_INCR
 		body.play_audio_power_up()
+		self.get_parent().play_boom_effect(self.position)
 		self.queue_free()

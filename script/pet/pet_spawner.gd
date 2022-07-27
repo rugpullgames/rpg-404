@@ -17,9 +17,12 @@ const SPAWN_TIME_FACTOR = 0.5
 var tt = 0
 var nextTime = __get_next_time(1)
 var textures = []
+export(NodePath) var pathToBoomEffect
+var Boom: AnimatedSprite
 
 
 func _ready():
+	Boom = get_node(pathToBoomEffect)
 	var error_code = Events.connect("game_ready", self, "__reset")
 	assert(error_code == OK, error_code)
 
@@ -42,6 +45,11 @@ func _physics_process(dt):
 func __spawn_pet():
 	var pet = SCENE_PET.instance()
 	add_child(pet)
+
+
+func play_boom_effect(pos: Vector2):
+	Boom.position = pos
+	Boom.play_effect()
 
 
 func __get_next_time(factor = G.factor):
