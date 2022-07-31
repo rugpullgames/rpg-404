@@ -28,7 +28,6 @@ MgrNft="*res://script/manager/mgr_nft.gd"
 window/size/width=900
 window/size/height=300
 window/size/resizable=false
-window/size/borderless=true
 window/vsync/use_vsync=false
 
 [input]
