@@ -53,11 +53,11 @@ func __reset_barrier_textures():
 func __disable_all_barriers():
 	for brr in self.get_children():
 		brr.visible = false
-		brr.set_physics_process(false)
+		brr.set_process(false)
 		brr.position.x = DEFAULT_POS_X
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		tt = 0
 	elif G.gameState == K.GameState.RUNNING:
@@ -71,7 +71,7 @@ func _physics_process(dt):
 func __spawn_barrier():
 	for brr in self.get_children():
 		if not brr.visible:
-			brr.set_physics_process(true)
+			brr.set_process(true)
 			var idx = randi() % textures.size()
 			brr.reset(textures[idx])
 			break

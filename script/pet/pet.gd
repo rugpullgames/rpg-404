@@ -65,7 +65,7 @@ func __reset_pet_type():
 	SprPet.texture = load(res)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		self.queue_free()
 	elif G.gameState == K.GameState.RUNNING:

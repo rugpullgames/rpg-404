@@ -31,7 +31,7 @@ func __reset():
 	nextTime = __get_next_time(1)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		tt = 0
 	elif G.gameState == K.GameState.RUNNING:

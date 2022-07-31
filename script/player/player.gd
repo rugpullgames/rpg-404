@@ -37,7 +37,7 @@ func __bind_events():
 	assert(error_code == OK, error_code)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		Pants.playing = true
 		return
