@@ -65,7 +65,7 @@ func __reset_pet_type():
 	SprPet.texture = load(res)
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		self.queue_free()
 	elif G.gameState == K.GameState.RUNNING:
@@ -95,4 +95,5 @@ func _on_Area2D_body_entered(body: KinematicBody2D):
 		G.factor -= K.FACTOR_PET_DECR
 		G.score += K.SCORE_PET_INCR
 		body.play_audio_power_up()
+		self.get_parent().play_boom_effect(self.position)
 		self.queue_free()

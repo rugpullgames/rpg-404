@@ -32,12 +32,12 @@ func __bind_events():
 func __reset():
 	__reset_cloud_type()
 	if cloudType == "Night":
-		set_physics_process(true)
+		set_process(true)
 		self.visible = true
 		__reset_star()
 		self.position.x = rand_range(-10, SCREEN_WIDTH + 10)
 	else:
-		set_physics_process(false)
+		set_process(false)
 		self.visible = false
 
 

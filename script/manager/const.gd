@@ -5,8 +5,8 @@
 
 extends Node
 
-const SCREEN_WIDTH = 900
-const SCREEN_HEIGHT = 300
+const SCREEN_WIDTH = 900.0
+const SCREEN_HEIGHT = 300.0
 const SPEED_X = 300.0
 const FACTOR_DELTA = 0.05
 const FACTOR_PET_DECR = 0.1
@@ -74,3 +74,12 @@ const STARS = [
 	"res://texture/stars/Star 03.png",
 	"res://texture/stars/Star 04.png",
 ]
+
+
+func _ready():
+	get_tree().set_screen_stretch(
+		SceneTree.STRETCH_MODE_2D,
+		SceneTree.STRETCH_ASPECT_KEEP,
+		Vector2(SCREEN_WIDTH, SCREEN_HEIGHT),
+		1.0
+	)

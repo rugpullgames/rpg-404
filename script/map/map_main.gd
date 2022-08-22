@@ -37,7 +37,7 @@ func __reset():
 	ScoreMarker.position = Vector2.ZERO
 
 
-func _physics_process(dt):
+func _process(dt):
 	if G.gameState == K.GameState.READY:
 		__update_player(dt)
 	elif G.gameState == K.GameState.RUNNING:
