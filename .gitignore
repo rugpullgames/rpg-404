@@ -1,7 +1,8 @@
 # Godot-specific ignores
 .import/
 export.cfg
-build/
+build/*
+!build/.gdignore
 
 # Mono-specific ignores
 .mono/
