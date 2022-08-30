@@ -45,7 +45,7 @@ func _reset_bgm_type():
 		push_warning("Not found music id, " + MgrNft.NFT_TRAITS.music)
 		return
 
-	_res_bgm = K.DATA_MUSIC.get(MgrNft.NFT_TRAITS.music)._res_bgm
+	_res_bgm = K.DATA_MUSIC.get(MgrNft.NFT_TRAITS.music).res_bgm
 	AudioBgm.stream = load("res://audio/bgm/" + _res_bgm)
 
 
