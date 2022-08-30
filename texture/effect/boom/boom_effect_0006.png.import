@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boom-effect-0003.png-0925a4d5f0761bdb59347a8a340d380b.stex"
+path="res://.import/boom_effect_0006.png-c8fb9c342f72d6fbc193a25abe2f0428.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/effect/boom/boom-effect-0003.png"
-dest_files=[ "res://.import/boom-effect-0003.png-0925a4d5f0761bdb59347a8a340d380b.stex" ]
+source_file="res://texture/effect/boom/boom_effect_0006.png"
+dest_files=[ "res://.import/boom_effect_0006.png-c8fb9c342f72d6fbc193a25abe2f0428.stex" ]
 
 [params]
 
