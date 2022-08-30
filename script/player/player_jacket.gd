@@ -5,21 +5,26 @@
 
 extends Sprite
 
+# default
+
 
 func _ready():
-	__bind_events()
+	_bind_events()
 
 
-func __bind_events():
-	var error_code = Events.connect("update_traits", self, "__reset")
+# private
+
+
+func _bind_events():
+	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func __reset():
-	__reset_jacket_type()
+func _reset():
+	_reset_jacket_type()
 
 
-func __reset_jacket_type():
+func _reset_jacket_type():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.jacket:
 		push_warning("Wrong NFT jacket traits.")
 		return
