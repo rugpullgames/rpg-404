@@ -37,27 +37,27 @@ var NFT_TRAITS = null  # Traits Dict
 
 
 func reload_nft():
-	__load_nft_metadata()
+	_load_nft_metadata()
 	if NFT_META:
-		__get_traits()
-		__update_metadata_traits()
+		_get_traits()
+		_update_metadata_traits()
 		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
 
 
-func __load_nft_metadata():
+func _load_nft_metadata():
 	if OS.has_feature("JavaScript"):
 		print("Game load NFT metadata")
-		var nftData = JavaScript.eval(
+		var nft_data = JavaScript.eval(
 			"""
 			console.log('The JavaScript singleton is available');
 			var strMetadata = JSON.stringify(window.nftMetadata);
 			strMetadata;
 			"""
 		)
-		if nftData and not nftData.empty():
-			var p = JSON.parse(nftData)
+		if nft_data and not nft_data.empty():
+			var p = JSON.parse(nft_data)
 			if typeof(p.result) == TYPE_DICTIONARY:
 				NFT_META = p.result
 			else:
@@ -68,7 +68,7 @@ func __load_nft_metadata():
 		push_warning("The JavaScript singleton is NOT available")
 
 
-func __get_traits():
+func _get_traits():
 	if not NFT_META:
 		return
 
@@ -77,5 +77,5 @@ func __get_traits():
 		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
 
 
-func __update_metadata_traits():
+func _update_metadata_traits():
 	Events.emit_signal("update_traits")
