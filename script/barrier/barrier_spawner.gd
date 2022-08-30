@@ -16,6 +16,8 @@ var _tt = 0
 var _next_time = _get_next_time(1)
 var _textures = []
 
+### default
+
 
 func _ready():
 	_bind_events()
@@ -30,6 +32,9 @@ func _process(dt):
 			_spawn_barrier()
 			_tt = 0
 			_next_time = _get_next_time()
+
+
+### private
 
 
 func _bind_events():

@@ -5,10 +5,6 @@
 
 extends Area2D
 
-# node
-onready var SprBarrier: Sprite = $SprBarrier
-onready var CollsionShape: CollisionShape2D = $CollisionShape2D
-
 # const
 const SCREEN_WIDTH = K.SCREEN_WIDTH
 const DEFAULT_POS_X = SCREEN_WIDTH + 100
@@ -18,6 +14,12 @@ const SPEED_X = K.SPEED_X
 var _moving = false
 var Shape2d: CapsuleShape2D
 
+# node
+onready var SprBarrier: Sprite = $SprBarrier
+onready var CollsionShape: CollisionShape2D = $CollisionShape2D
+
+### default
+
 
 func _ready():
 	Shape2d = CollsionShape.shape as CapsuleShape2D
@@ -26,6 +28,9 @@ func _ready():
 func _process(dt):
 	if G.game_state == K.GameState.RUNNING and _moving:
 		_move(dt)
+
+
+### public
 
 
 func reset(texture):
@@ -44,6 +49,9 @@ func reset(texture):
 	_moving = true
 	self.visible = true
 	self.position.x = DEFAULT_POS_X
+
+
+### private
 
 
 func _move(dt):
