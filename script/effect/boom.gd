@@ -9,6 +9,8 @@ const SCREEN_WIDTH = K.SCREEN_WIDTH
 const SCREEN_WIDTH_EXT = SCREEN_WIDTH + 300
 const SPEED_X = K.SPEED_X
 
+### default
+
 
 func _ready():
 	self.position = Vector2(-100, -100)
@@ -20,9 +22,15 @@ func _process(dt):
 	_move(dt)
 
 
+### public
+
+
 func play_effect():
 	self.frame = 0
 	self.playing = true
+
+
+### private
 
 
 func _move(dt):
