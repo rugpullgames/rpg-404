@@ -5,13 +5,19 @@
 
 extends AnimatedSprite
 
-
 const SCREEN_WIDTH = K.SCREEN_WIDTH
 const SCREEN_WIDTH_EXT = SCREEN_WIDTH + 300
 const SPEED_X = K.SPEED_X
 
+
 func _ready():
 	self.position = Vector2(-100, -100)
+
+
+func _process(dt):
+	if G.game_state != K.GameState.RUNNING:
+		return
+	_move(dt)
 
 
 func play_effect():
@@ -19,13 +25,7 @@ func play_effect():
 	self.playing = true
 
 
-func _process(dt):
-	if G.game_state != K.GameState.RUNNING:
-		return
-	__move(dt)
-
-
-func __move(dt):
+func _move(dt):
 	if G.game_state != K.GameState.RUNNING:
 		return
 
