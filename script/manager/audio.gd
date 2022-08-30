@@ -16,27 +16,27 @@ const RES_SFX_ON = preload("res://texture/ui/btn_game_sfx_on.png")
 const RES_SFX_OFF = preload("res://texture/ui/btn_game_sfx_off.png")
 
 # local var
-var resBgm = "mute.ogg"
-export(NodePath) var pathToBgm
+var _res_bgm = "mute.ogg"
+export(NodePath) var path_to_bgm
 var AudioBgm: AudioStreamPlayer2D
 
 
 func _ready():
-	AudioBgm = get_node(pathToBgm)
-	__update_ui()
-	__bind_events()
+	AudioBgm = get_node(path_to_bgm)
+	_update_ui()
+	_bind_events()
 
 
-func __bind_events():
-	var error_code = Events.connect("update_traits", self, "__reset")
+func _bind_events():
+	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func __reset():
-	__reset_bgm_type()
+func _reset():
+	_reset_bgm_type()
 
 
-func __reset_bgm_type():
+func _reset_bgm_type():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.music:
 		push_warning("Wrong NFT cloud traits.")
 		return
@@ -45,20 +45,20 @@ func __reset_bgm_type():
 		push_warning("Not found music id, " + MgrNft.NFT_TRAITS.music)
 		return
 
-	resBgm = K.DATA_MUSIC.get(MgrNft.NFT_TRAITS.music).res_bgm
-	AudioBgm.stream = load("res://audio/bgm/" + resBgm)
+	_res_bgm = K.DATA_MUSIC.get(MgrNft.NFT_TRAITS.music)._res_bgm
+	AudioBgm.stream = load("res://audio/bgm/" + _res_bgm)
 
 
-func __update_ui():
+func _update_ui():
 	BtnBgm.icon = RES_BGM_ON if G.bgm_audio else RES_BGM_OFF
 	BtnSfx.icon = RES_SFX_ON if G.sfx_audio else RES_SFX_OFF
 
 
 func _on_BtnBgmAudio_pressed():
 	G.bgm_audio = !G.bgm_audio
-	__update_ui()
+	_update_ui()
 
 
 func _on_BtnSfxAudio_pressed():
 	G.sfx_audio = !G.sfx_audio
-	__update_ui()
+	_update_ui()
