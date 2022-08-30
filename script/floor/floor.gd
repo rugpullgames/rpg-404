@@ -34,13 +34,13 @@ func __reset_foreground_texture():
 
 
 func _process(dt):
-	if G.gameState != K.GameState.RUNNING:
+	if G.game_state != K.GameState.RUNNING:
 		return
 	__move(dt)
 
 
 func __move(dt):
-	if G.gameState != K.GameState.RUNNING:
+	if G.game_state != K.GameState.RUNNING:
 		return
 
 	self.position.x -= SPEED_X * G.factor * dt

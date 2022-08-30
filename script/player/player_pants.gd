@@ -36,5 +36,5 @@ func __reset_pants_type():
 
 
 func _process(_dt):
-	if G.gameState == K.GameState.RUNNING:
+	if G.game_state == K.GameState.RUNNING:
 		self.speed_scale = (G.factor - 1) * SPEED_FACTOR + 1

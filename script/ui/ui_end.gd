@@ -31,7 +31,7 @@ func __hide_gui():
 
 
 func _process(_dt):
-	if G.gameState == K.GameState.END:
+	if G.game_state == K.GameState.END:
 		__check_input()
 
 

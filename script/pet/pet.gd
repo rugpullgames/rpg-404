@@ -41,9 +41,9 @@ func _ready():
 
 
 func _process(dt):
-	if G.gameState == K.GameState.READY:
+	if G.game_state == K.GameState.READY:
 		self.queue_free()
-	elif G.gameState == K.GameState.RUNNING:
+	elif G.game_state == K.GameState.RUNNING:
 		_move(dt)
 
 
@@ -91,7 +91,7 @@ func _on_Area2D_body_entered(body: KinematicBody2D):
 	if not body:
 		return
 
-	if G.gameState == K.GameState.RUNNING:
+	if G.game_state == K.GameState.RUNNING:
 		G.factor -= K.FACTOR_PET_DECR
 		G.score += K.SCORE_PET_INCR
 		body.play_audio_power_up()

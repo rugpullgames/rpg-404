@@ -38,9 +38,9 @@ func __reset():
 
 
 func _process(dt):
-	if G.gameState == K.GameState.READY:
+	if G.game_state == K.GameState.READY:
 		__update_player(dt)
-	elif G.gameState == K.GameState.RUNNING:
+	elif G.game_state == K.GameState.RUNNING:
 		__update_marker(dt)
 		__update_bgm()
 
@@ -73,20 +73,20 @@ func __ready_game():
 	G.factor = 1
 	G.score = 0
 	BGM.pitch_scale = K.BGM_DEFAULT_PITCH_SCALE
-	G.gameState = K.GameState.READY
+	G.game_state = K.GameState.READY
 	print("Game Ready")
 
 
 func __run_game():
 	BGM.seek(0)
-	if G.bgmAudio:
+	if G.bgm_audio:
 		BGM.play()
-	G.gameState = K.GameState.RUNNING
+	G.game_state = K.GameState.RUNNING
 	print("Game Start")
 
 
 func __end_game():
-	G.gameState = K.GameState.END
+	G.game_state = K.GameState.END
 	BGM.stop()
 	Floors.visible = false
 	print("Game Over")

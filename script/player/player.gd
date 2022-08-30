@@ -38,13 +38,13 @@ func __bind_events():
 
 
 func _process(dt):
-	if G.gameState == K.GameState.READY:
+	if G.game_state == K.GameState.READY:
 		Pants.playing = true
 		return
-	elif G.gameState == K.GameState.END:
+	elif G.game_state == K.GameState.END:
 		Pants.playing = false
 		return
-	elif G.gameState == K.GameState.RUNNING:
+	elif G.game_state == K.GameState.RUNNING:
 		velocity.y += dt * GRAVITY
 
 		if is_on_floor():
@@ -54,13 +54,13 @@ func _process(dt):
 		if Input.is_action_pressed("jump") and is_on_floor():
 			velocity.y = -JUMP_FORCE
 			Emo.show_emo()
-			if G.sfxAudio:
+			if G.sfx_audio:
 				AudioJump.play()
 
 		if Input.is_action_pressed("jump") and not longJump and tt >= LONG_JUMP_TIME:
 			velocity.y = -JUMP_FORCE * 1.3
 			longJump = true
-			if G.sfxAudio and ! AudioJump.is_playing():
+			if G.sfx_audio and ! AudioJump.is_playing():
 				AudioJump.play()
 
 		velocity = move_and_slide(velocity, Vector2.UP)
@@ -92,10 +92,10 @@ func __player_die():
 
 
 func __play_audio_die():
-	if G.sfxAudio:
+	if G.sfx_audio:
 		AudioDie.play()
 
 
 func play_audio_power_up():
-	if G.sfxAudio:
+	if G.sfx_audio:
 		AudioPowerUp.play()

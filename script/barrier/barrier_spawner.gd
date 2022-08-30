@@ -58,9 +58,9 @@ func __disable_all_barriers():
 
 
 func _process(dt):
-	if G.gameState == K.GameState.READY:
+	if G.game_state == K.GameState.READY:
 		tt = 0
-	elif G.gameState == K.GameState.RUNNING:
+	elif G.game_state == K.GameState.RUNNING:
 		tt += dt
 		if tt >= nextTime:
 			__spawn_barrier()

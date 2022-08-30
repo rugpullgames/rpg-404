@@ -37,7 +37,7 @@ func __reset_emo_type():
 
 
 func _process(dt):
-	if G.gameState != K.GameState.RUNNING:
+	if G.game_state != K.GameState.RUNNING:
 		return
 
 	if self.visible:

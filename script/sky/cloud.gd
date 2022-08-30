@@ -49,20 +49,20 @@ func __reset_cloud_type():
 
 func __reset_cloud():
 	if cloudIdx:
-		G.cloudUsed[cloudIdx] = false
+		G.cloud_used[cloudIdx] = false
 	speedX = rand_range(SPEED_X_MIN, SPEED_X_MAX)
 	self.position.x = DEFAULT_POS_X
 	self.position.y = rand_range(OFFSET_Y_MIN, OFFSET_Y_MAX)
 	cloudIdx = randi() % K.CLOUDS[cloudType].size()
-	while G.cloudUsed.get(cloudIdx) and G.cloudUsed.size() < K.CLOUDS[cloudType].size():
+	while G.cloud_used.get(cloudIdx) and G.cloud_used.size() < K.CLOUDS[cloudType].size():
 		cloudIdx = randi() % K.CLOUDS[cloudType].size()
-	G.cloudUsed[cloudIdx] = true
+	G.cloud_used[cloudIdx] = true
 	var res = K.CLOUDS[cloudType][cloudIdx]
 	self.texture = load(res)
 
 
 func _process(dt):
-	if G.gameState == K.GameState.RUNNING:
+	if G.game_state == K.GameState.RUNNING:
 		__move(dt)
 
 

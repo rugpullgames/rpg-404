@@ -11,9 +11,9 @@ func _ready():
 
 
 func _process(_dt):
-	if G.gameState == K.GameState.READY:
+	if G.game_state == K.GameState.READY:
 		self.text = "0"
-	elif G.gameState == K.GameState.RUNNING:
+	elif G.game_state == K.GameState.RUNNING:
 		__update_score()
 
 

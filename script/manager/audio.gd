@@ -50,15 +50,15 @@ func __reset_bgm_type():
 
 
 func __update_ui():
-	BtnBgm.icon = RES_BGM_ON if G.bgmAudio else RES_BGM_OFF
-	BtnSfx.icon = RES_SFX_ON if G.sfxAudio else RES_SFX_OFF
+	BtnBgm.icon = RES_BGM_ON if G.bgm_audio else RES_BGM_OFF
+	BtnSfx.icon = RES_SFX_ON if G.sfx_audio else RES_SFX_OFF
 
 
 func _on_BtnBgmAudio_pressed():
-	G.bgmAudio = !G.bgmAudio
+	G.bgm_audio = !G.bgm_audio
 	__update_ui()
 
 
 func _on_BtnSfxAudio_pressed():
-	G.sfxAudio = !G.sfxAudio
+	G.sfx_audio = !G.sfx_audio
 	__update_ui()

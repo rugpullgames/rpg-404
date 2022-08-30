@@ -5,19 +5,20 @@
 
 extends Node
 
-var cloudUsed = {}
+var cloud_used = {}
 var score = 0.0
 var factor = 1.0
 
-var gameState = K.GameState.INIT
+var game_state = K.GameState.INIT
 
-var bgmAudio = true
-var sfxAudio = true
+var bgm_audio = true
+var sfx_audio = true
+
 
 func _ready():
-	reset()
+	_reset()
 
 
-func reset():
-	cloudUsed.clear()
+func _reset():
+	cloud_used.clear()
 	score = 0
