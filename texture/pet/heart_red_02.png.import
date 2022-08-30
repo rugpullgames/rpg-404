@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fly Dog 01.png-03b036fa3101161a22cc9429c97bd5f0.stex"
+path="res://.import/heart_red_02.png-ab9aea7a0934ca7832c94880ae013919.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Fly Dog 01.png"
-dest_files=[ "res://.import/Fly Dog 01.png-03b036fa3101161a22cc9429c97bd5f0.stex" ]
+source_file="res://texture/pet/heart_red_02.png"
+dest_files=[ "res://.import/heart_red_02.png-ab9aea7a0934ca7832c94880ae013919.stex" ]
 
 [params]
 

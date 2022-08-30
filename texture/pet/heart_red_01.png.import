@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Heart Red 01.png-2dc9e4504b83191e962edf83ec31c125.stex"
+path="res://.import/heart_red_01.png-e873eced976ee46a622d1ca052bbfef7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Heart Red 01.png"
-dest_files=[ "res://.import/Heart Red 01.png-2dc9e4504b83191e962edf83ec31c125.stex" ]
+source_file="res://texture/pet/heart_red_01.png"
+dest_files=[ "res://.import/heart_red_01.png-e873eced976ee46a622d1ca052bbfef7.stex" ]
 
 [params]
 

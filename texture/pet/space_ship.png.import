@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Drone Mushroom 01.png-98c7d43c28035adb1ef07bffa13f1c9c.stex"
+path="res://.import/space_ship.png-550aa44940de76e69a753085e6328712.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Drone Mushroom 01.png"
-dest_files=[ "res://.import/Drone Mushroom 01.png-98c7d43c28035adb1ef07bffa13f1c9c.stex" ]
+source_file="res://texture/pet/space_ship.png"
+dest_files=[ "res://.import/space_ship.png-550aa44940de76e69a753085e6328712.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Drone Red 01.png-ce631f292850cb91af4bb5e267919336.stex"
+path="res://.import/fly_flower_01.png-6837bb1330f1e9d99ab93b4b85de7ef3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Drone Red 01.png"
-dest_files=[ "res://.import/Drone Red 01.png-ce631f292850cb91af4bb5e267919336.stex" ]
+source_file="res://texture/pet/fly_flower_01.png"
+dest_files=[ "res://.import/fly_flower_01.png-6837bb1330f1e9d99ab93b4b85de7ef3.stex" ]
 
 [params]
 

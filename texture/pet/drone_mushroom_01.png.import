@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fly Flower 01.png-05269fd75ae8e8492dfabeb9e3f86521.stex"
+path="res://.import/drone_mushroom_01.png-2e49bb4fe82111feada6d8d47fc5b11e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Fly Flower 01.png"
-dest_files=[ "res://.import/Fly Flower 01.png-05269fd75ae8e8492dfabeb9e3f86521.stex" ]
+source_file="res://texture/pet/drone_mushroom_01.png"
+dest_files=[ "res://.import/drone_mushroom_01.png-2e49bb4fe82111feada6d8d47fc5b11e.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robot Blue.png-a474305644936883d2825077ffe5de77.stex"
+path="res://.import/drone_red_05.png-23c186ac92fcc10fbd5864a5f11258d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/pet/Robot Blue.png"
-dest_files=[ "res://.import/Robot Blue.png-a474305644936883d2825077ffe5de77.stex" ]
+source_file="res://texture/pet/drone_red_05.png"
+dest_files=[ "res://.import/drone_red_05.png-23c186ac92fcc10fbd5864a5f11258d5.stex" ]
 
 [params]
 
@@ -18,9 +18,9 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
