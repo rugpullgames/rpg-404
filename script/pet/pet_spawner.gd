@@ -19,6 +19,8 @@ var _next_time = _get_next_time(1)
 export(NodePath) var path_to_boom_effect
 var Boom: AnimatedSprite
 
+### default
+
 
 func _ready():
 	Boom = get_node(path_to_boom_effect)
@@ -37,9 +39,15 @@ func _process(dt):
 			_next_time = _get_next_time()
 
 
+### public
+
+
 func play_boom_effect(pos: Vector2):
 	Boom.position = pos
 	Boom.play_effect()
+
+
+### private
 
 
 func _reset():

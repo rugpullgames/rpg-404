@@ -27,6 +27,8 @@ var speed_y
 var offset_limit
 var direction
 
+### default
+
 
 func _ready():
 	self.position.x = DEFAULT_POS_X
@@ -49,6 +51,9 @@ func _process(dt):
 
 func _exit_tree():
 	_unbind_events()
+
+
+### private
 
 
 func _bind_events():
