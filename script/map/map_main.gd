@@ -5,16 +5,18 @@
 
 extends Node
 
+# const
+const SPEED_X = K.SPEED_X
+const SCORE_FACTOR: float = 1.0 / 20
+const PLAYER_DEFAULT_POS_X = 180
+
 # node
 onready var ScoreMarker: Node2D = $Game/ScoreMarker
 onready var BGM: AudioStreamPlayer2D = $BGM
 onready var Floors: Node2D = $Game/Floors
 onready var player: KinematicBody2D = $Game/Player
 
-# const
-const SPEED_X = K.SPEED_X
-const SCORE_FACTOR: float = 1.0 / 20
-const PLAYER_DEFAULT_POS_X = 180
+### default
 
 
 func _ready():
@@ -30,6 +32,9 @@ func _process(dt):
 	elif G.game_state == K.GameState.RUNNING:
 		_update_marker(dt)
 		_update_bgm()
+
+
+### private
 
 
 func _bind_events():
