@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://texture/floor/Floor 01.png" type="Texture" id=1]
 [ext_resource path="res://script/floor/floor.gd" type="Script" id=2]
 
 [node name="Floor" type="Sprite"]
 position = Vector2( 0, 150 )
 z_index = 10
-texture = ExtResource( 1 )
 offset = Vector2( -150, 0 )
 script = ExtResource( 2 )

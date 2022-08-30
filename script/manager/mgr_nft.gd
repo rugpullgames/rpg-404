@@ -41,7 +41,7 @@ func reload_nft():
 	if NFT_META:
 		__get_traits()
 		__update_metadata_traits()
-		Events.emit_signal('game_ready')
+		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
 
@@ -74,7 +74,7 @@ func __get_traits():
 
 	NFT_TRAITS = {}
 	for trait in NFT_META.attributes:
-		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value
+		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
 
 
 func __update_metadata_traits():
