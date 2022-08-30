@@ -42,7 +42,7 @@ func __reset_barrier_textures():
 	textures = []
 	for n in range(1, 6):
 		var res = (
-			"res://texture/barrier/%s/%s 0%s.png"
+			"res://texture/barrier/%s/%s_0%s.png"
 			% [MgrNft.NFT_TRAITS.barrier, MgrNft.NFT_TRAITS.barrier, n]
 		)
 		var texture = load(res)
