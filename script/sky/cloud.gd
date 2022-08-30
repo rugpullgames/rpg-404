@@ -18,7 +18,7 @@ var _speed_x = 0
 var _cloud_type = "Day"
 var _cloud_idx: int
 
-# default
+### default
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +31,7 @@ func _process(dt):
 		_move(dt)
 
 
-# private
+### private
 
 
 func _bind_events():

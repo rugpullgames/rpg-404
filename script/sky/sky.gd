@@ -5,14 +5,14 @@
 
 extends ColorRect
 
-# default
+### default
 
 
 func _ready():
 	_bind_events()
 
 
-# private
+### private
 
 
 func _bind_events():

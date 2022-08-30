@@ -9,7 +9,7 @@ const SHOW_TIME = 0.3
 
 var _tt = 0
 
-# default
+### default
 
 
 func _ready():
@@ -28,7 +28,7 @@ func _process(dt):
 		_tt = 0
 
 
-# public
+### public
 
 
 func show_emo():
@@ -39,7 +39,7 @@ func hide_emo():
 	self.visible = false
 
 
-# private
+### private
 
 
 func _bind_events():

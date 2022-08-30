@@ -11,14 +11,14 @@ const OFFSET_Y = 5
 const DEFAULT_TIME_FPS = 1.0 / FPS
 const FPS_FACTOR = 0.8
 
-# public
+### public
 var moving = false
 
 # local var
 var _time_per_frame: float = DEFAULT_TIME_FPS
 var _tt = 0
 
-# default
+### default
 
 
 func _ready():
@@ -44,7 +44,7 @@ func _process(dt):
 			self.position.y = OFFSET_Y
 
 
-# private
+### private
 
 
 func _bind_events():

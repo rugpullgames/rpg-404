@@ -27,7 +27,7 @@ onready var AudioJump: AudioStreamPlayer2D = $AudioJump
 onready var AudioDie: AudioStreamPlayer2D = $AudioDie
 onready var AudioPowerUp: AudioStreamPlayer2D = $AudioPowerUp
 
-# default
+### default
 
 
 func _ready():
@@ -84,7 +84,7 @@ func _process(dt):
 		self.position.y = clamp(self.position.y, 0, K.SCREEN_HEIGHT)
 
 
-# public methods
+### public methods
 
 
 func play_audio_power_up():
@@ -92,7 +92,7 @@ func play_audio_power_up():
 		AudioPowerUp.play()
 
 
-# private methods
+### private methods
 
 
 func _bind_events():

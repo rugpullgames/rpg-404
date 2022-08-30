@@ -8,7 +8,7 @@ extends AnimatedSprite
 const ANIM_NAME = "default"
 const SPEED_FACTOR = 0.3
 
-# default
+### default
 
 
 func _ready():
@@ -20,7 +20,7 @@ func _process(_dt):
 		self.speed_scale = (G.factor - 1) * SPEED_FACTOR + 1
 
 
-# private
+### private
 
 
 func _bind_events():
