@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Emo 05.png-44e76d93a924f71c1b33f4af829565bb.stex"
+path="res://.import/emo_04.png-314aa0c083c0b7d40fef5784879947c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/emo/Emo 05.png"
-dest_files=[ "res://.import/Emo 05.png-44e76d93a924f71c1b33f4af829565bb.stex" ]
+source_file="res://texture/emo/emo_04.png"
+dest_files=[ "res://.import/emo_04.png-314aa0c083c0b7d40fef5784879947c7.stex" ]
 
 [params]
 
