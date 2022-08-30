@@ -13,19 +13,25 @@ const SPEED_X = K.SPEED_X
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	__bind_events()
+	_bind_events()
 
 
-func __bind_events():
-	var error_code = Events.connect("update_traits", self, "__reset")
+func _process(dt):
+	if G.game_state != K.GameState.RUNNING:
+		return
+	_move(dt)
+
+
+func _bind_events():
+	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func __reset():
-	__reset_foreground_texture()
+func _reset():
+	_reset_foreground_texture()
 
 
-func __reset_foreground_texture():
+func _reset_foreground_texture():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.floor:
 		push_warning("Wrong NFT floor traits.")
 		return
@@ -33,13 +39,7 @@ func __reset_foreground_texture():
 	self.texture = load(res)
 
 
-func _process(dt):
-	if G.game_state != K.GameState.RUNNING:
-		return
-	__move(dt)
-
-
-func __move(dt):
+func _move(dt):
 	if G.game_state != K.GameState.RUNNING:
 		return
 

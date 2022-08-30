@@ -7,12 +7,12 @@ extends Node
 
 
 func _ready():
-	__reset_floors()
+	_reset_floors()
 
 
-func __reset_floors():
+func _reset_floors():
 	var floors = self.get_children()
-	floors[0].position.x = 0		
-	floors[1].position.x = 300		
-	floors[2].position.x = 600		
-	floors[3].position.x = 900		
+	floors[0].position.x = 0
+	floors[1].position.x = 300
+	floors[2].position.x = 600
+	floors[3].position.x = 900
