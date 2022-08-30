@@ -14,37 +14,27 @@ const SPAWN_TIME_MAX = 8
 const SPAWN_TIME_FACTOR = 0.5
 
 # local var
-var tt = 0
-var nextTime = __get_next_time(1)
-var textures = []
-export(NodePath) var pathToBoomEffect
+var _tt = 0
+var _nextTime = _get_next_time(1)
+export(NodePath) var path_to_boom_effect
 var Boom: AnimatedSprite
 
 
 func _ready():
-	Boom = get_node(pathToBoomEffect)
-	var error_code = Events.connect("game_ready", self, "__reset")
+	Boom = get_node(path_to_boom_effect)
+	var error_code = Events.connect("game_ready", self, "_reset")
 	assert(error_code == OK, error_code)
-
-
-func __reset():
-	nextTime = __get_next_time(1)
 
 
 func _process(dt):
 	if G.game_state == K.GameState.READY:
-		tt = 0
+		_tt = 0
 	elif G.game_state == K.GameState.RUNNING:
-		tt += dt
-		if tt >= nextTime:
-			__spawn_pet()
-			tt = 0
-			nextTime = __get_next_time()
-
-
-func __spawn_pet():
-	var pet = SCENE_PET.instance()
-	add_child(pet)
+		_tt += dt
+		if _tt >= _nextTime:
+			_spawn_pet()
+			_tt = 0
+			_nextTime = _get_next_time()
 
 
 func play_boom_effect(pos: Vector2):
@@ -52,5 +42,14 @@ func play_boom_effect(pos: Vector2):
 	Boom.play_effect()
 
 
-func __get_next_time(factor = G.factor):
+func _reset():
+	_nextTime = _get_next_time(1)
+
+
+func _spawn_pet():
+	var pet = SCENE_PET.instance()
+	add_child(pet)
+
+
+func _get_next_time(factor = G.factor):
 	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / ((factor - 1) * SPAWN_TIME_FACTOR + 1)
