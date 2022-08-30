@@ -1,35 +1,19 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/blue_bow_flower_05.png-d99a943ea9369882cce590f384ec0360.stex"
-metadata={
-"vram_texture": false
-}
-
+importer="texture_atlas"
+type="Texture"
+path="res://.import/blue_bow_flower_05.png-d99a943ea9369882cce590f384ec0360.res"
+group_file="res://texture/atlas/barrier/blue_bow_flower.png"
+valid=true
 [deps]
 
+
 source_file="res://texture/barrier/blue_bow_flower/blue_bow_flower_05.png"
-dest_files=[ "res://.import/blue_bow_flower_05.png-d99a943ea9369882cce590f384ec0360.stex" ]
+dest_files=[ "res://.import/blue_bow_flower_05.png-d99a943ea9369882cce590f384ec0360.res" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=2
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=false
-svg/scale=1.0
+atlas_file="res://texture/atlas/barrier/blue_bow_flower.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true
