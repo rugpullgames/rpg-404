@@ -9,5 +9,5 @@ extends Node
 const MAJOR = 1
 const MINOR = 2
 const BUGFIX = 0
-const COMMIT = 618346
+const COMMIT = 619001
 const VERSION = "v%s.%s.%s.%s" % [MAJOR, MINOR, BUGFIX, COMMIT]
