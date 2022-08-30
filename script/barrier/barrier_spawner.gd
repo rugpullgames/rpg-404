@@ -12,34 +12,45 @@ const SPAWN_TIME_FACTOR = 0.5
 const DEFAULT_POS_X = 1000
 
 # local var
-var tt = 0
-var nextTime = __get_next_time(1)
-var textures = []
+var _tt = 0
+var _next_time = _get_next_time(1)
+var _textures = []
 
 
 func _ready():
-	__bind_events()
+	_bind_events()
 
 
-func __bind_events():
-	var error_code = Events.connect("update_traits", self, "__reset")
+func _process(dt):
+	if G.game_state == K.GameState.READY:
+		_tt = 0
+	elif G.game_state == K.GameState.RUNNING:
+		_tt += dt
+		if _tt >= _next_time:
+			_spawn_barrier()
+			_tt = 0
+			_next_time = _get_next_time()
+
+
+func _bind_events():
+	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
-	error_code = Events.connect("game_ready", self, "__reset")
+	error_code = Events.connect("game_ready", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func __reset():
-	__reset_barrier_textures()
-	__disable_all_barriers()
-	nextTime = __get_next_time(1)
+func _reset():
+	_reset_barrier_textures()
+	_disable_all_barriers()
+	_next_time = _get_next_time(1)
 
 
-func __reset_barrier_textures():
+func _reset_barrier_textures():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.barrier:
 		push_warning("Wrong NFT barrier traits.")
 		return
 
-	textures = []
+	_textures = []
 	for n in range(1, 6):
 		var res = (
 			"res://texture/barrier/%s/%s_0%s.png"
@@ -47,35 +58,24 @@ func __reset_barrier_textures():
 		)
 		var texture = load(res)
 
-		textures.append(texture)
+		_textures.append(texture)
 
 
-func __disable_all_barriers():
+func _disable_all_barriers():
 	for brr in self.get_children():
 		brr.visible = false
 		brr.set_process(false)
 		brr.position.x = DEFAULT_POS_X
 
 
-func _process(dt):
-	if G.game_state == K.GameState.READY:
-		tt = 0
-	elif G.game_state == K.GameState.RUNNING:
-		tt += dt
-		if tt >= nextTime:
-			__spawn_barrier()
-			tt = 0
-			nextTime = __get_next_time()
-
-
-func __spawn_barrier():
+func _spawn_barrier():
 	for brr in self.get_children():
 		if not brr.visible:
 			brr.set_process(true)
-			var idx = randi() % textures.size()
-			brr.reset(textures[idx])
+			var idx = randi() % _textures.size()
+			brr.reset(_textures[idx])
 			break
 
 
-func __get_next_time(factor = G.factor):
+func _get_next_time(factor = G.factor):
 	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / ((factor - 1) * SPAWN_TIME_FACTOR + 1)
