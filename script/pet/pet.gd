@@ -21,43 +21,50 @@ const MIN_OFFSET_Y = 10
 const MAX_OFFSET_Y = 50
 
 # local var
-var defaultPosY
-var speedX
-var speedY
-var offsetLimit
+var default_pos_y
+var speed_x
+var speed_y
+var offset_limit
 var direction
 
 
 func _ready():
 	self.position.x = DEFAULT_POS_X
-	defaultPosY = rand_range(MIN_DEFAULT_POS_Y, MAX_DEFAULT_POS_Y)
-	self.position.y = defaultPosY
-	speedX = rand_range(MIN_SPEED_X, MAX_SPEED_X)
-	speedY = rand_range(MIN_SPEED_Y, MAX_SPEED_Y)
-	offsetLimit = rand_range(MIN_OFFSET_Y, MAX_OFFSET_Y)
+	default_pos_y = rand_range(MIN_DEFAULT_POS_Y, MAX_DEFAULT_POS_Y)
+	self.position.y = default_pos_y
+	speed_x = rand_range(MIN_SPEED_X, MAX_SPEED_X)
+	speed_y = rand_range(MIN_SPEED_Y, MAX_SPEED_Y)
+	offset_limit = rand_range(MIN_OFFSET_Y, MAX_OFFSET_Y)
 	direction = pow(-1, randi() % 2)
-	__bind_events()
-	__reset()
+	_bind_events()
+	_reset()
+
+
+func _process(dt):
+	if G.gameState == K.GameState.READY:
+		self.queue_free()
+	elif G.gameState == K.GameState.RUNNING:
+		_move(dt)
 
 
 func _exit_tree():
-	__unbind_events()
+	_unbind_events()
 
 
-func __bind_events():
-	var error_code = Events.connect("update_traits", self, "__reset")
+func _bind_events():
+	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func __unbind_events():
-	Events.disconnect("update_traits", self, "__reset")
+func _unbind_events():
+	Events.disconnect("update_traits", self, "_reset")
 
 
-func __reset():
-	__reset_pet_type()
+func _reset():
+	_reset_pet_type()
 
 
-func __reset_pet_type():
+func _reset_pet_type():
 	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.pet:
 		push_warning("Wrong NFT pet traits.")
 		return
@@ -65,22 +72,15 @@ func __reset_pet_type():
 	SprPet.texture = load(res)
 
 
-func _process(dt):
-	if G.gameState == K.GameState.READY:
-		self.queue_free()
-	elif G.gameState == K.GameState.RUNNING:
-		__move(dt)
-
-
-func __move(dt):
-	self.position.x -= speedX * dt * G.factor
+func _move(dt):
+	self.position.x -= speed_x * dt * G.factor
 	if direction == 1:
-		self.position.y += speedY * dt * G.factor
+		self.position.y += speed_y * dt * G.factor
 	else:
-		self.position.y -= speedY * dt * G.factor
-	if self.position.y >= defaultPosY + offsetLimit:
+		self.position.y -= speed_y * dt * G.factor
+	if self.position.y >= default_pos_y + offset_limit:
 		direction = -1
-	elif self.position.y <= defaultPosY - offsetLimit:
+	elif self.position.y <= default_pos_y - offset_limit:
 		direction = 1
 
 	if self.position.x < -SCREEN_WIDTH - 100:
