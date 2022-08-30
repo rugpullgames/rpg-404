@@ -15,7 +15,7 @@ const SPAWN_TIME_FACTOR = 0.5
 
 # local var
 var _tt = 0
-var _nextTime = _get_next_time(1)
+var _next_time = _get_next_time(1)
 export(NodePath) var path_to_boom_effect
 var Boom: AnimatedSprite
 
@@ -31,10 +31,10 @@ func _process(dt):
 		_tt = 0
 	elif G.game_state == K.GameState.RUNNING:
 		_tt += dt
-		if _tt >= _nextTime:
+		if _tt >= _next_time:
 			_spawn_pet()
 			_tt = 0
-			_nextTime = _get_next_time()
+			_next_time = _get_next_time()
 
 
 func play_boom_effect(pos: Vector2):
@@ -43,7 +43,7 @@ func play_boom_effect(pos: Vector2):
 
 
 func _reset():
-	_nextTime = _get_next_time(1)
+	_next_time = _get_next_time(1)
 
 
 func _spawn_pet():
