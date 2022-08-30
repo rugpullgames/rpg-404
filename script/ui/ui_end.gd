@@ -8,44 +8,49 @@ extends Control
 # nodes
 onready var Version: Label = $BtnGodot/Version
 
+### default
+
 
 func _ready():
-	__bind_events()
+	_bind_events()
 	self.visible = false
 	Version.text = "Game " + V.VERSION
 
 
-func __bind_events():
-	var error_code = Events.connect("game_ready", self, "__hide_gui")
+func _process(_dt):
+	if G.game_state == K.GameState.END:
+		_check_input()
+
+
+### private
+
+
+func _bind_events():
+	var error_code = Events.connect("game_ready", self, "_hide_gui")
 	assert(error_code == OK, error_code)
-	error_code = Events.connect("game_end", self, "__show_gui")
+	error_code = Events.connect("game_end", self, "_show_gui")
 	assert(error_code == OK, error_code)
 
 
-func __show_gui():
+func _show_gui():
 	self.visible = true
 
 
-func __hide_gui():
+func _hide_gui():
 	self.visible = false
 
 
-func _process(_dt):
-	if G.game_state == K.GameState.END:
-		__check_input()
-
-
-func __check_input():
+func _check_input():
 	if Input.is_action_just_pressed("ui_accept"):
-		__restart_game()
+		_restart_game()
 
 
-func __restart_game():
+func _restart_game():
 	Events.emit_signal("game_ready")
 
 
 func _on_BtnRestart_pressed():
-	__restart_game()
+	_restart_game()
 
 
 func _on_BtnSelect_pressed():

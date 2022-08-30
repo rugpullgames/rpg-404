@@ -5,17 +5,22 @@
 
 extends Label
 
+### default
+
 
 func _ready():
-	__update_score()
+	_update_score()
 
 
 func _process(_dt):
 	if G.game_state == K.GameState.READY:
 		self.text = "0"
 	elif G.game_state == K.GameState.RUNNING:
-		__update_score()
+		_update_score()
 
 
-func __update_score():
+### private
+
+
+func _update_score():
 	self.text = str(G.score)
