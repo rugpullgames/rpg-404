@@ -140,7 +140,7 @@ z_index = 10
 
 [node name="Pets" type="Node" parent="Game"]
 script = ExtResource( 22 )
-pathToBoomEffect = NodePath("../Boom")
+path_to_boom_effect = NodePath("../Boom")
 
 [node name="Floors" type="Node2D" parent="Game"]
 script = ExtResource( 12 )
@@ -283,7 +283,7 @@ expand_icon = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 17 )
-pathToBgm = NodePath("../../../BGM")
+path_to_bgm = NodePath("../../../BGM")
 
 [node name="BtnBgmAudio" type="Button" parent="UI/UIEnd/Audio"]
 anchor_left = 1.0
