@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jacket 04.png-17906820be0772c4a94bac298e8d2944.stex"
+path="res://.import/jacket_15.png-19f300902fa7e8c589526ec65676d965.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/jacket/Jacket 04.png"
-dest_files=[ "res://.import/Jacket 04.png-17906820be0772c4a94bac298e8d2944.stex" ]
+source_file="res://texture/jacket/jacket_15.png"
+dest_files=[ "res://.import/jacket_15.png-19f300902fa7e8c589526ec65676d965.stex" ]
 
 [params]
 
