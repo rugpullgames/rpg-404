@@ -19,53 +19,53 @@ const PLAYER_DEFAULT_POS_X = 180
 
 func _ready():
 	print("Game Init")
-	__bind_events()
+	_bind_events()
 	MgrNft.reload_nft()
-	__reset()
-
-
-func __bind_events():
-	var error_code = Events.connect("game_ready", self, "__ready_game")
-	assert(error_code == OK, error_code)
-	error_code = Events.connect("game_run", self, "__run_game")
-	assert(error_code == OK, error_code)
-	error_code = Events.connect("game_end", self, "__end_game")
-	assert(error_code == OK, error_code)
-
-
-func __reset():
-	ScoreMarker.position = Vector2.ZERO
+	_reset()
 
 
 func _process(dt):
 	if G.game_state == K.GameState.READY:
-		__update_player(dt)
+		_update_player(dt)
 	elif G.game_state == K.GameState.RUNNING:
-		__update_marker(dt)
-		__update_bgm()
+		_update_marker(dt)
+		_update_bgm()
 
 
-func __update_player(dt):
+func _bind_events():
+	var error_code = Events.connect("game_ready", self, "_ready_game")
+	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_run", self, "_run_game")
+	assert(error_code == OK, error_code)
+	error_code = Events.connect("game_end", self, "_end_game")
+	assert(error_code == OK, error_code)
+
+
+func _reset():
+	ScoreMarker.position = Vector2.ZERO
+
+
+func _update_player(dt):
 	player.position.x += SPEED_X * dt
 	if player.position.x >= PLAYER_DEFAULT_POS_X:
 		player.position.x = PLAYER_DEFAULT_POS_X
 		Events.emit_signal("game_run")
 
 
-func __update_marker(dt):
+func _update_marker(dt):
 	ScoreMarker.position.x -= SPEED_X * dt
 	G.score = abs(floor(ScoreMarker.position.x * SCORE_FACTOR))
 	G.factor += K.FACTOR_DELTA * dt
 
 
-func __update_bgm():
+func _update_bgm():
 	BGM.pitch_scale = (
 		(G.factor - K.BGM_DEFAULT_PITCH_SCALE) * K.BGM_FACTOR
 		+ K.BGM_DEFAULT_PITCH_SCALE
 	)
 
 
-func __ready_game():
+func _ready_game():
 	Floors.visible = true
 	player.position.x = -20
 	player.position.y = 150
@@ -77,7 +77,7 @@ func __ready_game():
 	print("Game Ready")
 
 
-func __run_game():
+func _run_game():
 	BGM.seek(0)
 	if G.bgm_audio:
 		BGM.play()
@@ -85,7 +85,7 @@ func __run_game():
 	print("Game Start")
 
 
-func __end_game():
+func _end_game():
 	G.game_state = K.GameState.END
 	BGM.stop()
 	Floors.visible = false
