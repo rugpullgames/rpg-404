@@ -35,6 +35,8 @@ const NFT_META_TEST = {
 var NFT_META = NFT_META_TEST  # Metadata JSON
 var NFT_TRAITS = null  # Traits Dict
 
+### public
+
 
 func reload_nft():
 	_load_nft_metadata()
@@ -44,6 +46,9 @@ func reload_nft():
 		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
+
+
+### private
 
 
 func _load_nft_metadata():

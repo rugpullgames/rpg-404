@@ -14,9 +14,14 @@ var game_state = K.GameState.INIT
 var bgm_audio = true
 var sfx_audio = true
 
+### default
+
 
 func _ready():
 	_reset()
+
+
+# private
 
 
 func _reset():

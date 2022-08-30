@@ -5,10 +5,6 @@
 
 extends Control
 
-# node
-onready var BtnBgm: Button = $BtnBgmAudio
-onready var BtnSfx: Button = $BtnSfxAudio
-
 # resource
 const RES_BGM_ON = preload("res://texture/ui/btn_game_bgm_on.png")
 const RES_BGM_OFF = preload("res://texture/ui/btn_game_bgm_off.png")
@@ -20,11 +16,20 @@ var _res_bgm = "mute.ogg"
 export(NodePath) var path_to_bgm
 var AudioBgm: AudioStreamPlayer2D
 
+# node
+onready var BtnBgm: Button = $BtnBgmAudio
+onready var BtnSfx: Button = $BtnSfxAudio
+
+### default
+
 
 func _ready():
 	AudioBgm = get_node(path_to_bgm)
-	_update_ui()
 	_bind_events()
+	_update_ui()
+
+
+### private
 
 
 func _bind_events():

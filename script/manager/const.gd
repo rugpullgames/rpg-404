@@ -77,10 +77,15 @@ const STARS = [
 	"res://texture/stars/star_04.png",
 ]
 
+### default
+
 
 func _ready():
 	_init_screen()
 	_clean_data()
+
+
+### private
 
 
 func _init_screen():
