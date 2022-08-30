@@ -10,6 +10,8 @@ const SCREEN_WIDTH = K.SCREEN_WIDTH
 const SCREEN_WIDTH_EXT = SCREEN_WIDTH + 300
 const SPEED_X = K.SPEED_X
 
+### default
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,9 @@ func _process(dt):
 	if G.game_state != K.GameState.RUNNING:
 		return
 	_move(dt)
+
+
+### private
 
 
 func _bind_events():

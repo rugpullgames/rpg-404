@@ -5,9 +5,14 @@
 
 extends Node
 
+### default
+
 
 func _ready():
 	_reset_floors()
+
+
+### private
 
 
 func _reset_floors():
