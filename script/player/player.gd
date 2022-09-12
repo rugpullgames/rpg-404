@@ -34,7 +34,7 @@ func _ready():
 	_bind_events()
 
 
-func _process(dt):
+func _physics_process(dt):
 	if G.game_state == K.GameState.READY:
 		Pants.playing = true
 		return
