@@ -37,11 +37,15 @@ func _reset():
 
 
 func _reset_foreground_texture():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.floor:
+	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.floor:
+		var res = "res://texture/floor/%s.png" % [MgrNft.NFT_TRAITS.floor]
+		self.texture = load(res)
+	elif MgrNft.is_strxngers():
+		var res = "res://texture/strxngers/floor_strxngers_01.png"
+		self.texture = load(res)
+	else:
 		push_warning("Wrong NFT floor traits.")
-		return
-	var res = "res://texture/floor/%s.png" % [MgrNft.NFT_TRAITS.floor]
-	self.texture = load(res)
+
 
 
 func _move(dt):
