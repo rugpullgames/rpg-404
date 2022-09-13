@@ -47,24 +47,27 @@ func _process(dt):
 ### private
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func _reset():
+func _reset() -> void:
 	_reset_head_type()
 	_reset_time_fps()
 	_tt = 0
 
 
-func _reset_time_fps():
+func _reset_time_fps() -> void:
 	_time_per_frame = DEFAULT_TIME_FPS
 
 
-func _reset_head_type():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.head:
+func _reset_head_type() -> void:
+	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.head:
+		var res = "res://texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
+		self.texture = load(res)
+		visible = true
+	elif MgrNft.is_strxngers():
+		visible = false
+	else:	
 		push_warning("Wrong NFT head traits.")
-		return
-	var res = "res://texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
-	self.texture = load(res)

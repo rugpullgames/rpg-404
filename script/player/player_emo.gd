@@ -31,18 +31,18 @@ func _process(dt):
 ### public
 
 
-func show_emo():
+func show_emo() -> void:
 	self.visible = true
 
 
-func hide_emo():
+func hide_emo() -> void:
 	self.visible = false
 
 
 ### private
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 	error_code = Events.connect("game_ready", self, "hide_emo")
@@ -51,14 +51,17 @@ func _bind_events():
 	assert(error_code == OK, error_code)
 
 
-func _reset():
+func _reset() -> void:
 	_reset_emo_type()
 	hide_emo()
 
 
-func _reset_emo_type():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.emo:
+func _reset_emo_type() -> void:
+	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.emo:
+		var res = "res://texture/emo/%s.png" % [MgrNft.NFT_TRAITS.emo]
+		self.texture = load(res)
+	elif MgrNft.is_strxngers():
+		var res = "res://texture/emo/emo_14.png"
+		self.texture = load(res)
+	else:
 		push_warning("Wrong NFT emo traits.")
-		return
-	var res = "res://texture/emo/%s.png" % [MgrNft.NFT_TRAITS.emo]
-	self.texture = load(res)

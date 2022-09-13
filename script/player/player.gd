@@ -19,10 +19,11 @@ var _long_jump = false
 var _tt = 0
 
 # nodes
-onready var Emo: Sprite = $SprEmo
-onready var Head: Sprite = $SprHead
-onready var Weapon: Sprite = $SprWeapon
-onready var Pants: AnimatedSprite = $AsprPants
+onready var Emo: Sprite = $Emo
+onready var Head: Sprite = $Head
+onready var Weapon: Sprite = $Weapon
+onready var Pants: AnimatedSprite = $Pants
+onready var StrxngerCloud: AnimatedSprite = $StrxngerCloud
 onready var AudioJump: AudioStreamPlayer2D = $AudioJump
 onready var AudioDie: AudioStreamPlayer2D = $AudioDie
 onready var AudioPowerUp: AudioStreamPlayer2D = $AudioPowerUp
@@ -37,9 +38,11 @@ func _ready():
 func _physics_process(dt):
 	if G.game_state == K.GameState.READY:
 		Pants.playing = true
+		StrxngerCloud.playing = true
 		return
 	elif G.game_state == K.GameState.END:
 		Pants.playing = false
+		StrxngerCloud.playing = false
 		return
 	elif G.game_state == K.GameState.RUNNING:
 		_velocity.y += dt * GRAVITY
@@ -68,6 +71,7 @@ func _physics_process(dt):
 		if is_on_floor():
 			# move
 			Pants.playing = true
+			StrxngerCloud.playing = true
 			Head.moving = true
 			Weapon.moving = true
 			Weapon.offset = WEAPON_MOVE_OFFSET
@@ -75,6 +79,8 @@ func _physics_process(dt):
 			# jump
 			Pants.playing = false
 			Pants.frame = 0 if _velocity.y < 0 else 1
+			StrxngerCloud.playing = false
+			StrxngerCloud.frame = 2 if _velocity.y < 0 else 0
 			Head.moving = false
 			Weapon.moving = false
 			Weapon.offset = WEAPON_JUMP_UP_OFFSET if _velocity.y < 0 else WEAPON_JUMP_DOWN_OFFSET
@@ -87,7 +93,7 @@ func _physics_process(dt):
 ### public methods
 
 
-func play_audio_power_up():
+func play_audio_power_up() -> void:
 	if G.sfx_audio:
 		AudioPowerUp.play()
 
@@ -95,15 +101,15 @@ func play_audio_power_up():
 ### private methods
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("game_end", self, "_player_die")
 	assert(error_code == OK, error_code)
 
 
-func _player_die():
+func _player_die() -> void:
 	_play_audio_die()
 
 
-func _play_audio_die():
+func _play_audio_die() -> void:
 	if G.sfx_audio:
 		AudioDie.play()

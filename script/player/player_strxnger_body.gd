@@ -2,7 +2,6 @@
 # @see Rug Pull Games: https://rug-pull.games/
 # @see RPG 404: https://rpg404.com/
 # @author endaye.eth, Fried Egg Fendi
-
 extends Sprite
 
 ### default
@@ -21,16 +20,13 @@ func _bind_events() -> void:
 
 
 func _reset() -> void:
-	_reset_jacket_type()
+	_reset_strxnger_body_type()
 
 
-func _reset_jacket_type() -> void:
-	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.jacket:
-		var res = "res://texture/jacket/%s.png" % [MgrNft.NFT_TRAITS.jacket]
-		self.texture = load(res)
-		visible = true
-	elif MgrNft.is_strxngers():
+func _reset_strxnger_body_type() -> void:
+	if MgrNft.is_rpg404():
 		visible = false
+	elif MgrNft.is_strxngers():
+		visible = true
 	else:
-		push_warning("Wrong NFT jacket traits.")
-
+		push_warning("Wrong NFT Strxngers body traits.")

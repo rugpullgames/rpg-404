@@ -2,16 +2,17 @@
 # @see Rug Pull Games: https://rug-pull.games/
 # @see RPG 404: https://rpg404.com/
 # @author endaye.eth, Fried Egg Fendi
-
 extends Node
 
-const NFT_META_TEST = {
+enum NftBrand { NULL, RPG404, STRXNGERS }
+
+const NFT_RPGT404_META_TEST = {
 	"attributes":
 	[
 		{"trait_type": "Music", "value": "Mozart Rondo Alla Turca 03"},
 		{"trait_type": "Background", "value": "Light Blue Sky 01"},
 		{"trait_type": "Foreground", "value": "Base Floor"},
-		{"trait_type": "Barrier", "value": "Cat Green"},
+		{"trait_type": "Barrier", "value": "Cube Yellow 02"},
 		{"trait_type": "Floor", "value": "Floor 29"},
 		{"trait_type": "Pants", "value": "Pants 13"},
 		{"trait_type": "Jacket", "value": "Jacket 10"},
@@ -32,7 +33,12 @@ const NFT_META_TEST = {
 	"website": "https://rug-pull.games/"
 }
 
-var NFT_META = NFT_META_TEST  # Metadata JSON
+const NFT_STRXNGERS_TOKEN_ID_TEST = 10
+const NFT_STRXNGERS_MAX = 6666
+
+var nft_brand = NftBrand.STRXNGERS
+var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
+var nft_strxnger_token_id: int = NFT_STRXNGERS_TOKEN_ID_TEST  # test
 var NFT_TRAITS = null  # Traits Dict
 
 ### public
@@ -40,12 +46,24 @@ var NFT_TRAITS = null  # Traits Dict
 
 func reload_nft():
 	_load_nft_metadata()
-	if NFT_META:
+	if nft_rpg404_meta:
 		_get_traits()
 		_update_metadata_traits()
 		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
+
+
+func is_rpg404() -> bool:
+	return nft_brand == NftBrand.RPG404 and NFT_TRAITS
+
+
+func is_strxngers() -> bool:
+	return (
+		nft_brand == NftBrand.STRXNGERS
+		and nft_strxnger_token_id > 0
+		and nft_strxnger_token_id <= NFT_STRXNGERS_MAX
+	)
 
 
 ### private
@@ -64,7 +82,9 @@ func _load_nft_metadata():
 		if nft_data and not nft_data.empty():
 			var p = JSON.parse(nft_data)
 			if typeof(p.result) == TYPE_DICTIONARY:
-				NFT_META = p.result
+				#TODO: set nft_brand
+				nft_brand = NftBrand.RPG404
+				nft_rpg404_meta = p.result
 			else:
 				push_warning("Unexpected results.")
 		else:
@@ -74,11 +94,11 @@ func _load_nft_metadata():
 
 
 func _get_traits():
-	if not NFT_META:
+	if not nft_rpg404_meta:
 		return
 
 	NFT_TRAITS = {}
-	for trait in NFT_META.attributes:
+	for trait in nft_rpg404_meta.attributes:
 		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
 
 
