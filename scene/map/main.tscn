@@ -160,10 +160,11 @@ z_index = 19
 [node name="Score" type="Label" parent="UI"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -200.0
+margin_left = -380.0
 margin_top = 20.0
-margin_right = -20.0
+margin_right = -200.0
 margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
 size_flags_horizontal = 5
 theme = ExtResource( 15 )
 text = "RPG 404"
