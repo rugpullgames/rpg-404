@@ -37,43 +37,53 @@ func _process(dt):
 ### private
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 	error_code = Events.connect("game_ready", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func _reset():
+func _reset() -> void:
 	_reset_barrier_textures()
 	_disable_all_barriers()
 	_next_time = _get_next_time(1)
 
 
-func _reset_barrier_textures():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.barrier:
+func _reset_barrier_textures() -> void:
+	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.barrier:
+		_textures = []
+		for n in range(1, 6):
+			var res = (
+				"res://texture/barrier/%s/%s_0%s.png"
+				% [MgrNft.NFT_TRAITS.barrier, MgrNft.NFT_TRAITS.barrier, n]
+			)
+			var texture = load(res)
+
+			_textures.append(texture)
+	elif MgrNft.is_strxngers():
+		_textures = []
+		for n in range(1, 6):
+			var res = (
+				"res://texture/barrier/%s/%s_0%s.png"
+				% ["cube_yellow_02", "cube_yellow_02", n]
+			)
+			var texture = load(res)
+
+			_textures.append(texture)
+	else:
 		push_warning("Wrong NFT barrier traits.")
 		return
 
-	_textures = []
-	for n in range(1, 6):
-		var res = (
-			"res://texture/barrier/%s/%s_0%s.png"
-			% [MgrNft.NFT_TRAITS.barrier, MgrNft.NFT_TRAITS.barrier, n]
-		)
-		var texture = load(res)
 
-		_textures.append(texture)
-
-
-func _disable_all_barriers():
+func _disable_all_barriers() -> void:
 	for brr in self.get_children():
 		brr.visible = false
 		brr.set_process(false)
 		brr.position.x = DEFAULT_POS_X
 
 
-func _spawn_barrier():
+func _spawn_barrier() -> void:
 	for brr in self.get_children():
 		if not brr.visible:
 			brr.set_process(true)
@@ -82,5 +92,5 @@ func _spawn_barrier():
 			break
 
 
-func _get_next_time(factor = G.factor):
+func _get_next_time(factor = G.factor) -> float:
 	return rand_range(SPAWN_TIME_MIN, SPAWN_TIME_MAX) / ((factor - 1) * SPAWN_TIME_FACTOR + 1)

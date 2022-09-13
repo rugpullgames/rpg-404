@@ -33,7 +33,7 @@ func _process(dt):
 ### public
 
 
-func reset(texture):
+func reset(texture) -> void:
 	if not texture:
 		push_warning("Barrier texture is null.")
 		return
@@ -54,14 +54,14 @@ func reset(texture):
 ### private
 
 
-func _move(dt):
+func _move(dt) -> void:
 	self.position.x -= SPEED_X * dt * G.factor
 	if self.position.x < -SCREEN_WIDTH - 100:
 		_moving = false
 		self.visible = false
 
 
-func _on_Barrier_body_entered(body: KinematicBody2D):
+func _on_Barrier_body_entered(body: KinematicBody2D) -> void:
 	if not body:
 		return
 
