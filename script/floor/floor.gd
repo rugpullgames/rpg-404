@@ -27,16 +27,16 @@ func _process(dt):
 ### private
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func _reset():
+func _reset() -> void:
 	_reset_foreground_texture()
 
 
-func _reset_foreground_texture():
+func _reset_foreground_texture() -> void:
 	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.floor:
 		var res = "res://texture/floor/%s.png" % [MgrNft.NFT_TRAITS.floor]
 		self.texture = load(res)
@@ -47,8 +47,7 @@ func _reset_foreground_texture():
 		push_warning("Wrong NFT floor traits.")
 
 
-
-func _move(dt):
+func _move(dt) -> void:
 	if G.game_state != K.GameState.RUNNING:
 		return
 
