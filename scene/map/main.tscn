@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://script/floor/base_floor.gd" type="Script" id=1]
 [ext_resource path="res://script/map/map_main.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://texture/ui/btn_game_bgm_on.png" type="Texture" id=23]
 [ext_resource path="res://texture/ui/btn_game_sfx_on.png" type="Texture" id=24]
 [ext_resource path="res://scene/effect/boom.tscn" type="PackedScene" id=25]
+[ext_resource path="res://script/manager/audio_loader.gd" type="Script" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
@@ -280,6 +281,9 @@ margin_bottom = 40.0
 script = ExtResource( 17 )
 path_to_bgm = NodePath("../../../BGM")
 
+[node name="AudioLoader" type="Node" parent="UI/UIEnd/Audio"]
+script = ExtResource( 26 )
+
 [node name="BtnBgmAudio" type="Button" parent="UI/UIEnd/Audio"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -316,6 +320,8 @@ icon = ExtResource( 24 )
 flat = true
 expand_icon = true
 
+[node name="HTTPRequest" type="HTTPRequest" parent="UI/UIEnd/Audio"]
+
 [connection signal="pressed" from="UI/UIEnd/BtnRestart" to="UI/UIEnd" method="_on_BtnRestart_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnSelect" to="UI/UIEnd" method="_on_BtnSelect_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnCopyright" to="UI/UIEnd" method="_on_BtnCopyright_pressed"]
@@ -323,3 +329,4 @@ expand_icon = true
 [connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd" method="_on_BtnShare_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnBgmAudio" to="UI/UIEnd/Audio" method="_on_BtnBgmAudio_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnSfxAudio" to="UI/UIEnd/Audio" method="_on_BtnSfxAudio_pressed"]
+[connection signal="request_completed" from="UI/UIEnd/Audio/HTTPRequest" to="UI/UIEnd/Audio" method="_on_HTTPRequest_request_completed"]
