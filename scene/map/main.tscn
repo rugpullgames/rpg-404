@@ -257,16 +257,16 @@ scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 8 )
 
 [node name="Version" type="Label" parent="UI/UIEnd/BtnGodot"]
-margin_left = 8.0
+margin_left = 6.0
 margin_top = -30.0
-margin_right = 308.0
+margin_right = 310.0
 text = "Game v.0.0.0.000000"
 valign = 2
 
 [node name="BtnShare" type="Button" parent="UI/UIEnd"]
-margin_left = 670.0
+margin_left = 718.0
 margin_top = 240.0
-margin_right = 727.0
+margin_right = 775.0
 margin_bottom = 298.0
 focus_mode = 0
 mouse_default_cursor_shape = 2

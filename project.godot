@@ -42,6 +42,10 @@ window/size/height=300
 window/size/resizable=false
 window/vsync/use_vsync=false
 
+[gui]
+
+theme/custom_font="res://font/press_start_2p.tres"
+
 [input]
 
 ui_accept={
