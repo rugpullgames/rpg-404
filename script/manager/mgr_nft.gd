@@ -50,6 +50,9 @@ func reload_nft():
 		_get_traits()
 		_update_metadata_traits()
 		Events.emit_signal("game_ready")
+	elif nft_strxnger_token_id:
+		_update_metadata_traits()
+		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
 
