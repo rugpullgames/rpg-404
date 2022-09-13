@@ -56,28 +56,31 @@ func _exit_tree():
 ### private
 
 
-func _bind_events():
+func _bind_events() -> void:
 	var error_code = Events.connect("update_traits", self, "_reset")
 	assert(error_code == OK, error_code)
 
 
-func _unbind_events():
+func _unbind_events() -> void:
 	Events.disconnect("update_traits", self, "_reset")
 
 
-func _reset():
+func _reset() -> void:
 	_reset_pet_type()
 
 
-func _reset_pet_type():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.pet:
+func _reset_pet_type() -> void:
+	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.pet:
+		var res = "res://texture/pet/%s.png" % [MgrNft.NFT_TRAITS.pet]
+		SprPet.texture = load(res)
+	elif MgrNft.is_strxngers():
+		var res = "res://texture/pet/carret_01.png"
+		SprPet.texture = load(res)
+	else:
 		push_warning("Wrong NFT pet traits.")
-		return
-	var res = "res://texture/pet/%s.png" % [MgrNft.NFT_TRAITS.pet]
-	SprPet.texture = load(res)
 
 
-func _move(dt):
+func _move(dt) -> void:
 	self.position.x -= speed_x * dt * G.factor
 	if direction == 1:
 		self.position.y += speed_y * dt * G.factor
@@ -92,7 +95,7 @@ func _move(dt):
 		self.queue_free()
 
 
-func _on_Area2D_body_entered(body: KinematicBody2D):
+func _on_Area2D_body_entered(body: KinematicBody2D) -> void:
 	if not body:
 		return
 
