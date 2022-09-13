@@ -4,6 +4,10 @@
 # @author endaye.eth, Fried Egg Fendi
 extends Sprite
 
+const TMP_FILE = "user://strxnger_body.png"
+
+onready var HTTPRequest: HTTPRequest = $HTTPRequest
+
 ### default
 
 
@@ -28,5 +32,25 @@ func _reset_strxnger_body_type() -> void:
 		visible = false
 	elif MgrNft.is_strxngers():
 		visible = true
+		_download_body_texture()
 	else:
 		push_warning("Wrong NFT Strxngers body traits.")
+
+
+func _download_body_texture():
+	HTTPRequest.set_use_threads(true)
+	HTTPRequest.set_download_file(TMP_FILE)
+	var image_url = "https://rpg404.com/nft/strxngers/%s.png" % [MgrNft.nft_strxnger_token_id]
+	var error_code = HTTPRequest.request(image_url)
+	if error_code != OK:
+		push_error("An error occurred in the HTTP request.")
+
+
+func _on_HTTPRequest_request_completed(result, response_code, _headers, _body):
+	if result == OK:
+		if response_code == 200:
+			var texture = ImageTexture.new()
+			var image = Image.new()
+			image.load(TMP_FILE)
+			texture.create_from_image(image, 1)
+			self.texture = texture
