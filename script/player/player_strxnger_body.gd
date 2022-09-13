@@ -56,3 +56,7 @@ func _on_HTTPRequest_request_completed(result, response_code, _headers, _body) -
 			image.load(TMP_BODY_FILE)
 			texture.create_from_image(image, 1)
 			self.texture = texture
+		else:
+			push_warning("response_code = %s" % response_code)
+	else:
+		push_warning("result = %s" % result)
