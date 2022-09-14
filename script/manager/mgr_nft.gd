@@ -131,7 +131,9 @@ func _get_traits_strxngers():
 	var bg_keys = K.DATA_BACKGROUND.keys()
 	var idx = randi() % bg_keys.size()
 	NFT_TRAITS["background"] = bg_keys[idx]
-	print(NFT_TRAITS["background"])
+	idx = randi() % K.DATA_NFT_STRXNGERS.barrier.size()
+	NFT_TRAITS["barrier"] = K.DATA_NFT_STRXNGERS.barrier[idx]
+
 	# for trait in nft_rpg404_meta.attributes:
 	# 	NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
 

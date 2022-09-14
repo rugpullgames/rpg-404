@@ -51,7 +51,7 @@ func _reset() -> void:
 
 
 func _reset_barrier_textures() -> void:
-	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.barrier:
+	if (MgrNft.is_rpg404() or MgrNft.is_strxngers()) and MgrNft.NFT_TRAITS.barrier:
 		_textures = []
 		for n in range(1, 6):
 			var res = (
@@ -60,14 +60,6 @@ func _reset_barrier_textures() -> void:
 			)
 			var texture = load(res)
 
-			_textures.append(texture)
-	elif MgrNft.is_strxngers():
-		_textures = []
-		var idx = randi() % K.DATA_NFT_STRXNGERS.barrier.size()
-		var name = K.DATA_NFT_STRXNGERS.barrier[idx]
-		for n in range(1, 6):
-			var res = "res://texture/barrier/%s/%s_0%s.png" % [name, name, n]
-			var texture = load(res)
 			_textures.append(texture)
 	else:
 		push_warning("Wrong NFT barrier traits.")
