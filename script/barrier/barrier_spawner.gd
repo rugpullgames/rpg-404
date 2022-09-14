@@ -63,13 +63,11 @@ func _reset_barrier_textures() -> void:
 			_textures.append(texture)
 	elif MgrNft.is_strxngers():
 		_textures = []
+		var idx = randi() % K.DATA_NFT_STRXNGERS.barrier.size()
+		var name = K.DATA_NFT_STRXNGERS.barrier[idx]
 		for n in range(1, 6):
-			var res = (
-				"res://texture/barrier/%s/%s_0%s.png"
-				% ["cube_yellow_02", "cube_yellow_02", n]
-			)
+			var res = "res://texture/barrier/%s/%s_0%s.png" % [name, name, n]
 			var texture = load(res)
-
 			_textures.append(texture)
 	else:
 		push_warning("Wrong NFT barrier traits.")

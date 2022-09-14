@@ -22,5 +22,24 @@ const nft = {
 		"res://texture/emo/emo_14.png",
 		"res://texture/emo/emo_15.png",
 		"res://texture/emo/emo_16.png",
+	],
+	"barrier":
+	[
+		"blue_bow_flower",
+		"cat_green",
+		"chimney",
+		"cross_top_robot_01",
+		"cross_top_robot_02",
+		"cube_orange",
+		"cube_pink",
+		"cube_purple",
+		"cube_red",
+		"cube_yellow_01",
+		"cube_yellow_02",
+		"dead_goblins",
+		"dirty_shit",
+		"lamp",
+		"machine_purple",
+		"robot_blue",
 	]
 }
