@@ -35,11 +35,18 @@ const NFT_RPGT404_META_TEST = {
 
 const NFT_STRXNGERS_TOKEN_ID_TEST = 10
 const NFT_STRXNGERS_MAX = 6666
-
 var nft_brand = NftBrand.STRXNGERS
 var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
-var nft_strxnger_token_id: int = NFT_STRXNGERS_TOKEN_ID_TEST  # test
+var nft_strxnger_token_id: int = randi() % NFT_STRXNGERS_MAX + 1  # random
 var NFT_TRAITS = null  # Traits Dict
+
+### default
+
+
+func _init():
+	randomize()
+	nft_strxnger_token_id = randi() % NFT_STRXNGERS_MAX + 1
+
 
 ### public
 
@@ -85,9 +92,18 @@ func _load_nft_metadata():
 		if nft_data and not nft_data.empty():
 			var p = JSON.parse(nft_data)
 			if typeof(p.result) == TYPE_DICTIONARY:
-				#TODO: set nft_brand
-				nft_brand = NftBrand.RPG404
-				nft_rpg404_meta = p.result
+				# set nft_brand
+				if p.result.nft_type == "RPG404":
+					nft_brand = NftBrand.RPG404
+					nft_rpg404_meta = p.result
+					print("Found RPG 404 NFT")
+				elif p.result.nft_type == "Strxngers":
+					nft_brand = NftBrand.STRXNGERS
+					randomize()
+					nft_strxnger_token_id = randi() % NFT_STRXNGERS_MAX + 1
+					print("Found Strxngers NFT, #", nft_strxnger_token_id)
+				else:
+					push_warning("Wrong nft_type.")
 			else:
 				push_warning("Unexpected results.")
 		else:
