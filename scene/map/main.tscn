@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://script/floor/base_floor.gd" type="Script" id=1]
 [ext_resource path="res://script/map/map_main.gd" type="Script" id=2]
@@ -20,15 +20,29 @@
 [ext_resource path="res://texture/ui/btn_game_restart.png" type="Texture" id=18]
 [ext_resource path="res://script/ui/ui_end.gd" type="Script" id=19]
 [ext_resource path="res://texture/ui/btn_game_select_nft.png" type="Texture" id=20]
-[ext_resource path="res://texture/logo/twitter_logo.png" type="Texture" id=21]
+[ext_resource path="res://texture/ui/btn_share_twitter.png" type="Texture" id=21]
 [ext_resource path="res://script/pet/pet_spawner.gd" type="Script" id=22]
 [ext_resource path="res://texture/ui/btn_game_bgm_on.png" type="Texture" id=23]
 [ext_resource path="res://texture/ui/btn_game_sfx_on.png" type="Texture" id=24]
 [ext_resource path="res://scene/effect/boom.tscn" type="PackedScene" id=25]
 [ext_resource path="res://script/manager/audio_loader.gd" type="Script" id=26]
+[ext_resource path="res://texture/effect/boom/boom_effect_0006.png" type="Texture" id=27]
+[ext_resource path="res://texture/effect/boom/boom_effect_0004.png" type="Texture" id=28]
+[ext_resource path="res://texture/effect/boom/boom_effect_0003.png" type="Texture" id=29]
+[ext_resource path="res://texture/effect/boom/boom_effect_0005.png" type="Texture" id=30]
+[ext_resource path="res://texture/effect/boom/boom_effect_0002.png" type="Texture" id=31]
+[ext_resource path="res://texture/effect/boom/boom_effect_0001.png" type="Texture" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "boom",
+"speed": 30.0
+} ]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -211,6 +225,27 @@ icon = ExtResource( 20 )
 flat = true
 expand_icon = true
 
+[node name="BtnShare" type="Button" parent="UI/UIEnd"]
+margin_left = 780.0
+margin_top = 100.0
+margin_right = 840.0
+margin_bottom = 160.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+icon = ExtResource( 21 )
+flat = true
+expand_icon = true
+
+[node name="BtnEffect" type="AnimatedSprite" parent="UI/UIEnd/BtnShare"]
+position = Vector2( 30, 30 )
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+frames = SubResource( 2 )
+animation = "boom"
+frame = 2
+playing = true
+
 [node name="BtnCopyright" type="Button" parent="UI/UIEnd"]
 margin_left = 50.0
 margin_top = 268.0
@@ -263,18 +298,6 @@ margin_right = 310.0
 text = "Game v.0.0.0.000000"
 valign = 2
 
-[node name="BtnShare" type="Button" parent="UI/UIEnd"]
-margin_left = 718.0
-margin_top = 240.0
-margin_right = 775.0
-margin_bottom = 298.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-enabled_focus_mode = 0
-icon = ExtResource( 21 )
-flat = true
-expand_icon = true
-
 [node name="Audio" type="Control" parent="UI/UIEnd"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -324,9 +347,9 @@ expand_icon = true
 
 [connection signal="pressed" from="UI/UIEnd/BtnRestart" to="UI/UIEnd" method="_on_BtnRestart_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnSelect" to="UI/UIEnd" method="_on_BtnSelect_pressed"]
+[connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd" method="_on_BtnShare_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnCopyright" to="UI/UIEnd" method="_on_BtnCopyright_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnGodot" to="UI/UIEnd" method="_on_BtnGodot_pressed"]
-[connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd" method="_on_BtnShare_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnBgmAudio" to="UI/UIEnd/Audio" method="_on_BtnBgmAudio_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnSfxAudio" to="UI/UIEnd/Audio" method="_on_BtnSfxAudio_pressed"]
 [connection signal="request_completed" from="UI/UIEnd/Audio/HTTPRequest" to="UI/UIEnd/Audio" method="_on_HTTPRequest_request_completed"]
