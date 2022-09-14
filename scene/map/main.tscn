@@ -243,7 +243,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 2 )
 animation = "boom"
-frame = 5
 playing = true
 
 [node name="BtnCopyright" type="Button" parent="UI/UIEnd"]
