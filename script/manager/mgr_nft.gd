@@ -86,6 +86,7 @@ func _load_nft_metadata():
 			"""
 			console.log('The JavaScript singleton is available');
 			var strMetadata = JSON.stringify(window.nftMetadata);
+			//console.log(window.nftMetadata)
 			strMetadata;
 			"""
 		)
@@ -107,7 +108,7 @@ func _load_nft_metadata():
 			else:
 				push_warning("Unexpected results.")
 		else:
-			push_warning("Metadata is NULL.")
+			push_warning("Metadata loaded is NULL.")
 	else:
 		push_warning("The JavaScript singleton is NOT available")
 
