@@ -21,13 +21,11 @@ func _bind_events():
 
 
 func _reset():
-	if not MgrNft.NFT_TRAITS or not MgrNft.NFT_TRAITS.background:
+	if (MgrNft.is_rpg404() or MgrNft.is_strxngers()) and MgrNft.NFT_TRAITS.background:
+		if K.DATA_BACKGROUND.has(MgrNft.NFT_TRAITS.background):
+			var sky_color = K.DATA_BACKGROUND.get(MgrNft.NFT_TRAITS.background).sky_color
+			self.color = Color(sky_color)
+		else:
+			push_warning("Not found background id, " + MgrNft.NFT_TRAITS.background)
+	else:
 		push_warning("Wrong NFT sky trait.")
-		return
-
-	if not K.DATA_BACKGROUND.has(MgrNft.NFT_TRAITS.background):
-		push_warning("Not found background id, " + MgrNft.NFT_TRAITS.background)
-		return
-
-	var sky_color = K.DATA_BACKGROUND.get(MgrNft.NFT_TRAITS.background).sky_color
-	self.color = Color(sky_color)

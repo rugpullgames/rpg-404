@@ -36,7 +36,8 @@ const NFT_RPGT404_META_TEST = {
 const NFT_STRXNGERS_TOKEN_ID_TEST = 10
 const NFT_STRXNGERS_MAX = 6666
 var nft_brand = NftBrand.STRXNGERS
-var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
+var nft_rpg404_meta  # Metadata JSON
+# var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
 var nft_strxnger_token_id: int = randi() % NFT_STRXNGERS_MAX + 1  # random
 var NFT_TRAITS = null  # Traits Dict
 
@@ -54,11 +55,14 @@ func _init():
 func reload_nft():
 	_load_nft_metadata()
 	if nft_rpg404_meta:
-		_get_traits()
+		_get_traits_rpg404()
 		_update_metadata_traits()
+		print("Player RPG 404")
 		Events.emit_signal("game_ready")
 	elif nft_strxnger_token_id:
+		_get_traits_strxngers()
 		_update_metadata_traits()
+		print("Player Strxngers")
 		Events.emit_signal("game_ready")
 	else:
 		push_warning("Metadata is NULL.")
@@ -113,13 +117,23 @@ func _load_nft_metadata():
 		push_warning("The JavaScript singleton is NOT available")
 
 
-func _get_traits():
+func _get_traits_rpg404():
 	if not nft_rpg404_meta:
 		return
 
 	NFT_TRAITS = {}
 	for trait in nft_rpg404_meta.attributes:
 		NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
+
+
+func _get_traits_strxngers():
+	NFT_TRAITS = {}
+	var bg_keys = K.DATA_BACKGROUND.keys()
+	var idx = randi() % bg_keys.size()
+	NFT_TRAITS["background"] = bg_keys[idx]
+	print(NFT_TRAITS["background"])
+	# for trait in nft_rpg404_meta.attributes:
+	# 	NFT_TRAITS[trait.trait_type.to_lower()] = trait.value.to_lower().replace(" ", "_")
 
 
 func _update_metadata_traits():
