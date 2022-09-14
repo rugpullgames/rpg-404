@@ -23,6 +23,7 @@ const DATA_BACKGROUND_RAW = preload("res://script/data/data_background.gd").back
 const DATA_MUSIC_RAW = preload("res://script/data/data_music.gd").music
 const DATA_BACKGROUND = {}
 const DATA_MUSIC = {}
+const DATA_NFT_STRXNGERS = preload("res://script/data/data_nft_strxngers.gd").nft
 
 const CLOUDS = {
 	"Day":

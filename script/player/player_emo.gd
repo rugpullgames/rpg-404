@@ -61,7 +61,8 @@ func _reset_emo_type() -> void:
 		var res = "res://texture/emo/%s.png" % [MgrNft.NFT_TRAITS.emo]
 		self.texture = load(res)
 	elif MgrNft.is_strxngers():
-		var res = "res://texture/emo/emo_14.png"
+		var idx = randi() % K.DATA_NFT_STRXNGERS.emo.size()
+		var res = K.DATA_NFT_STRXNGERS.emo[idx]
 		self.texture = load(res)
 	else:
 		push_warning("Wrong NFT emo traits.")
