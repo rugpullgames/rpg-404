@@ -27,6 +27,7 @@
 class_name AudioLoader
 extends Node
 
+
 func report_errors(err, filepath):
 	# See: https://docs.godotengine.org/en/latest/classes/class_@globalscope.html#enum-globalscope-error
 	var result_hash = {
@@ -48,6 +49,7 @@ func report_errors(err, filepath):
 	else:
 		print("Unknown error with file ", filepath, " error code: ", err)
 
+
 func loadfile(filepath):
 	var file = File.new()
 	var err = file.open(filepath, File.READ)
@@ -63,76 +65,102 @@ func loadfile(filepath):
 
 		#---------------------------
 		#parrrrseeeeee!!! :D
-		
+
 		var bits_per_sample = 0
-		
+
 		for i in range(0, 100):
-			var those4bytes = str(char(bytes[i])+char(bytes[i+1])+char(bytes[i+2])+char(bytes[i+3]))
-			
-			if those4bytes == "RIFF": 
-				print ("RIFF OK at bytes " + str(i) + "-" + str(i+3))
+			var those4bytes = str(
+				char(bytes[i]) + char(bytes[i + 1]) + char(bytes[i + 2]) + char(bytes[i + 3])
+			)
+
+			if those4bytes == "RIFF":
+				print("RIFF OK at bytes " + str(i) + "-" + str(i + 3))
 				#RIP bytes 4-7 integer for now
-			if those4bytes == "WAVE": 
-				print ("WAVE OK at bytes " + str(i) + "-" + str(i+3))
+			if those4bytes == "WAVE":
+				print("WAVE OK at bytes " + str(i) + "-" + str(i + 3))
 
 			if those4bytes == "fmt ":
-				print ("fmt OK at bytes " + str(i) + "-" + str(i+3))
-				
+				print("fmt OK at bytes " + str(i) + "-" + str(i + 3))
+
 				#get format subchunk size, 4 bytes next to "fmt " are an int32
-				var formatsubchunksize = bytes[i+4] + (bytes[i+5] << 8) + (bytes[i+6] << 16) + (bytes[i+7] << 24)
-				print ("Format subchunk size: " + str(formatsubchunksize))
-				
+				var formatsubchunksize = (
+					bytes[i + 4]
+					+ (bytes[i + 5] << 8)
+					+ (bytes[i + 6] << 16)
+					+ (bytes[i + 7] << 24)
+				)
+				print("Format subchunk size: " + str(formatsubchunksize))
+
 				#using formatsubchunk index so it's easier to understand what's going on
-				var fsc0 = i+8 #fsc0 is byte 8 after start of "fmt "
+				var fsc0 = i + 8  #fsc0 is byte 8 after start of "fmt "
 
 				#get format code [Bytes 0-1]
-				var format_code = bytes[fsc0] + (bytes[fsc0+1] << 8)
+				var format_code = bytes[fsc0] + (bytes[fsc0 + 1] << 8)
 				var format_name
-				if format_code == 0: format_name = "8_BITS"
-				elif format_code == 1: format_name = "16_BITS"
-				elif format_code == 2: format_name = "IMA_ADPCM"
-				else: 
+				if format_code == 0:
+					format_name = "8_BITS"
+				elif format_code == 1:
+					format_name = "16_BITS"
+				elif format_code == 2:
+					format_name = "IMA_ADPCM"
+				else:
 					format_name = "UNKNOWN (trying to interpret as 16_BITS)"
 					format_code = 1
-				print ("Format: " + str(format_code) + " " + format_name)
+				print("Format: " + str(format_code) + " " + format_name)
 				#assign format to our AudioStreamSample
 				newstream.format = format_code
-				
+
 				#get channel num [Bytes 2-3]
-				var channel_num = bytes[fsc0+2] + (bytes[fsc0+3] << 8)
-				print ("Number of channels: " + str(channel_num))
+				var channel_num = bytes[fsc0 + 2] + (bytes[fsc0 + 3] << 8)
+				print("Number of channels: " + str(channel_num))
 				#set our AudioStreamSample to stereo if needed
-				if channel_num == 2: newstream.stereo = true
-				
+				if channel_num == 2:
+					newstream.stereo = true
+
 				#get sample rate [Bytes 4-7]
-				var sample_rate = bytes[fsc0+4] + (bytes[fsc0+5] << 8) + (bytes[fsc0+6] << 16) + (bytes[fsc0+7] << 24)
-				print ("Sample rate: " + str(sample_rate))
+				var sample_rate = (
+					bytes[fsc0 + 4]
+					+ (bytes[fsc0 + 5] << 8)
+					+ (bytes[fsc0 + 6] << 16)
+					+ (bytes[fsc0 + 7] << 24)
+				)
+				print("Sample rate: " + str(sample_rate))
 				#set our AudioStreamSample mixrate
 				newstream.mix_rate = sample_rate
-				
+
 				#get byte_rate [Bytes 8-11] because we can
-				var byte_rate = bytes[fsc0+8] + (bytes[fsc0+9] << 8) + (bytes[fsc0+10] << 16) + (bytes[fsc0+11] << 24)
-				print ("Byte rate: " + str(byte_rate))
-				
+				var byte_rate = (
+					bytes[fsc0 + 8]
+					+ (bytes[fsc0 + 9] << 8)
+					+ (bytes[fsc0 + 10] << 16)
+					+ (bytes[fsc0 + 11] << 24)
+				)
+				print("Byte rate: " + str(byte_rate))
+
 				#same with bits*sample*channel [Bytes 12-13]
-				var bits_sample_channel = bytes[fsc0+12] + (bytes[fsc0+13] << 8)
-				print ("BitsPerSample * Channel / 8: " + str(bits_sample_channel))
-				
+				var bits_sample_channel = bytes[fsc0 + 12] + (bytes[fsc0 + 13] << 8)
+				print("BitsPerSample * Channel / 8: " + str(bits_sample_channel))
+
 				#aaaand bits per sample/bitrate [Bytes 14-15]
-				bits_per_sample = bytes[fsc0+14] + (bytes[fsc0+15] << 8)
-				print ("Bits per sample: " + str(bits_per_sample))
-				
+				bits_per_sample = bytes[fsc0 + 14] + (bytes[fsc0 + 15] << 8)
+				print("Bits per sample: " + str(bits_per_sample))
+
 			if those4bytes == "data":
 				assert(bits_per_sample != 0)
-				
-				var audio_data_size = bytes[i+4] + (bytes[i+5] << 8) + (bytes[i+6] << 16) + (bytes[i+7] << 24)
-				print ("Audio data/stream size is " + str(audio_data_size) + " bytes")
 
-				var data_entry_point = (i+8)
-				print ("Audio data starts at byte " + str(data_entry_point))
-				
-				var data = bytes.subarray(data_entry_point, data_entry_point+audio_data_size-1)
-				
+				var audio_data_size = (
+					bytes[i + 4]
+					+ (bytes[i + 5] << 8)
+					+ (bytes[i + 6] << 16)
+					+ (bytes[i + 7] << 24)
+				)
+				print("Audio data/stream size is " + str(audio_data_size) + " bytes")
+
+				var data_entry_point = i + 8
+				print("Audio data starts at byte " + str(data_entry_point))
+
+				var data = bytes.subarray(data_entry_point, data_entry_point + audio_data_size - 1)
+
 				if bits_per_sample in [24, 32]:
 					newstream.data = convert_to_16bit(data, bits_per_sample)
 				else:
@@ -143,26 +171,27 @@ func loadfile(filepath):
 		#get samples and set loop end
 		var samplenum = newstream.data.size() / 4
 		newstream.loop_end = samplenum
-		newstream.loop_mode = 1 #change to 0 or delete this line if you don't want loop, also check out modes 2 and 3 in the docs
+		newstream.loop_mode = 1  #change to 0 or delete this line if you don't want loop, also check out modes 2 and 3 in the docs
 		return newstream  #:D
 
 	#if file is ogg
 	elif filepath.ends_with(".ogg"):
 		var newstream = AudioStreamOGGVorbis.new()
-		newstream.loop = true #set to false or delete this line if you don't want to loop
+		newstream.loop = true  #set to false or delete this line if you don't want to loop
 		newstream.data = bytes
 		return newstream
 
 	#if file is mp3
 	elif filepath.ends_with(".mp3"):
 		var newstream = AudioStreamMP3.new()
-		newstream.loop = true #set to false or delete this line if you don't want to loop
+		newstream.loop = true  #set to false or delete this line if you don't want to loop
 		newstream.data = bytes
 		return newstream
 
 	else:
-		print ("ERROR: Wrong filetype or format")
+		print("ERROR: Wrong filetype or format")
 	file.close()
+
 
 # Converts .wav data from 24 or 32 bits to 16
 #
@@ -182,8 +211,8 @@ func convert_to_16bit(data: PoolByteArray, from: int) -> PoolByteArray:
 	if from == 24:
 		var j = 0
 		for i in range(0, data.size(), 3):
-			data[j] = data[i+1]
-			data[j+1] = data[i+2]
+			data[j] = data[i + 1]
+			data[j + 1] = data[i + 2]
 			j += 2
 		data.resize(data.size() * 2 / 3)
 	# 32 bit .wav's are typically stored as floating point numbers
@@ -193,15 +222,14 @@ func convert_to_16bit(data: PoolByteArray, from: int) -> PoolByteArray:
 		var single_float: float
 		var value: int
 		for i in range(0, data.size(), 4):
-			spb.data_array = data.subarray(i, i+3)
+			spb.data_array = data.subarray(i, i + 3)
 			single_float = spb.get_float()
 			value = single_float * 32768
-			data[i/2] = value
-			data[i/2+1] = value >> 8
+			data[i / 2] = value
+			data[i / 2 + 1] = value >> 8
 		data.resize(data.size() / 2)
 	print("Took %f seconds for slow conversion" % ((OS.get_ticks_msec() - time) / 1000.0))
 	return data
-
 
 # ---------- REFERENCE ---------------
 # note: typical values doesn't always match
@@ -222,7 +250,7 @@ func convert_to_16bit(data: PoolByteArray, from: int) -> PoolByteArray:
 #
 #17-20      16            Length of the rest of the format sub-chunk below.
 #
-#21-22      1             Audio format code, a 2 byte (16 bit) integer. 
+#21-22      1             Audio format code, a 2 byte (16 bit) integer.
 #                         1 = PCM (pulse code modulation).
 #
 #23-24      2             Number of channels as a 2 byte (16 bit) integer.
@@ -239,7 +267,7 @@ func convert_to_16bit(data: PoolByteArray, from: int) -> PoolByteArray:
 #                         1 = 8 bit mono, 2 = 8 bit stereo or 16 bit mono, 4
 #                         = 16 bit stereo.
 #
-#35-36      16            Bits per sample. 
+#35-36      16            Bits per sample.
 #
 #37-40      "data"        Data sub-chunk header. Marks the beginning of the
 #                         raw data section.
@@ -248,4 +276,4 @@ func convert_to_16bit(data: PoolByteArray, from: int) -> PoolByteArray:
 #                         point. Also equal to (#ofSamples * #ofChannels *
 #                         BitsPerSample) / 8
 #
-#45+                      The raw audio data.            
+#45+                      The raw audio data.
