@@ -4,6 +4,7 @@
 # @author endaye.eth, Fried Egg Fendi
 
 const nft = {
+	"pet": ["carret_01", "fly_dog_01", "drone_purple_04"],
 	"emo":
 	[
 		"emo_01",

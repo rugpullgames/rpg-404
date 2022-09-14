@@ -70,11 +70,8 @@ func _reset() -> void:
 
 
 func _reset_pet_type() -> void:
-	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.pet:
+	if (MgrNft.is_rpg404() or MgrNft.is_strxngers()) and MgrNft.NFT_TRAITS.pet:
 		var res = "res://texture/pet/%s.png" % [MgrNft.NFT_TRAITS.pet]
-		SprPet.texture = load(res)
-	elif MgrNft.is_strxngers():
-		var res = "res://texture/pet/carret_01.png"
 		SprPet.texture = load(res)
 	else:
 		push_warning("Wrong NFT pet traits.")

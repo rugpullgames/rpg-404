@@ -135,6 +135,8 @@ func _get_traits_strxngers():
 	NFT_TRAITS["barrier"] = K.DATA_NFT_STRXNGERS.barrier[idx]
 	idx = randi() % K.DATA_NFT_STRXNGERS.emo.size()
 	NFT_TRAITS["emo"] = K.DATA_NFT_STRXNGERS.emo[idx]
+	idx = randi() % K.DATA_NFT_STRXNGERS.pet.size()
+	NFT_TRAITS["pet"] = K.DATA_NFT_STRXNGERS.pet[idx]
 
 
 func _update_metadata_traits():
