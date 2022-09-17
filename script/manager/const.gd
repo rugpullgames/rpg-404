@@ -99,18 +99,19 @@ func http_download_texture(http_request: HTTPRequest, user_file: String, img_url
 		push_error("An error occurred in the HTTP request.")
 
 
-func http_request_completed(result: int, response_code: int, user_file: String, sprite: Sprite) -> void:
+func http_request_completed(result: int, response_code: int, user_file: String) -> Texture:
 	if result == OK:
 		if response_code == 200:
 			var texture = ImageTexture.new()
 			var image = Image.new()
 			image.load(user_file)
 			texture.create_from_image(image, 1)
-			sprite.texture = texture
+			return texture
 		else:
 			push_warning("response_code = %s" % response_code)
 	else:
 		push_warning("result = %s" % result)
+	return null
 
 
 ### private

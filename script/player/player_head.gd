@@ -20,6 +20,7 @@ var moving = false
 var _time_per_frame: float = DEFAULT_TIME_FPS
 var _tt = 0
 
+# node
 onready var HTTPRequest: HTTPRequest = $HTTPRequest
 
 ### default
@@ -82,4 +83,6 @@ func _download_head_texture() -> void:
 
 
 func _on_HTTPRequest_request_completed(result, response_code, _headers, _body):
-	K.http_request_completed(result, response_code, TMP_RPG404_HEAD_FILE, self)
+	var texture = K.http_request_completed(result, response_code, TMP_RPG404_HEAD_FILE)
+	if texture:
+		self.texture = texture

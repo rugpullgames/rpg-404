@@ -47,4 +47,6 @@ func _download_jacket_texture() -> void:
 
 
 func _on_HTTPRequest_request_completed(result, response_code, _headers, _body):
-	K.http_request_completed(result, response_code, TMP_RPG404_JACKET_FILE, self)
+	var texture = K.http_request_completed(result, response_code, TMP_RPG404_JACKET_FILE)
+	if texture:
+		self.texture = texture

@@ -35,9 +35,9 @@ const NFT_RPGT404_META_TEST = {
 
 const NFT_STRXNGERS_TOKEN_ID_TEST = 10
 const NFT_STRXNGERS_MAX = 6666
-var nft_brand = NftBrand.STRXNGERS
-var nft_rpg404_meta  # Metadata JSON
-# var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
+var nft_brand = NftBrand.RPG404
+# var nft_rpg404_meta  # Metadata JSON
+var nft_rpg404_meta = NFT_RPGT404_META_TEST  # Metadata JSON
 var nft_strxnger_token_id: int = randi() % NFT_STRXNGERS_MAX + 1  # random
 var NFT_TRAITS = null  # Traits Dict
 

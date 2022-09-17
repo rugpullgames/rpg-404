@@ -43,4 +43,6 @@ func _download_body_texture() -> void:
 
 
 func _on_HTTPRequest_request_completed(result, response_code, _headers, _body) -> void:
-	K.http_request_completed(result, response_code, TMP_STRXNGER_BODY_FILE, self)
+	var texture = K.http_request_completed(result, response_code, TMP_STRXNGER_BODY_FILE)
+	if texture:
+		self.texture = texture
