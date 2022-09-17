@@ -94,6 +94,8 @@ script = ExtResource( 4 )
 [node name="Emo" type="Sprite" parent="."]
 script = ExtResource( 9 )
 
+[node name="HTTPRequest" type="HTTPRequest" parent="Emo"]
+
 [node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 volume_db = -8.0
@@ -111,3 +113,4 @@ volume_db = -6.0
 [connection signal="request_completed" from="Jacket/HTTPRequest" to="Jacket" method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="Weapon/HTTPRequest" to="Weapon" method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="StrxngerBody/HTTPRequest" to="StrxngerBody" method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="Emo/HTTPRequest" to="Emo" method="_on_HTTPRequest_request_completed"]
