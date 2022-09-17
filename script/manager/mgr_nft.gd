@@ -33,7 +33,7 @@ const NFT_RPGT404_META_TEST = {
 	"website": "https://rug-pull.games/"
 }
 
-const NFT_STRXNGERS_TOKEN_ID_TEST = 10
+const NFT_STRXNGERS_TOKEN_ID_TEST = 5080
 const NFT_STRXNGERS_MAX = 6666
 var nft_brand = NftBrand.STRXNGERS
 var nft_rpg404_meta  # Metadata JSON
@@ -47,6 +47,8 @@ var NFT_TRAITS = null  # Traits Dict
 func _init():
 	randomize()
 	nft_strxnger_token_id = randi() % NFT_STRXNGERS_MAX + 1
+	#!TODO: Test ONLY
+	nft_strxnger_token_id = 5080
 
 
 ### public
