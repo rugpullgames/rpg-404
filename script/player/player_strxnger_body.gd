@@ -38,7 +38,7 @@ func _reset_strxnger_body_type() -> void:
 
 
 func _download_body_texture() -> void:
-	var image_url = "https://rpg404.com/nft/strxngers/%s.png" % [MgrNft.nft_strxnger_token_id]
+	var image_url = "https://rpg404.com/nft/strxngers/body/%s.png" % [MgrNft.nft_strxnger_token_id]
 	K.http_download_texture(HTTPRequest, TMP_STRXNGER_BODY_FILE, image_url)
 
 
