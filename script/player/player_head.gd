@@ -11,12 +11,16 @@ const OFFSET_Y = 5
 const DEFAULT_TIME_FPS = 1.0 / FPS
 const FPS_FACTOR = 0.8
 
+const TMP_RPG404_HEAD_FILE = "user://rpg404_head.png"
+
 ### public
 var moving = false
 
 # local var
 var _time_per_frame: float = DEFAULT_TIME_FPS
 var _tt = 0
+
+onready var HTTPRequest: HTTPRequest = $HTTPRequest
 
 ### default
 
@@ -64,10 +68,18 @@ func _reset_time_fps() -> void:
 
 func _reset_head_type() -> void:
 	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.head:
-		var res = "res://texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
-		self.texture = load(res)
+		_download_head_texture()
 		visible = true
 	elif MgrNft.is_strxngers():
 		visible = false
-	else:	
+	else:
 		push_warning("Wrong NFT head traits.")
+
+
+func _download_head_texture() -> void:
+	var image_url = "https://rpg404.com/nft/rpg404/texture/head/%s.png" % [MgrNft.NFT_TRAITS.head]
+	K.http_download_texture(HTTPRequest, TMP_RPG404_HEAD_FILE, image_url)
+
+
+func _on_HTTPRequest_request_completed(result, response_code, _headers, _body):
+	K.http_request_completed(result, response_code, TMP_RPG404_HEAD_FILE, self)

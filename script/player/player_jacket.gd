@@ -5,6 +5,10 @@
 
 extends Sprite
 
+const TMP_RPG404_JACKET_FILE = "user://rpg404_jacket.png"
+
+onready var HTTPRequest: HTTPRequest = $HTTPRequest
+
 ### default
 
 
@@ -26,11 +30,21 @@ func _reset() -> void:
 
 func _reset_jacket_type() -> void:
 	if MgrNft.is_rpg404() and MgrNft.NFT_TRAITS.jacket:
-		var res = "res://texture/jacket/%s.png" % [MgrNft.NFT_TRAITS.jacket]
-		self.texture = load(res)
+		_download_jacket_texture()
 		visible = true
 	elif MgrNft.is_strxngers():
 		visible = false
 	else:
 		push_warning("Wrong NFT jacket traits.")
 
+
+func _download_jacket_texture() -> void:
+	var image_url = (
+		"https://rpg404.com/nft/rpg404/texture/jacket/%s.png"
+		% [MgrNft.NFT_TRAITS.jacket]
+	)
+	K.http_download_texture(HTTPRequest, TMP_RPG404_JACKET_FILE, image_url)
+
+
+func _on_HTTPRequest_request_completed(result, response_code, _headers, _body):
+	K.http_request_completed(result, response_code, TMP_RPG404_JACKET_FILE, self)

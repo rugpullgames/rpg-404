@@ -62,8 +62,12 @@ script = ExtResource( 13 )
 [node name="Head" type="Sprite" parent="."]
 script = ExtResource( 10 )
 
+[node name="HTTPRequest" type="HTTPRequest" parent="Head"]
+
 [node name="Jacket" type="Sprite" parent="."]
 script = ExtResource( 11 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Jacket"]
 
 [node name="Weapon" type="Sprite" parent="."]
 script = ExtResource( 12 )
@@ -98,4 +102,6 @@ volume_db = -4.0
 stream = ExtResource( 15 )
 volume_db = -6.0
 
+[connection signal="request_completed" from="Head/HTTPRequest" to="Head" method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="Jacket/HTTPRequest" to="Jacket" method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="StrxngerBody/HTTPRequest" to="StrxngerBody" method="_on_HTTPRequest_request_completed"]
