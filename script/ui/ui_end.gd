@@ -7,6 +7,7 @@ extends Control
 
 # nodes
 onready var Version: Label = $BtnGodot/Version
+onready var BtnShareEffect: AnimatedSprite = $BtnShare/BtnEffect
 
 ### default
 
@@ -34,10 +35,12 @@ func _bind_events():
 
 func _show_gui():
 	self.visible = true
+	BtnShareEffect.playing = true
 
 
 func _hide_gui():
 	self.visible = false
+	BtnShareEffect.playing = false
 
 
 func _check_input():
