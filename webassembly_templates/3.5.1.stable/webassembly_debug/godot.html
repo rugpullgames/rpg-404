@@ -34,7 +34,7 @@
       }
 
       /* Status display
-		 * ============== */
+* ============== */
 
       #status {
         position: absolute;
@@ -49,14 +49,23 @@
         visibility: hidden;
       }
 
+      #status-outline {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: inset 0px 0px 0px 6px #00796b;
+        -moz-box-shadow: inset 0px 0px 0px 6px #00796b;
+        box-shadow: inset 0px 0px 0px 6px #00796b;
+        visibility: visible;
+      }
+
       #status-progress {
         width: 366px;
-        height: 7px;
-        background-color: #38363a;
-        border: 1px solid #444246;
-        padding: 1px;
-        box-shadow: 0 0 2px 1px #1b1c22;
-        border-radius: 2px;
+        height: 6px;
+        background-color: black;
+        border: 6px solid #00423b;
         visibility: visible;
       }
 
@@ -71,14 +80,10 @@
         width: 0;
         box-sizing: border-box;
         transition: width 0.5s linear;
-        background-color: #202020;
-        border: 1px solid #222223;
-        box-shadow: 0 0 1px 1px #27282e;
-        border-radius: 3px;
+        background-color: #00796b;
       }
 
       #status-indeterminate {
-        height: 42px;
         visibility: visible;
         position: relative;
       }
@@ -96,24 +101,31 @@
       #status-indeterminate > div:nth-child(1) {
         transform: rotate(22.5deg);
       }
+
       #status-indeterminate > div:nth-child(2) {
         transform: rotate(67.5deg);
       }
+
       #status-indeterminate > div:nth-child(3) {
         transform: rotate(112.5deg);
       }
+
       #status-indeterminate > div:nth-child(4) {
         transform: rotate(157.5deg);
       }
+
       #status-indeterminate > div:nth-child(5) {
         transform: rotate(202.5deg);
       }
+
       #status-indeterminate > div:nth-child(6) {
         transform: rotate(247.5deg);
       }
+
       #status-indeterminate > div:nth-child(7) {
         transform: rotate(292.5deg);
       }
+
       #status-indeterminate > div:nth-child(8) {
         transform: rotate(337.5deg);
       }
@@ -128,15 +140,17 @@
     </style>
     $GODOT_HEAD_INCLUDE
   </head>
+
   <body>
     <canvas id="canvas">
       HTML5 canvas appears to be unsupported in the current browser.<br />
       Please try updating or use a different browser.
     </canvas>
     <div id="status">
-      <div id="status-progress" style="display: none" oncontextmenu="event.preventDefault();"
-        ><div id="status-progress-inner"></div
-      ></div>
+      <div id="status-outline" style="display: none"></div>
+      <div id="status-progress" style="display: none" oncontextmenu="event.preventDefault();">
+        <div id="status-progress-inner"></div>
+      </div>
       <div id="status-indeterminate" style="display: none" oncontextmenu="event.preventDefault();">
         <div></div>
         <div></div>
@@ -157,8 +171,9 @@
       const GODOT_CONFIG = $GODOT_CONFIG;
       var engine = new Engine(GODOT_CONFIG);
 
-      (function () {
+      var startGame = function () {
         const INDETERMINATE_STATUS_STEP_MS = 100;
+        var statusOutline = document.getElementById("status-outline");
         var statusProgress = document.getElementById("status-progress");
         var statusProgressInner = document.getElementById("status-progress-inner");
         var statusIndeterminate = document.getElementById("status-indeterminate");
@@ -168,6 +183,7 @@
         var statusMode = "hidden";
 
         var animationCallbacks = [];
+
         function animate(time) {
           animationCallbacks.forEach((callback) => callback(time));
           requestAnimationFrame(animate);
@@ -176,7 +192,7 @@
 
         function setStatusMode(mode) {
           if (statusMode === mode || !initializing) return;
-          [statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
+          [statusProgress, statusOutline, statusIndeterminate, statusNotice].forEach((elem) => {
             elem.style.display = "none";
           });
           animationCallbacks = animationCallbacks.filter(function (value) {
@@ -184,6 +200,7 @@
           });
           switch (mode) {
             case "progress":
+              statusOutline.style.display = "block";
               statusProgress.style.display = "block";
               break;
             case "indeterminate":
@@ -256,7 +273,7 @@
               initializing = false;
             }, displayFailureNotice);
         }
-      })();
+      };
       //]]>
     </script>
   </body>
