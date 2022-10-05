@@ -11,8 +11,8 @@ const RES_BGM_OFF = preload("res://texture/ui/btn_game_bgm_off.png")
 const RES_SFX_ON = preload("res://texture/ui/btn_game_sfx_on.png")
 const RES_SFX_OFF = preload("res://texture/ui/btn_game_sfx_off.png")
 
-const URL_BGM_STRXNGERS = "https://rpg404.com/nft/strxngers_bgm/bgm_strxngers_theme.mp3"
-const TMP_BGM_FILE = "user://strxnger_bgm.mp3"
+const URL_BGM_STRXNGERS = "https://rpg404.com/nft/strxngers/audio/bgm/bgm_strxngers_mono.ogg"
+const TMP_BGM_FILE = "user://strxnger_bgm.ogg"
 
 # local var
 var _res_bgm = "mute.ogg"
