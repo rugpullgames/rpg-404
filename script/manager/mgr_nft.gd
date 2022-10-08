@@ -105,7 +105,7 @@ func _load_nft_metadata():
 				elif p.result.nft_type == "Strxngers":
 					nft_brand = NftBrand.STRXNGERS
 					randomize()
-					nft_strxnger_token_id = randi() % NFT_STRXNGERS_MAX + 1
+					nft_strxnger_token_id = p.result.edition
 					print("Found Strxngers NFT, #", nft_strxnger_token_id)
 				else:
 					push_warning("Wrong nft_type.")
