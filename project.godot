@@ -40,7 +40,11 @@ MgrNft="*res://script/manager/mgr_nft.gd"
 window/size/width=900
 window/size/height=300
 window/size/resizable=false
-window/vsync/use_vsync=false
+window/size/borderless=true
+window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
