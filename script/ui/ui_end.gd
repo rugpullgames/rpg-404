@@ -68,25 +68,3 @@ func _on_BtnCopyright_pressed():
 func _on_BtnGodot_pressed():
 	var error_code = OS.shell_open("https://godotengine.org")
 	assert(error_code == OK, error_code)
-
-
-# func _on_BtnShare_pressed():
-# 	print("Share score with Twitter. Don't cheat!")
-# 	var shareLink = (
-# 		"https://twitter.com/intent/tweet?text=My%20record%20is%20"
-# 		+ str(G.score)
-# 		+ "%20on&url=https:%2F%2Frpg404.com%2F"
-# 		+ "%0A&hashtags=rpg404,rpg,indiegame,indiedev,IndieGameDev,pixelart,Mozart,GodotEngine,web3,nft,gamefi"
-# 		+ "%0A&via=rug_pull_games"
-# 	)
-# 	if MgrNft.is_strxngers():
-# 		shareLink = (
-# 			"https://twitter.com/intent/tweet?text=My%20%40StrxngersNFT%20record%20is%20"
-# 			+ str(G.score)
-# 			+ "%20on&url=https:%2F%2Frpg404.com%2F"
-# 			+ "%0A&hashtags=cc0,rpg404,strxngers,indiegame,pixelart,GodotEngine,web3,nft,gamefi"
-# 			+ "%0A&via=rug_pull_games"
-# 		)
-
-# 	var error_code = OS.shell_open(shareLink)
-# 	assert(error_code == OK, error_code)

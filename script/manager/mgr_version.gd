@@ -8,6 +8,6 @@ extends Node
 # Version
 const MAJOR = 2
 const MINOR = 3
-const BUGFIX = 0
+const BUGFIX = 1
 const COMMIT = 634459
 const VERSION = "v%s.%s.%s.%s" % [MAJOR, MINOR, BUGFIX, COMMIT]
