@@ -4,10 +4,14 @@
 # @author Yuancheng Zhang
 extends Button
 
+const IMG_PATH = "user://twitter_share.png"
+const IMGBB_API = "https://api.imgbb.com/1/upload"
+const IMGBB_API_KEY = "7cf64b5f782a1afca533fd0d150c09cd"
+const IMGBB_IMG_NAME = "rpg404"
+
 var image = Image.new()
 var img
 var img_exists = File.new()
-var img_path = "user://twitter_share.png"
 var tex = ImageTexture.new()
 
 onready var Http: HTTPRequest = $HTTPRequest
@@ -15,24 +19,21 @@ onready var Http: HTTPRequest = $HTTPRequest
 
 func _ready():
 	# Load image
-	if img_exists.file_exists(img_path):
-		image.load(img_path)
+	if img_exists.file_exists(IMG_PATH):
+		image.load(IMG_PATH)
 		tex.create_from_image(image)
 
 
 func _send_https():
 	# print("_send_https")
 	var file = File.new()
-	file.open(img_path, File.READ)
+	file.open(IMG_PATH, File.READ)
 	var file_content = file.get_buffer(file.get_len())
 
 	var use_ssl = true
-	var imgbb_api = "https://api.imgbb.com/1/upload"
-	var api_key = "7cf64b5f782a1afca533fd0d150c09cd"
-	var img_name = "rpg404"
 	var params = [
-		"key=%s" % api_key,
-		"name=%s" % img_name,
+		"key=%s" % IMGBB_API_KEY,
+		"name=%s" % IMGBB_IMG_NAME,
 	]
 
 	var body = PoolByteArray()
@@ -54,7 +55,7 @@ func _send_https():
 		"Content-Length: " + str(body.size()),
 	]
 
-	var url = imgbb_api + "?" + PoolStringArray(params).join("&")
+	var url = IMGBB_API + "?" + PoolStringArray(params).join("&")
 	var error = Http.request_raw(url, headers, use_ssl, HTTPClient.METHOD_POST, body)
 	if error != OK:
 		print(error)
@@ -73,15 +74,25 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var shareLink = (
 		"https://twitter.com/intent/tweet?"
 		+ "text="
-		+ ("My record is %s." % str(G.score)).percent_encode()
+		+ ("My record is %s on RPG404.com. \n" % str(G.score)).percent_encode()
 		+ "&url="
 		+ url.percent_encode()
 		+ "&hashtags=rpg404,rpg,indiegame,indiedev,IndieGameDev,pixelart,Mozart,GodotEngine,web3,nft,gamefi"
-		+ "\n".percent_encode()
 		+ "&via=rug_pull_games"
 	)
 
-	print(shareLink)
+	if MgrNft.is_strxngers():
+		shareLink = (
+			"https://twitter.com/intent/tweet?"
+			+ "text="
+			+ ("My record is %s on RPG404.com. \n@StrxngersNFT \n" % str(G.score)).percent_encode()
+			+ "&url="
+			+ url.percent_encode()
+			+ "&hashtags=cc0,rpg404,strxngers,indiegame,pixelart,GodotEngine,web3,nft,gamefi"
+			+ "&via=rug_pull_games"
+		)
+
+	# print(shareLink)
 
 	var error_code = OS.shell_open(shareLink)
 	assert(error_code == OK, error_code)
@@ -92,11 +103,15 @@ func _on_BtnShare_pressed():
 	img = get_viewport().get_texture().get_data()
 	img.flip_y()
 
+	# Use twitter card size 800*418
+	var width = img.get_width()
+	img.crop(width, int(width * 0.5225))
+
 	# Save screenshot as png
-	img.save_png(img_path)
+	img.save_png(IMG_PATH)
 
 	# Create texture for it
 	tex.create_from_image(img)
 
-	if img_exists.file_exists(img_path):
+	if img_exists.file_exists(IMG_PATH):
 		_send_https()
