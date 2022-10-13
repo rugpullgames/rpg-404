@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://script/floor/base_floor.gd" type="Script" id=1]
 [ext_resource path="res://script/map/map_main.gd" type="Script" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://texture/effect/boom/boom_effect_0005.png" type="Texture" id=30]
 [ext_resource path="res://texture/effect/boom/boom_effect_0002.png" type="Texture" id=31]
 [ext_resource path="res://texture/effect/boom/boom_effect_0001.png" type="Texture" id=32]
+[ext_resource path="res://script/manager/share.gd" type="Script" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150.125, 31 )
@@ -236,6 +237,7 @@ enabled_focus_mode = 0
 icon = ExtResource( 21 )
 flat = true
 expand_icon = true
+script = ExtResource( 33 )
 
 [node name="BtnEffect" type="AnimatedSprite" parent="UI/UIEnd/BtnShare"]
 position = Vector2( 30, 30 )
@@ -243,6 +245,8 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 2 )
 animation = "boom"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="UI/UIEnd/BtnShare"]
 
 [node name="BtnCopyright" type="Button" parent="UI/UIEnd"]
 margin_left = 50.0
@@ -345,7 +349,8 @@ expand_icon = true
 
 [connection signal="pressed" from="UI/UIEnd/BtnRestart" to="UI/UIEnd" method="_on_BtnRestart_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnSelect" to="UI/UIEnd" method="_on_BtnSelect_pressed"]
-[connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd" method="_on_BtnShare_pressed"]
+[connection signal="pressed" from="UI/UIEnd/BtnShare" to="UI/UIEnd/BtnShare" method="_on_BtnShare_pressed"]
+[connection signal="request_completed" from="UI/UIEnd/BtnShare/HTTPRequest" to="UI/UIEnd/BtnShare" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="UI/UIEnd/BtnCopyright" to="UI/UIEnd" method="_on_BtnCopyright_pressed"]
 [connection signal="pressed" from="UI/UIEnd/BtnGodot" to="UI/UIEnd" method="_on_BtnGodot_pressed"]
 [connection signal="pressed" from="UI/UIEnd/Audio/BtnBgmAudio" to="UI/UIEnd/Audio" method="_on_BtnBgmAudio_pressed"]
